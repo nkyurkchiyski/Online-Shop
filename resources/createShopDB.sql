@@ -1,7 +1,7 @@
 CREATE DATABASE shopDB;
-
+GO
 USE shopDB;
-
+GO
 
 CREATE TABLE t_Roles (
   cRoleId INT IDENTITY(1,1),
@@ -64,7 +64,24 @@ CREATE TABLE t_ProductCategories (
 CREATE TABLE t_ProductOrders (
   cProductOrderProductId INT NOT NULL,
   cProductOrderOrderId INT NOT NULL,
+  cProductOrderQuantity INT NOT NULL CHECK(cProductOrderQuantity > 0)
   CONSTRAINT PK_ProductOrder PRIMARY KEY (cProductOrderProductId,cProductOrderOrderId),
   CONSTRAINT FK_ProductOrders_Products FOREIGN KEY (cProductOrderProductId) REFERENCES t_Products (cProductId),
-  CONSTRAINT FK_ProductOrders_Categories FOREIGN KEY (cProductOrderOrderId) REFERENCES t_Orders (cOrderId)
+  CONSTRAINT FK_ProductOrders_Orders FOREIGN KEY (cProductOrderOrderId) REFERENCES t_Orders (cOrderId)
 )
+
+/*Create Login and User for 'traineeDB' and grant permissions*/
+
+-- CREATE LOGIN trainee WITH PASSWORD = '123456';
+CREATE USER traineeUser FOR LOGIN trainee;
+
+USE shopDB
+GO
+GRANT CONTROL ON t_Users TO traineeUser;
+GRANT CONTROL ON t_Roles TO traineeUser;
+GRANT CONTROL ON t_UserRoles TO traineeUser;
+GRANT CONTROL ON t_Products TO traineeUser;
+GRANT CONTROL ON t_Categories TO traineeUser;
+GRANT CONTROL ON t_Orders TO traineeUser;
+GRANT CONTROL ON t_ProductCategories TO traineeUser;
+GRANT CONTROL ON t_ProductOrders TO traineeUser;
