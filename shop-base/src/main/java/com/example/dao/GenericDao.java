@@ -7,19 +7,20 @@
  */
 package com.example.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
-public interface GenericDao<E>
+public interface GenericDao<E, PK extends Serializable>
 {
-    E create(E entity);
+    E save(E entity);
 
-    E update(E entity);
+    void update(E entity);
 
-    E delete(E entity);
+    void delete(E entity);
 
     List<E> findAll();
 
-    E findById(int id);
+    E findById(PK id);
 
     long size();
 

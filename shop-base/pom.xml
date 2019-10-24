@@ -5,7 +5,7 @@
     <groupId>com.example.shop.base</groupId>
     <artifactId>shop-base</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>bundle</packaging>
 
     <name>shop-base</name>
     <url>http://maven.apache.org</url>
@@ -15,15 +15,44 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>3.3.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>
+                            ${pom.groupId}.${pom.artifactId}
+                        </Bundle-SymbolicName>
+                        <Bundle-Name>${pom.name}</Bundle-Name>
+                        <Bundle-Version>${pom.version}</Bundle-Version>
+                        <Meta-Persistence>META-INF/persistence.xml</Meta-Persistence>
+                        <Import-Package>*, org.hibernate.proxy,
+                            javassist.util.proxy</Import-Package>
+                        <Bundle-Activator>
+                            com.example.activator.Activator
+                        </Bundle-Activator>
+                        <Private-Package>
+                            com.example.activator
+                        </Private-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <dependencies>
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>5.4.7.Final</version>
+            <groupId>org.ops4j.pax.cdi</groupId>
+            <artifactId>pax-cdi-api</artifactId>
+            <version>0.5.0</version>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
+            <artifactId>hibernate-osgi</artifactId>
             <version>5.4.7.Final</version>
         </dependency>
         <dependency>
@@ -37,10 +66,21 @@
             <version>6.1.0.jre8</version>
         </dependency>
         <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>6.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>3.8.1</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
         </dependency>
     </dependencies>
 </project>

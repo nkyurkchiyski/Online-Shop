@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
 <persistence  xmlns="http://java.sun.com/xml/ns/persistence"  version="2.0">
-    <persistence-unit name="online-shop" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="online-shop" transaction-type="JTA">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <jta-data-source>osgi:service/online-shop</jta-data-source>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:sqlserver://localhost:1433;databaseName=shopDB;"/>
             <property name="hibernate.connection.driver_class" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>

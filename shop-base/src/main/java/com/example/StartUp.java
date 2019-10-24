@@ -8,10 +8,9 @@
 package com.example;
 
 
-import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
-
-import com.example.entity.Role;
+import com.example.dao.RoleDao;
+import com.example.dao.RoleDaoImpl;
+import com.example.model.Role;
 
 //FOR TESTING PURPOSES ONLY!!!
 public class StartUp
@@ -19,22 +18,8 @@ public class StartUp
 
     public static void main(String[] args)
     {
-        EntityManager entityManager = getEntityManager();
-        entityManager.getTransaction().begin();
-
-        Role admin = new Role();
-        admin.setName("Admin");
-
-        entityManager.persist(admin);
-        entityManager.getTransaction().commit();
-        entityManager.close();
-
-    }
-
-
-    public static EntityManager getEntityManager()
-    {
-        return Persistence.createEntityManagerFactory("online-shop").createEntityManager();
+        RoleDao roleDao = new RoleDaoImpl();
+        Role role = roleDao.findById(1l);
     }
 
 }
