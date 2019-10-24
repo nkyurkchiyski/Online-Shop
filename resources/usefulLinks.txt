@@ -4,3 +4,4 @@ https://howtoprogramwithjava.com/hibernate-creating-data-access-objects-daos/
 https://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/chapters/osgi/OSGi.html
 https://github.com/hibernate/hibernate-demos
 https://docs.jboss.org/hibernate/orm/4.2/quickstart/en-US/html/ch06.html
+https://karaf.apache.org/manual/latest/#_feature_and_resolver
