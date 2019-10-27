@@ -3,27 +3,17 @@
     xmlns="http://karaf.apache.org/xmlns/features/v1.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.0.0 http://karaf.apache.org/xmlns/features/v1.0.0"
-    name="tasklist"
+    name="online-shop"
 >
+    <bundle>mvn:com.h2database/h2/1.3.170</bundle>
+    <bundle>blueprint:file:/[PATH]/datasource-h2.xml</bundle>
 
-    <feature name="example-tasklist" version="${pom.version}">
-        <feature>example-tasklist-persistence</feature>
-        <feature>example-tasklist-ui</feature>
+    <feature name="online-shop">
+        <feature version="1.1.1">transaction</feature>
+        <feature version="2.1.0">jpa</feature>
+        <feature version="3.0.4">jndi</feature>
+        <feature version="5.4.7.Final">hibernate-orm</feature>
+        <bundle>mvn:com.example.shop/shop-base/0.0.1-SNAPSHOT</bundle>
+        <bundle>mvn:com.example.shop/shop-web/0.0.1-SNAPSHOT</bundle>
     </feature>
-
-    <feature name="example-tasklist-persistence" version="${pom.version}">
-            <feature>aries-blueprint</feature>
-        <bundle>mvn:net.lr.tasklist/tasklist-model/${pom.version}</bundle>
-        <bundle>mvn:net.lr.tasklist/tasklist-persistence/${pom.version}</bundle>
-        <bundle>mvn:net.lr.tasklist/tasklist-command/${pom.version}</bundle>
-    </feature>
-
-    <feature name="example-tasklist-ui" version="${pom.version}">
-            <feature>aries-blueprint</feature>
-        <feature>http</feature>
-        <feature>http-whiteboard</feature>
-        <bundle>mvn:net.lr.tasklist/tasklist-model/${pom.version}</bundle>
-        <bundle>mvn:net.lr.tasklist/tasklist-ui/${pom.version}</bundle>
-    </feature>
-
 </features>

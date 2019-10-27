@@ -13,5 +13,4 @@ import com.example.shop.base.model.Order;
 
 public interface OrderDao extends GenericDao<Order, Long>
 {
-    Order findByName(String categoryName);
 }

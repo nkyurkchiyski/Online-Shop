@@ -19,7 +19,7 @@ public class StartUp
     public static void main(String[] args)
     {
         RoleDao roleDao = new RoleDaoImpl();
-        Role role = roleDao.findById(1l);
+        Role role = roleDao.findById(1L);
     }
 
 }

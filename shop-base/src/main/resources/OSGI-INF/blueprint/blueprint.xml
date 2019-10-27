@@ -5,7 +5,7 @@
     default-activation="eager" xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
 
     <bean id="roleDao" class="com.example.dao.RoleDaoImpl">
-        <jpa:context unitname="managed-jpa" property="entityManager" />
+        <jpa:context unitname="online-shop" property="entityManager" />
         <tx:transaction method="*" value="Required" />
     </bean>
 

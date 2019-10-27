@@ -9,7 +9,6 @@ com\example\dao\GenericDao.class
 com\example\dao\UserDao.class
 com\example\model\key\ProductOrderId.class
 com\example\model\Order.class
-com\example\util\HibernateUtil.class
 com\example\model\ProductOrder.class
 com\example\model\User.class
 com\example\model\OrderStatus.class

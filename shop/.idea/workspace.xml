@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ef1d69ae-2cee-4f8d-afb0-6ed6041dfff0" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/CategoryDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/OrderDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/ProductDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/UserDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/src/main/java/com/example/StartUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/src/main/java/com/example/StartUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/src/main/java/com/example/dao/RoleDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/src/main/java/com/example/dao/RoleDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/src/main/resources/OSGI-INF/blueprint/blueprint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/src/main/resources/OSGI-INF/blueprint/blueprint.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/classes/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/classes/OSGI-INF/blueprint/blueprint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/classes/OSGI-INF/blueprint/blueprint.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/classes/com/example/StartUp.class" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/classes/com/example/StartUp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/classes/com/example/activator/Activator.class" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/classes/com/example/activator/Activator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/classes/com/example/dao/CategoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/classes/com/example/dao/CategoryDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/classes/com/example/dao/GenericDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/classes/com/example/dao/GenericDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/classes/com/example/dao/OrderDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/classes/com/example/dao/OrderDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/classes/com/example/dao/ProductDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/classes/com/example/dao/ProductDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/classes/com/example/dao/RoleDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/classes/com/example/dao/RoleDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/classes/com/example/dao/RoleDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/classes/com/example/dao/RoleDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/classes/com/example/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/classes/com/example/dao/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/classes/com/example/model/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/classes/com/example/model/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/classes/com/example/model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/classes/com/example/model/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/classes/com/example/model/OrderStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/classes/com/example/model/OrderStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/classes/com/example/model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/classes/com/example/model/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/classes/com/example/model/ProductOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/classes/com/example/model/ProductOrder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/classes/com/example/model/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/classes/com/example/model/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/classes/com/example/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/classes/com/example/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/classes/com/example/model/key/ProductOrderId.class" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/classes/com/example/model/key/ProductOrderId.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../shop-base/target/shop-base-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../shop-base/target/shop-base-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features.xml" beforeDir="false" afterPath="$PROJECT_DIR$/features.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/OrderDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/RoleDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/RoleDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/META-INF/maven/com.example.shop/shop-base/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/META-INF/maven/com.example.shop/shop-base/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/activator/Activator.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/activator/Activator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/CategoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/CategoryDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/GenericDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/GenericDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/OrderDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/OrderDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/ProductDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/ProductDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/RoleDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/RoleDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/RoleDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/RoleDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/model/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/model/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/model/Order.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/model/OrderStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/model/OrderStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/model/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/model/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/model/ProductOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/model/ProductOrder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/model/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/model/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/model/key/ProductOrderId.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/model/key/ProductOrderId.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-web/target/classes/com/example/shop/web/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/target/classes/com/example/shop/web/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-web/target/classes/com/example/shop/web/RoleServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/target/classes/com/example/shop/web/RoleServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/shop/shop/App.class" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/shop-base/target/" />
+    <ignored path="$PROJECT_DIR$/shop-web/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="CategoryDaoImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/CategoryDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#356#357#0" expanded="true" />
+                <element signature="e#406#407#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RoleDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/RoleDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#494#495#0" expanded="true" />
+                <element signature="e#544#545#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProductDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/ProductDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="620">
+              <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/OrderDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="629">
+              <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#341#342#0" expanded="true" />
+                <element signature="e#391#392#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/UserDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="72" column="52" lean-forward="true" selection-start-line="72" selection-start-column="52" selection-end-line="72" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/OrderDao.java" />
+        <option value="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/ProductDaoImpl.java" />
+        <option value="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/RoleDaoImpl.java" />
+        <option value="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/UserDaoImpl.java" />
+        <option value="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/OrderDaoImpl.java" />
+        <option value="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/CategoryDaoImpl.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="createModuleGroups" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="952" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shop" type="462c0819:PsiDirectoryNode" />
+              <item name="shop-base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shop" type="462c0819:PsiDirectoryNode" />
+              <item name="shop-base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shop" type="462c0819:PsiDirectoryNode" />
+              <item name="shop-base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shop" type="462c0819:PsiDirectoryNode" />
+              <item name="shop-base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="shop" type="462c0819:PsiDirectoryNode" />
+              <item name="shop-base" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ef1d69ae-2cee-4f8d-afb0-6ed6041dfff0" name="Default" comment="" />
+      <created>1572093337198</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1572093337198</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="762" y="0" width="781" height="830" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Designer" order="3" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.62829405" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/features.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/RoleDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1540">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#494#495#0" expanded="true" />
+            <element signature="e#544#545#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/RoleDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#494#495#0" expanded="true" />
+            <element signature="e#544#545#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/OrderDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/UserDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="72" column="52" lean-forward="true" selection-start-line="72" selection-start-column="52" selection-end-line="72" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/RoleDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#494#495#0" expanded="true" />
+            <element signature="e#544#545#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/ProductDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/OrderDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#341#342#0" expanded="true" />
+            <element signature="e#391#392#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/CategoryDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#356#357#0" expanded="true" />
+            <element signature="e#406#407#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

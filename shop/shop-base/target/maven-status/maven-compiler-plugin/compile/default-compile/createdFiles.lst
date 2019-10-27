@@ -1,0 +1,17 @@
+com\example\shop\base\model\ProductOrder.class
+com\example\shop\base\model\User.class
+com\example\shop\base\dao\UserDao.class
+com\example\shop\base\dao\OrderDao.class
+com\example\shop\base\model\Role.class
+com\example\shop\base\model\Order.class
+com\example\shop\base\dao\RoleDao.class
+com\example\shop\base\App.class
+com\example\shop\base\model\Category.class
+com\example\shop\base\activator\Activator.class
+com\example\shop\base\model\Product.class
+com\example\shop\base\model\key\ProductOrderId.class
+com\example\shop\base\dao\GenericDao.class
+com\example\shop\base\dao\RoleDaoImpl.class
+com\example\shop\base\model\OrderStatus.class
+com\example\shop\base\dao\ProductDao.class
+com\example\shop\base\dao\CategoryDao.class
