@@ -8,14 +8,15 @@
         <!-- Only used when transaction-type=JTA -->
         <jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=online-shop)</jta-data-source>
         <properties>
-            <!-- <property name="hibernate.connection.url"
+            <property name="hibernate.connection.url"
                 value="jdbc:sqlserver://localhost:1433;databaseName=shopDB;" />
-            <property name="hibernate.connection.driver_class"
-                value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+
+            <!--<property name="hibernate.connection.driver_class"
+                value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />-->
             <property name="hibernate.connection.username"
                 value="trainee" />
             <property name="hibernate.connection.password"
-                value="123456" /> -->
+                value="123456" />
             <property name="hibernate.dialect"
                 value="org.hibernate.dialect.SQLServerDialect" />
             <property name="hibernate.hbm2ddl.auto" value="update" />
