@@ -9,6 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
+    <packaging>bundle</packaging>
     <artifactId>shop-base</artifactId>
     <name>shop-base</name>
     <url>http://maven.apache.org</url>
@@ -22,24 +23,17 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
+                <version>3.5.1</version>
                 <extensions>true</extensions>
+                <inherited>true</inherited>
                 <configuration>
                     <instructions>
-                        <Bundle-SymbolicName>com.example.shop.shop-base</Bundle-SymbolicName>
-                        <Bundle-Name>shop-base</Bundle-Name>
-                        <Bundle-Version>0.0.1-SNAPSHOT</Bundle-Version>
-                        <Export-Package>
-                            com.example.shop.*
-                        </Export-Package>
-                        <Import-Package>*, org.hibernate.proxy,
-                            javassist.util.proxy</Import-Package>
+                        <!-- Only needed for the persistence bundle containing
+                            the jpa Entities -->
                         <Meta-Persistence>META-INF/persistence.xml</Meta-Persistence>
-                        <Bundle-Activator>
-                            com.example.shop.base.activator.Activator
-                        </Bundle-Activator>
-                        <Private-Package>
-                            com.example.shop.base.activator
-                        </Private-Package>
+                        <!-- Needed for runtime enhancement when using hibernate -->
+                        <Dynamic-Import-Package>*, org.hibernate.proxy,
+                            javassist.util.proxy</Dynamic-Import-Package>
                     </instructions>
                 </configuration>
             </plugin>
@@ -48,26 +42,29 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-osgi</artifactId>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>javax.persistence</artifactId>
+            <groupId>org.apache.aries.jpa.javax.persistence</groupId>
+            <artifactId>javax.persistence_2.1</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>mssql-jdbc</artifactId>
+            <groupId>javax.transaction</groupId>
+            <artifactId>javax.transaction-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.interceptor</groupId>
+            <artifactId>javax.interceptor-api</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
         </dependency>
         <dependency>
             <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.core</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
+            <artifactId>org.osgi.compendium</artifactId>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+    xmlns:jpa="http://aries.apache.org/xmlns/jpa/v2.0.0"
+    xmlns:tx="http://aries.apache.org/xmlns/transactions/v2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 https://osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+
+    <jpa:enable />
+    <tx:enable />
+
+    <service ref="roleDao" interface="com.example.shop.base.dao.RoleDao"/>
+    <bean id="roleDao" class="com.example.shop.base.dao.impl.RoleDaoImpl"/>
+
+    <!-- We use the role dao directly here to make the example smaller. For a real project the UI might be in a separate bundle -->
+    <bean id="roleServlet" class="com.example.shop.base.servlet.RoleServlet">
+        <property name="roleDao" ref="roleDao" />
+    </bean>
+    <service interface="javax.servlet.Servlet" ref="roleServlet">
+        <service-properties>
+            <entry key="alias" value="/roles" />
+        </service-properties>
+    </service>
+</blueprint>
