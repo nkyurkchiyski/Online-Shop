@@ -23,6 +23,7 @@
         <property name="roleDao" ref="roleDao"/>
     </bean>
 
+
     <!-- Rigister category service -->
     <service ref="categoryService" interface="com.example.shop.base.service.CategoryService"/>
     <bean id="categoryService"

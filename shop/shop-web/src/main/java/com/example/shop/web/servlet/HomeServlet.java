@@ -15,6 +15,7 @@ import java.util.List;
 
 import com.example.shop.base.dao.RoleDao;
 import com.example.shop.base.model.Role;
+import com.example.shop.base.service.RoleService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,7 +24,7 @@ import javax.servlet.http.*;
 @WebServlet("/home")
 public class HomeServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private transient RoleDao roleDao;
+    private RoleService roleService;
 
 
     @Override
@@ -45,15 +46,15 @@ public class HomeServlet extends HttpServlet {
 
     private void showRoles(PrintWriter writer) {
         writer.println("<h1>Categories</h1>");
-        List<Role> categories = roleDao.findAll();
+        List<Role> categories = roleService.getAll();
         for (Role category : categories) {
             writer.println("<a" + category.getId() + "\">" + category.getName() + "</a><BR/>");
         }
     }
 
 
-    public void setRoleDao(RoleDao roleDao) {
-        this.roleDao= roleDao;
+    public void setRoleService(RoleService roleService) {
+        this.roleService = roleService;
     }
 
 }

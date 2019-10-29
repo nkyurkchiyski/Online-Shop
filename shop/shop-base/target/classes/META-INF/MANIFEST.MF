@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1572367903739
+Bnd-LastModified: 1572385852993
 Build-Jdk: 1.8.0_181
 Built-By: Nikolay Kyurkchiyski
 Bundle-Blueprint: OSGI-INF/blueprint/blueprint.xml
@@ -17,9 +17,9 @@ Export-Package: com.example.shop.base;version="0.0.1",com.example.shop.b
  tence";version="0.0.1",com.example.shop.base.service;uses:="com.example
  .shop.base.dao,com.example.shop.base.model";version="0.0.1"
 Export-Service: com.example.shop.base.service.CategoryService;osgi.servi
- ce.blueprint.compname=categoryService,com.example.shop.base.dao.RoleDao
- ;osgi.service.blueprint.compname=roleDao,com.example.shop.base.service.
- RoleService;osgi.service.blueprint.compname=roleService
+ ce.blueprint.compname=categoryService,com.example.shop.base.service.Rol
+ eService;osgi.service.blueprint.compname=roleService,com.example.shop.b
+ ase.dao.RoleDao;osgi.service.blueprint.compname=roleDao
 Import-Package: com.example.shop.base.dao,com.example.shop.base.model,co
  m.example.shop.base.model.key,com.example.shop.base.service,javax.persi
  stence;version="[2.1,3)",org.osgi.service.blueprint;version="[1.0.0,2.0
