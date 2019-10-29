@@ -1,4 +1,8 @@
 feature:repo-add pax-jdbc 1.3.1
 feature:install scr transaction jdbc pax-jdbc-config pax-jdbc-mssql pax-jdbc-pool-dbcp2 http-whiteboard jpa hibernate
+feature:install aries-blueprint
 
+uninstall mvn:com.example.shop/shop-base/0.0.1-SNAPSHOT
+uninstall mvn:com.example.shop/shop-web/0.0.1-SNAPSHOT
 install -s mvn:com.example.shop/shop-base/0.0.1-SNAPSHOT
+install -s mvn:com.example.shop/shop-web/0.0.1-SNAPSHOT

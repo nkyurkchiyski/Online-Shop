@@ -4,21 +4,20 @@ import com.example.shop.base.dao.CategoryDao;
 import com.example.shop.base.model.Category;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import java.util.List;
 
 public class CategoryDaoImpl implements CategoryDao {
 
-    private final EntityManager entityManager;
-
-    public CategoryDaoImpl(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
+    @PersistenceContext(unitName = "online-shop")
+    EntityManager entityManager;
 
     @Override
     public Category findByName(String categoryName) {
         this.entityManager.getTransaction().begin();
         Category category = this.entityManager
-                .createQuery("SELECT c FROM t_Categories c WHERE c.cCategoryName = :name", Category.class)
+                .createQuery("SELECT c FROM Category c WHERE c.name = :name", Category.class)
                 .setParameter("name", categoryName)
                 .getSingleResult();
         this.entityManager.getTransaction().commit();
@@ -51,7 +50,7 @@ public class CategoryDaoImpl implements CategoryDao {
     public List<Category> findAll() {
         this.entityManager.getTransaction().begin();
         List<Category> categories = this.entityManager
-                .createQuery("SELECT c FROM t_Categories c", Category.class)
+                .createQuery("SELECT c FROM Category c", Category.class)
                 .getResultList();
         this.entityManager.getTransaction().commit();
         return categories;
@@ -68,7 +67,7 @@ public class CategoryDaoImpl implements CategoryDao {
     @Override
     public long size() {this.entityManager.getTransaction().begin();
         Long size = this.entityManager
-                .createQuery("SELECT count(c) FROM t_Categories c", Long.class)
+                .createQuery("SELECT count(c) FROM Category c", Long.class)
                 .getSingleResult();
         this.entityManager.getTransaction().commit();
         return size;

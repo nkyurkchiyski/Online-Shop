@@ -1,11 +1,11 @@
 /*
  * RoleServlet.java
  *
- * created at 2019-10-28 by n.kyurkchiyski <YOURMAILADDRESS>
+ * created at 2019-10-29 by n.kyurkchiyski <YOURMAILADDRESS>
  *
  * Copyright (c) SEEBURGER AG, Germany. All Rights Reserved.
  */
-package com.example.shop.base.servlet;
+package com.example.shop.web.servlet;
 
 
 import java.io.IOException;
@@ -17,14 +17,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.example.shop.base.dao.RoleDao;
 import com.example.shop.base.model.Role;
+import com.example.shop.base.service.RoleService;
 
 
 public class RoleServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
-    private transient RoleDao roleDao;
+    private transient RoleService roleService;
 
 
     @Override
@@ -37,7 +37,7 @@ public class RoleServlet extends HttpServlet
 
         if (add != null)
         {
-            addRole(writer,name);
+            addRole(writer, name);
         }
         else if (roleId != null && roleId.length() > 0)
         {
@@ -50,11 +50,11 @@ public class RoleServlet extends HttpServlet
     }
 
 
-    private void addRole(PrintWriter writer,String roleName)
+    private void addRole(PrintWriter writer, String roleName)
     {
         Role role = new Role();
         role.setName(roleName);
-        roleDao.save(role);
+        roleService.create(role);
         writer.println("<h1>Role " + role.getName() + " successfully added!</h1>");
 
     }
@@ -62,7 +62,7 @@ public class RoleServlet extends HttpServlet
 
     private void showRole(PrintWriter writer, String roleId)
     {
-        Role role = roleDao.findById(Long.parseLong(roleId));
+        Role role = roleService.getById(Long.parseLong(roleId));
         if (role != null)
         {
             writer.println("<h1>Role Name: " + role.getName() + " </h1>");
@@ -79,7 +79,7 @@ public class RoleServlet extends HttpServlet
     private void showRoles(PrintWriter writer)
     {
         writer.println("<h1>Roles</h1>");
-        List<Role> roles = roleDao.findAll();
+        List<Role> roles = roleService.getAll();
         for (Role role : roles)
         {
             writer.println("<a href=\"?roleId=" + role.getId() + "\">" + role.getName() + "</a><BR/>");
@@ -87,8 +87,8 @@ public class RoleServlet extends HttpServlet
     }
 
 
-    public void setRoleDao(RoleDao roleDao)
+    public void setRoleService(RoleService roleService)
     {
-        this.roleDao = roleDao;
+        this.roleService = roleService;
     }
 }

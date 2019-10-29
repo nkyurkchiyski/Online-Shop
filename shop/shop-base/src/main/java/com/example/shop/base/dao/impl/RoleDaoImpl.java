@@ -86,7 +86,7 @@ public class RoleDaoImpl implements RoleDao
     public Role findByName(String roleName)
     {
         this.entityManager.getTransaction().begin();
-        Role role = this.entityManager.createQuery("SELECT r FROM Role r WHERE r.cRoleName = :name", Role.class).setParameter("name", roleName).getSingleResult();
+        Role role = this.entityManager.createQuery("SELECT r FROM Role r WHERE r.name = :name", Role.class).setParameter("name", roleName).getSingleResult();
         this.entityManager.getTransaction().commit();
         return role;
     }

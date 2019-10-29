@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1572286233039
-Build-Jdk: 1.8.0_181
-Built-By: Nikolay Kyurkchiyski
+Bnd-LastModified: 1572345081260
+Build-Jdk: 1.8.0_151
+Built-By: n.kyurkchiyski
 Bundle-Blueprint: OSGI-INF/blueprint/blueprint.xml
 Bundle-ManifestVersion: 2
 Bundle-Name: shop-base
@@ -14,16 +14,16 @@ Export-Package: com.example.shop.base;version="0.0.1",com.example.shop.b
  ase.dao;uses:="com.example.shop.base.model";version="0.0.1",com.example
  .shop.base.model;uses:="com.example.shop.base.model.key,javax.persisten
  ce";version="0.0.1",com.example.shop.base.model.key;uses:="javax.persis
- tence";version="0.0.1",com.example.shop.base.servlet;uses:="com.example
- .shop.base.dao,javax.servlet,javax.servlet.http";version="0.0.1"
-Export-Service: com.example.shop.base.dao.RoleDao;osgi.service.blueprint
- .compname=roleDao,javax.servlet.Servlet;alias=/roles;osgi.service.bluep
- rint.compname=roleServlet
+ tence";version="0.0.1",com.example.shop.base.service;uses:="com.example
+ .shop.base.dao,com.example.shop.base.model";version="0.0.1"
+Export-Service: com.example.shop.base.service.RoleService;osgi.service.b
+ lueprint.compname=roleService,com.example.shop.base.service.CategorySer
+ vice;osgi.service.blueprint.compname=categoryService
 Import-Package: com.example.shop.base.dao,com.example.shop.base.model,co
- m.example.shop.base.model.key,javax.persistence;version="[2.1,3)",javax
- .servlet,javax.servlet.http,org.osgi.service.blueprint;version="[1.0.0,
- 2.0.0)",org.hibernate.proxy;resolution:=optional,javassist.util.proxy;r
- esolution:=optional
+ m.example.shop.base.model.key,com.example.shop.base.service,javax.persi
+ stence;version="[2.1,3)",org.osgi.service.blueprint;version="[1.0.0,2.0
+ .0)",org.hibernate.proxy;resolution:=optional,javassist.util.proxy;reso
+ lution:=optional
 Meta-Persistence: META-INF/persistence.xml
 Provide-Capability: osgi.service;effective:=active;objectClass="javax.pe
  rsistence.EntityManager";osgi.unit.name=online-shop,osgi.service;effect

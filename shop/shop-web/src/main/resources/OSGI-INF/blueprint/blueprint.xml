@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+    xmlns:jpa="http://aries.apache.org/xmlns/jpa/v2.0.0" xmlns:tx="http://aries.apache.org/xmlns/transactions/v2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 https://osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+
+    <reference id="roleService" interface="com.example.shop.base.service.RoleService" />
+    <reference id="categoryService"
+        interface="com.example.shop.base.service.CategoryService" />
+
+
+
+    <service interface="javax.servlet.Servlet">
+        <service-properties>
+            <entry key="alias" value="/home" />
+            <entry key="servlet-name" value="Home" />
+        </service-properties>
+        <bean class="com.example.shop.web.servlet.HomeServlet">
+            <property name="categoryService" ref="categoryService" />
+        </bean>
+    </service>
+</blueprint>
