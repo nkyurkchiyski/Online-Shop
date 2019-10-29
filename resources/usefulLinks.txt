@@ -7,3 +7,4 @@ https://docs.jboss.org/hibernate/orm/4.2/quickstart/en-US/html/ch06.html
 https://karaf.apache.org/manual/latest/#_feature_and_resolver
 https://deepaknadig.com/blog/osgitutorial/
 https://xebia.com/blog/experimenting-with-osgi-on-server-side/
+https://steinar.bang.priv.no/2018/02/10/develop-osgi-applications-using-karaf/
