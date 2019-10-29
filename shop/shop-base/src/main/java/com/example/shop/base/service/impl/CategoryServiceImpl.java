@@ -23,24 +23,21 @@ public class CategoryServiceImpl implements CategoryService
     @Override
     public Category create(Category entity)
     {
-        final Category category = this.categoryDao.save(entity);
-        return category;
+        return this.categoryDao.save(entity);
     }
 
 
     @Override
     public Category getById(Long id)
     {
-        final Category category = this.categoryDao.findById(id);
-        return category;
+        return this.categoryDao.findById(id);
     }
 
 
     @Override
     public List<Category> getAll()
     {
-        final List<Category> categories = this.categoryDao.findAll();
-        return categories;
+        return this.categoryDao.findAll();
     }
 
 
@@ -61,8 +58,7 @@ public class CategoryServiceImpl implements CategoryService
     @Override
     public Category getByName(String name)
     {
-        final Category category = this.categoryDao.findByName(name);
-        return category;
+        return this.categoryDao.findByName(name);
     }
 
 

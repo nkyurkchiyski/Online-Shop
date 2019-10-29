@@ -11,9 +11,12 @@ com\example\shop\base\model\Category.class
 com\example\shop\base\model\Product.class
 com\example\shop\base\service\impl\CategoryServiceImpl.class
 com\example\shop\base\dao\GenericDao.class
+com\example\shop\base\service\impl\ProductServiceImpl.class
 com\example\shop\base\dao\impl\ProductDaoImpl.class
+com\example\shop\base\service\impl\OrderServiceImpl.class
 com\example\shop\base\dao\CategoryDao.class
 com\example\shop\base\service\AuthenticationService.class
+com\example\shop\base\service\impl\UserServiceImpl.class
 com\example\shop\base\dao\impl\RoleDaoImpl.class
 com\example\shop\base\dao\impl\UserDaoImpl.class
 com\example\shop\base\model\ProductOrder.class

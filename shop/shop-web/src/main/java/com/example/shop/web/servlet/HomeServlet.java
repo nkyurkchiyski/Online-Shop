@@ -12,44 +12,48 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+
+import com.example.shop.base.dao.RoleDao;
+import com.example.shop.base.model.Role;
+
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
 
-import com.example.shop.base.model.Category;
-import com.example.shop.base.service.CategoryService;
-
-
-public class HomeServlet extends HttpServlet
-{
+@WebServlet("/home")
+public class HomeServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private transient CategoryService categoryService;
+    private transient RoleDao roleDao;
 
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
-    {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         final PrintWriter writer = resp.getWriter();
-        showCategories(writer);
-        super.doGet(req, resp);
+        showRoles(writer);
     }
 
 
-    private void showCategories(PrintWriter writer)
-    {
+//    private void showCategories(PrintWriter writer)
+//    {
+//        writer.println("<h1>Categories</h1>");
+//        List<Category> categories = categoryService.getAll();
+//        for (Category category : categories)
+//        {
+//            writer.println("<a" + category.getId() + "\">" + category.getName() + "</a><BR/>");
+//        }
+//    }
+
+    private void showRoles(PrintWriter writer) {
         writer.println("<h1>Categories</h1>");
-        List<Category> categories = categoryService.getAll();
-        for (Category category : categories)
-        {
+        List<Role> categories = roleDao.findAll();
+        for (Role category : categories) {
             writer.println("<a" + category.getId() + "\">" + category.getName() + "</a><BR/>");
         }
     }
 
 
-    public void setCategoryService(CategoryService categoryService)
-    {
-        this.categoryService = categoryService;
+    public void setRoleDao(RoleDao roleDao) {
+        this.roleDao= roleDao;
     }
 
 }

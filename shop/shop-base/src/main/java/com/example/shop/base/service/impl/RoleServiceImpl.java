@@ -15,6 +15,7 @@ import com.example.shop.base.model.Role;
 import com.example.shop.base.service.RoleService;
 
 
+
 public class RoleServiceImpl implements RoleService
 {
     private RoleDao roleDao;
