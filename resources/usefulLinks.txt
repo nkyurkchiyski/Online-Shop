@@ -10,3 +10,4 @@ https://xebia.com/blog/experimenting-with-osgi-on-server-side/
 https://steinar.bang.priv.no/2018/02/10/develop-osgi-applications-using-karaf/
 https://github.com/ops4j/org.ops4j.pax.web/blob/master/samples/whiteboard-blueprint/src/main/resources/OSGI-INF/blueprint/blueprint.xml
 https://stackoverflow.com/questions/15385596/how-are-servlet-url-mappings-in-web-xml-used
+https://github.com/ANierbeck/karaf-enterprise-sample/tree/master/sample-view

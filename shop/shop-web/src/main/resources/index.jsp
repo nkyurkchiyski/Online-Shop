@@ -5,6 +5,13 @@
     <c:import url="templates/head.jsp"/>
 </head>
 <body>
+<h1>Hello World!</h1>
+	<p>
+		It is now
+		<%= new java.util.Date() %></p>
+	<p>
+		You are coming from
+		<%= request.getRemoteAddr()  %></p>
 <div class="container-fluid">
     <main>
         <hr class="my-3"/>
