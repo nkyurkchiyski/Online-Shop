@@ -1,3 +1,2 @@
-com\example\shop\web\servlet\CategoryServlet.class
+com\example\shop\web\servlet\ProductServlet.class
 com\example\shop\web\servlet\HomeServlet.class
-com\example\shop\web\servlet\RoleServlet.class

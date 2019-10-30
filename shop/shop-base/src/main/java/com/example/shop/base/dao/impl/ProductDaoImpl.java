@@ -20,7 +20,7 @@ public class ProductDaoImpl implements ProductDao
     public Product findByName(String productName)
     {
         this.entityManager.getTransaction().begin();
-        Product product = this.entityManager.createQuery("SELECT p FROM t_Products p WHERE p.cProductName = :name", Product.class).setParameter("name", productName).getSingleResult();
+        Product product = this.entityManager.createQuery("SELECT p FROM Product p WHERE name = :name", Product.class).setParameter("name", productName).getSingleResult();
         this.entityManager.getTransaction().commit();
         return product;
     }
@@ -58,7 +58,7 @@ public class ProductDaoImpl implements ProductDao
     public List<Product> findAll()
     {
         this.entityManager.getTransaction().begin();
-        List<Product> products = this.entityManager.createQuery("SELECT p FROM t_Products p", Product.class).getResultList();
+        List<Product> products = this.entityManager.createQuery("SELECT p FROM Product p JOIN FETCH p.categories", Product.class).getResultList();
         this.entityManager.getTransaction().commit();
         return products;
     }
@@ -78,7 +78,7 @@ public class ProductDaoImpl implements ProductDao
     public long size()
     {
         this.entityManager.getTransaction().begin();
-        Long size = this.entityManager.createQuery("SELECT count(p) FROM t_Products p", Long.class).getSingleResult();
+        Long size = this.entityManager.createQuery("SELECT count(p) FROM Product p", Long.class).getSingleResult();
         this.entityManager.getTransaction().commit();
         return size;
     }

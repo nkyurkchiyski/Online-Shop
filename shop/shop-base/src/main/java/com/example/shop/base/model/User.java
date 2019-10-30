@@ -43,7 +43,7 @@ public class User
     @Column(name = "cUserActive")
     private boolean isActive;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinTable(name = "t_UserRoles", //
                     joinColumns = {@JoinColumn(name = "cUserRoleUserId")}, //
                     inverseJoinColumns = {@JoinColumn(name = "cUserRoleRoleId")}, //
@@ -179,6 +179,3 @@ public class User
         this.orders = orders;
     }
 }
-
-
-

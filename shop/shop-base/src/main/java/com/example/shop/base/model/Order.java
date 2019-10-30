@@ -36,7 +36,7 @@ public class Order implements Serializable
     @Column(name = "cOrderStatus")
     private OrderStatus status;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cOrderUserId", foreignKey = @ForeignKey(name = "FK_Orders_Users"))
     private User user;
 
@@ -109,6 +109,3 @@ public class Order implements Serializable
     }
 
 }
-
-
-

@@ -28,7 +28,7 @@ public class Role implements Serializable
     @Column(name = "cRoleName")
     private String name;
 
-    @ManyToMany(mappedBy = "roles")
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
     private Set<User> users;
 
 
@@ -73,7 +73,3 @@ public class Role implements Serializable
     }
 
 }
-
-
-
-

@@ -35,7 +35,7 @@ public class Product implements Serializable
     @Column(name = "cProductPrice")
     private BigDecimal price;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     @JoinTable(name = "t_ProductCategories", //
                     joinColumns = {@JoinColumn(name = "cProductCategoryProductId")}, //
                     inverseJoinColumns = {@JoinColumn(name = "cProductCategoryCategoryId")}, //
