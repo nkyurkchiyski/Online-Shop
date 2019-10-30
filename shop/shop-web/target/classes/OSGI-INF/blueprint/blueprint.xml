@@ -13,9 +13,9 @@
 
     <service interface="javax.servlet.Servlet">
         <service-properties>
-            <entry key="alias" value="/online-shop/" />
+            <entry key="alias" value="/online-shop" />
         </service-properties>
-        <bean class="com.example.shop.web.servlet.HomeServlet">
+        <bean class="com.example.shop.web.servlet.IndexServlet">
             <property name="categoryService" ref="categoryService" />
         </bean>
     </service>

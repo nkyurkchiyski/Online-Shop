@@ -12,10 +12,11 @@ import java.io.IOException;
 import com.example.shop.base.service.CategoryService;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-
-public class HomeServlet extends HttpServlet
+@WebServlet("")
+public class IndexServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
     private CategoryService categoryService;
@@ -24,7 +25,7 @@ public class HomeServlet extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-        req.getRequestDispatcher("/jsp/index.jsp").forward(req, resp);
+        req.getRequestDispatcher("/index.jsp").forward(req, resp);
     }
 
 
