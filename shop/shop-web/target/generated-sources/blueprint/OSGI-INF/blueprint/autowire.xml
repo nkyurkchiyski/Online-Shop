@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+    <bean xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0" id="indexServlet" class="com.example.shop.web.servlet.IndexServlet" ext:field-injection="true">
+        <property name="categoryService" ref="categoryService"/>
+    </bean>
+    <bean xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0" id="productServlet" class="com.example.shop.web.servlet.ProductServlet" ext:field-injection="true">
+        <property name="productService" ref="productService"/>
+    </bean>
+    <service ref="indexServlet" interface="javax.servlet.Servlet">
+        <service-properties>
+            <entry key="alias" value="/online-shop/home"/>
+        </service-properties>
+    </service>
+    <service ref="productServlet" interface="javax.servlet.Servlet">
+        <service-properties>
+            <entry key="alias" value="/online-shop/product"/>
+        </service-properties>
+    </service>
+    <reference id="categoryService" interface="com.example.shop.base.service.CategoryService"/>
+    <reference id="productService" interface="com.example.shop.base.service.ProductService"/>
+</blueprint>

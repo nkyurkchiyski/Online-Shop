@@ -12,19 +12,32 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.ops4j.pax.cdi.api.OsgiService;
+import org.ops4j.pax.cdi.api.OsgiServiceProvider;
+import org.ops4j.pax.cdi.api.Properties;
+import org.ops4j.pax.cdi.api.Property;
+
 import com.example.shop.base.model.Product;
 import com.example.shop.base.service.ProductService;
 
 
+@OsgiServiceProvider(classes = {Servlet.class})
+@Properties({@Property(name = "alias", value = "/online-shop/product")})
+@Singleton
 public class ProductServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
 
+    @Inject
+    @OsgiService
     private ProductService productService;
 
 
