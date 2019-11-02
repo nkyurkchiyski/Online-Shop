@@ -20,49 +20,46 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.ops4j.pax.cdi.api.OsgiService;
-import org.ops4j.pax.cdi.api.OsgiServiceProvider;
-import org.ops4j.pax.cdi.api.Properties;
-import org.ops4j.pax.cdi.api.Property;
-
 import com.example.shop.base.model.Product;
 import com.example.shop.base.service.ProductService;
+import org.apache.aries.blueprint.annotation.service.Reference;
+import org.apache.aries.blueprint.annotation.service.Service;
+import org.apache.aries.blueprint.annotation.service.ServiceProperty;
 
-
-@OsgiServiceProvider(classes = {Servlet.class})
-@Properties({@Property(name = "alias", value = "/online-shop/product")})
+@Service(
+        classes = Servlet.class,
+        properties = {
+                @ServiceProperty(name = "osgi.http.whiteboard.context.path",values = "/online-shop"),
+                @ServiceProperty(name = "osgi.http.whiteboard.servlet.pattern", values = "/product")
+        }
+)
 @Singleton
-public class ProductServlet extends HttpServlet
-{
+public class ProductServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     @Inject
-    @OsgiService
+    @Reference
     private ProductService productService;
 
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
-    {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         final PrintWriter writer = resp.getWriter();
         showAllProducts(writer);
     }
 
 
-    private void showAllProducts(final PrintWriter writer)
-    {
+    private void showAllProducts(final PrintWriter writer) {
         writer.println("<h1>All Products</h1>");
         List<Product> products = productService.getAll();
-        for (Product product : products)
-        {
+        for (Product product : products) {
             writer.println(String.format("Id: %s, Name: %s, Num categoies: %s, ", product.getId(), product.getName(), product.getCategories().size()));
         }
 
     }
 
 
-    public void setProductService(ProductService productService)
-    {
+    public void setProductService(ProductService productService) {
         this.productService = productService;
     }
 

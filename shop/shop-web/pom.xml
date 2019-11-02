@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <project
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-    xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.example.shop</groupId>
@@ -25,22 +25,20 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.ops4j.pax.cdi</groupId>
-            <artifactId>pax-cdi-api</artifactId>
-            <version>0.5.0</version>
-            <optional>true</optional>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi.core</artifactId>
+            <version>7.0.0</version>
         </dependency>
         <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>8.0</version>
-            <scope>provided</scope>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi.cmpn</artifactId>
+            <version>7.0.0</version>
         </dependency>
-
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -51,17 +49,51 @@
             <artifactId>javax.inject</artifactId>
             <version>1</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.aries.blueprint</groupId>
+            <artifactId>blueprint-maven-plugin-annotation</artifactId>
+            <version>1.3.0</version>
+            <optional>true</optional>
+        </dependency>
+
     </dependencies>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
                 <configuration>
                     <instructions>
                         <_wab>src/main/webapp/</_wab>
-                        <Web-ContextPath>online-shop</Web-ContextPath>
-                        <Pax-ManagedBeans>WEB-INF/beans.xml</Pax-ManagedBeans>
+                        <Web-ContextPath>/online-shop</Web-ContextPath>
+                        <Import-Package>
+                            com.example.shop.base.service,
+                            org.osgi.framework;version="[1.0.0,2.0.0)",
+                            org.osgi.service.http;version="[1.0.0,2.0.0)",
+                            org.ops4j.pax.web.service,
+                            org.ops4j.pax.web.jsp,
+                            org.apache.el,
+                            org.apache.jasper.el,
+                            org.apache.jasper.runtime,
+                            org.apache.jasper.compiler,
+                            org.apache.taglibs.standard.tag.rt.core,
+                            javax.el,
+                            javax.servlet,
+                            javax.servlet.http,
+                            javax.servlet.jsp,
+                            javax.servlet.jsp.tagext,
+                            org.apache.tomcat; resolution:=optional
+                        </Import-Package>
+                        <Export-Package>!*</Export-Package>
+                        <Embed-Dependency>*; scope=runtime; type=!pom</Embed-Dependency>
+                        <Include-Resource> {maven-resources}, {maven-dependencies}</Include-Resource>
+                        <_removeheaders>
+                            Private-Package,
+                            Include-Resource,
+                            Embed-Dependency,
+                            Embed-Transitive
+                        </_removeheaders>
                     </instructions>
                 </configuration>
             </plugin>

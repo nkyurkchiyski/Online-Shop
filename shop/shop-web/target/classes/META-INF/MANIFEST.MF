@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1572527021314
-Build-Jdk: 1.8.0_151
-Built-By: n.kyurkchiyski
+Bnd-LastModified: 1572725136022
+Build-Jdk: 1.8.0_181
+Built-By: Nikolay Kyurkchiyski
 Bundle-Blueprint: OSGI-INF/blueprint/autowire.xml
 Bundle-ClassPath: WEB-INF/classes
 Bundle-ManifestVersion: 2
@@ -9,19 +9,20 @@ Bundle-Name: shop-web
 Bundle-SymbolicName: com.example.shop.web
 Bundle-Version: 0.0.1.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
-Export-Package: com.example.shop.web.servlet;uses:="com.example.shop.bas
- e.service,javax.inject,javax.servlet,javax.servlet.http,org.ops4j.pax.c
- di.api";version="0.0.1"
-Export-Service: javax.servlet.Servlet;alias=/online-shop/home;osgi.servi
- ce.blueprint.compname=indexServlet,javax.servlet.Servlet;alias=/online-
- shop/product;osgi.service.blueprint.compname=productServlet
-Import-Package: com.example.shop.base.model;version="[0.0,1)",com.exampl
- e.shop.base.service;version="[0.0,1)",javax.inject,javax.servlet,javax.
- servlet.http,org.ops4j.pax.cdi.api;version="[0.5,1)";resolution:=option
- al,org.osgi.service.blueprint;version="[1.0.0,2.0.0)"
+Export-Service: javax.servlet.Servlet;osgi.http.whiteboard.servlet.patte
+ rn=/home;osgi.service.blueprint.compname=indexServlet,javax.servlet.Ser
+ vlet;osgi.http.whiteboard.context.path=/online-shop;osgi.http.whiteboar
+ d.servlet.pattern=/product;osgi.service.blueprint.compname=productServl
+ et
+Import-Package: com.example.shop.base.service;version="[0.0,1)",javax.se
+ rvlet;version="[3.1,4)",javax.servlet.http;version="[3.1,4)",org.osgi.f
+ ramework;version="[1.0.0,2.0.0)",org.osgi.service.http;version="[1.0.0,
+ 2.0.0)",org.ops4j.pax.web.service,org.ops4j.pax.web.jsp,org.apache.el,o
+ rg.apache.jasper.el,org.apache.jasper.runtime,org.apache.jasper.compile
+ r,org.apache.taglibs.standard.tag.rt.core,javax.el,javax.servlet.jsp,ja
+ vax.servlet.jsp.tagext,org.apache.tomcat;resolution:=optional
 Import-Service: com.example.shop.base.service.ProductService;multiple:=f
  alse,com.example.shop.base.service.CategoryService;multiple:=false
-Pax-ManagedBeans: WEB-INF/beans.xml
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
 Tool: Bnd-3.5.0.201709291849
-Web-ContextPath: online-shop
+Web-ContextPath: /online-shop

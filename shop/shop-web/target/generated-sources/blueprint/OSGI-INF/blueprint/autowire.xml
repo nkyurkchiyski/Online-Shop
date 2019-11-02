@@ -5,16 +5,17 @@
     <bean xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0" id="productServlet" class="com.example.shop.web.servlet.ProductServlet" ext:field-injection="true">
         <property name="productService" ref="productService"/>
     </bean>
+    <reference id="categoryService" interface="com.example.shop.base.service.CategoryService"/>
+    <reference id="productService" interface="com.example.shop.base.service.ProductService"/>
     <service ref="indexServlet" interface="javax.servlet.Servlet">
         <service-properties>
-            <entry key="alias" value="/online-shop/home"/>
+            <entry key="osgi.http.whiteboard.servlet.pattern" value="/home"/>
         </service-properties>
     </service>
     <service ref="productServlet" interface="javax.servlet.Servlet">
         <service-properties>
-            <entry key="alias" value="/online-shop/product"/>
+            <entry key="osgi.http.whiteboard.context.path" value="/online-shop"/>
+            <entry key="osgi.http.whiteboard.servlet.pattern" value="/product"/>
         </service-properties>
     </service>
-    <reference id="categoryService" interface="com.example.shop.base.service.CategoryService"/>
-    <reference id="productService" interface="com.example.shop.base.service.ProductService"/>
 </blueprint>
