@@ -10,3 +10,4 @@ uninstall mvn:com.example.shop/shop-web/0.0.1-SNAPSHOT
 install -s mvn:com.example.shop/shop-base/0.0.1-SNAPSHOT
 install -s mvn:com.example.shop/shop-web/0.0.1-SNAPSHOT
 
+install -s mvn:org.osgi/org.osgi.service.http.whiteboard/1.1.0

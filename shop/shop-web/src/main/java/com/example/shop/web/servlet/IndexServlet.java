@@ -14,24 +14,20 @@ import com.example.shop.base.service.CategoryService;
 import org.apache.aries.blueprint.annotation.service.Reference;
 import org.apache.aries.blueprint.annotation.service.Service;
 import org.apache.aries.blueprint.annotation.service.ServiceProperty;
-import org.osgi.service.http.whiteboard.propertytypes.HttpWhiteboardContext;
-
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-@Service(
-        classes = Servlet.class,
-        properties = {
-                @ServiceProperty(name = "osgi.http.whiteboard.servlet.pattern", values = "/home")
-        }
-)
-@HttpWhiteboardContext(name = "online-shop", path = "/online-shop")
-@Singleton
-public class IndexServlet extends HttpServlet {
+
+@Service(classes = Servlet.class, //
+                properties = {@ServiceProperty(name = "osgi.http.whiteboard.context.select", values = "(osgi.http.whiteboard.context.name=online-shop)"), //
+                              @ServiceProperty(name = "osgi.http.whiteboard.servlet.pattern", values = "/home")})
+public class IndexServlet extends HttpServlet
+{
     private static final long serialVersionUID = 1L;
 
     @Inject
@@ -40,7 +36,8 @@ public class IndexServlet extends HttpServlet {
 
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
         req.getRequestDispatcher("/jsp/index.jsp").forward(req, resp);
     }
 
