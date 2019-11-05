@@ -11,11 +11,9 @@ package com.example.shop.web.servlet;
 import java.io.IOException;
 
 import com.example.shop.base.service.CategoryService;
-import org.apache.aries.blueprint.annotation.service.Reference;
-import org.apache.aries.blueprint.annotation.service.Service;
-import org.apache.aries.blueprint.annotation.service.ServiceProperty;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
-import javax.inject.Inject;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,14 +21,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@Service(classes = Servlet.class, //
-                properties = {@ServiceProperty(name = "osgi.http.whiteboard.context.select", values = "(osgi.http.whiteboard.context.name=online-shop)"), //
-                              @ServiceProperty(name = "osgi.http.whiteboard.servlet.pattern", values = "/home")})
+@Component(service = Servlet.class, //
+                property = {"osgi.http.whiteboard.context.select:String=(osgi.http.whiteboard.context.name=online-shop)", //
+                            "osgi.http.whiteboard.servlet.pattern:String=/home"})
 public class IndexServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
 
-    @Inject
     @Reference
     private CategoryService categoryService;
 

@@ -50,66 +50,24 @@
             <artifactId>javax.inject</artifactId>
             <version>1</version>
         </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>org.apache.aries.blueprint</groupId>
             <artifactId>blueprint-maven-plugin-annotation</artifactId>
             <version>1.3.0</version>
             <optional>true</optional>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.service.component.annotations</artifactId>
-            <version>1.3.0</version>
-            <optional>true</optional>
+            <artifactId>org.osgi.service.http.whiteboard</artifactId>
+            <version>1.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.1</version>
         </dependency>
 
 
     </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <extensions>true</extensions>
-                <configuration>
-                    <instructions>
-                        <_wab>src/main/webapp/</_wab>
-                        <Web-ContextPath>/online-shop</Web-ContextPath>
-                        <Export-Package>!*</Export-Package>
-                       <!--  <Embed-Dependency>*; scope=runtime; type=!pom</Embed-Dependency>
-                        <Include-Resource> {maven-resources},
-                            {maven-dependencies}</Include-Resource> -->
-                        <Import-Package>
-                            com.example.shop.base.service,
-                            com.example.shop.base.model,
-                            org.osgi.framework;version="[1.0.0,2.0.0)",
-                            org.osgi.service.http;version="[1.0.0,2.0.0)",
-                            org.osgi.service.http.whiteboard;
-                            version="[1.1,2.0)",
-                            org.osgi.service.http.whiteboard.propertytypes,
-                            org.ops4j.pax.web.service,
-                            org.ops4j.pax.web.jsp,
-                            org.apache.el,
-                            org.apache.jasper.el,
-                            org.apache.jasper.runtime,
-                            org.apache.jasper.compiler,
-                            org.apache.taglibs.standard.tag.rt.core,
-                            javax.el,
-                            javax.servlet,
-                            javax.servlet.http,
-                            javax.servlet.jsp,
-                            javax.servlet.jsp.tagext
-                        </Import-Package>
-                        <_removeheaders>
-                            Private-Package,
-                            Include-Resource,
-                            Embed-Dependency,
-                            Embed-Transitive
-                        </_removeheaders>
-                    </instructions>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
 </project>

@@ -11,3 +11,10 @@ install -s mvn:com.example.shop/shop-base/0.0.1-SNAPSHOT
 install -s mvn:com.example.shop/shop-web/0.0.1-SNAPSHOT
 
 install -s mvn:org.osgi/org.osgi.service.http.whiteboard/1.1.0
+uninstall mvn:org.osgi/org.osgi.dto/1.1.0
+uninstall mvn:org.osgi/org.osgi.framework/1.9.0
+uninstall mvn:org.osgi/org.osgi.service.component.annotations/1.4.0
+uninstall mvn:org.osgi/org.osgi.service.component/1.4.0
+
+feature:repo-add mvn:org.apache.cxf.karaf/apache-cxf/3.2.6/xml/features
+feature:install cxf
