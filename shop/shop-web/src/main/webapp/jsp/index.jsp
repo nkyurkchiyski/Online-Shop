@@ -7,10 +7,8 @@
 </head>
 <body>
 <h1>Hello World!</h1>
-<% for (String name : Collections.list(request.getAttributeNames())) { %>
-<p><%= name%>
+<p><%= (String)request.getAttribute("model")%>
 </p>
-<% } %>
 <p><%= new java.util.Date() %>
 </p>
 <div class="container-fluid">

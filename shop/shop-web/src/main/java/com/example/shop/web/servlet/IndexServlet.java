@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@Component(service = Servlet.class, scope = ServiceScope.SINGLETON,
+@Component(service = Servlet.class, scope = ServiceScope.PROTOTYPE,
                 property = {"osgi.http.whiteboard.context.select:String=(osgi.http.whiteboard.context.name=online-shop)", //
                             "osgi.http.whiteboard.servlet.pattern:String=/home"})
 public class IndexServlet extends HttpServlet
