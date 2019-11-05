@@ -8,7 +8,10 @@
 package com.example.shop.base.service;
 
 
-public class AuthenticationService
+import javax.jws.WebService;
+
+@WebService
+public interface AuthenticationService
 {
 
 }

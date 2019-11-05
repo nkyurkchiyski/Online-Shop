@@ -8,6 +8,9 @@
 package com.example.shop.base.service;
 
 
+import javax.jws.WebService;
+
+@WebService
 public interface EncryptionService
 {
 

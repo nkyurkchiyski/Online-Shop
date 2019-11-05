@@ -1,3 +1,4 @@
+<%@ page import="java.util.Collections" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
@@ -6,12 +7,12 @@
 </head>
 <body>
 <h1>Hello World!</h1>
-	<p>
-		It is now
-		<%= new java.util.Date() %></p>
-	<p>
-		You are coming from
-		<%= request.getRemoteAddr()  %></p>
+<% for (String name : Collections.list(request.getAttributeNames())) { %>
+<p><%= name%>
+</p>
+<% } %>
+<p><%= new java.util.Date() %>
+</p>
 <div class="container-fluid">
     <main>
         <hr class="my-3"/>
@@ -23,7 +24,7 @@
         <hr class="my-3"/>
     </main>
     <footer>
-        <c:import url="templates/footer.jsp" />
+        <c:import url="templates/footer.jsp"/>
     </footer>
 </div>
 </body>

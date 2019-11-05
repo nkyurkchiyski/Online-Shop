@@ -11,7 +11,10 @@ package com.example.shop.base.service;
 import com.example.shop.base.dao.UserDao;
 import com.example.shop.base.model.User;
 
+import javax.jws.WebService;
 
+
+@WebService
 public interface UserService extends GenericService<User, Long>
 {
     User getByUserName(String username);

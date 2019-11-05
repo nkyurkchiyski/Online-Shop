@@ -17,4 +17,4 @@ uninstall mvn:org.osgi/org.osgi.service.component.annotations/1.4.0
 uninstall mvn:org.osgi/org.osgi.service.component/1.4.0
 
 feature:repo-add mvn:org.apache.cxf.karaf/apache-cxf/3.2.6/xml/features
-feature:install cxf
+feature:uninstall cxf

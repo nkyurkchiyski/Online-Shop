@@ -11,7 +11,10 @@ package com.example.shop.base.service;
 import com.example.shop.base.dao.ProductDao;
 import com.example.shop.base.model.Product;
 
+import javax.jws.WebService;
 
+
+@WebService
 public interface ProductService extends GenericService<Product, Long>
 {
     Product getByName(String name);
