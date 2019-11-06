@@ -1,2 +1,3 @@
+com\example\shop\web\servlet\AuthenticationServlet.class
 com\example\shop\web\servlet\IndexServlet.class
 com\example\shop\web\helper\ShopServletContextHelper.class

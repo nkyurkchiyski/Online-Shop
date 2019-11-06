@@ -25,7 +25,7 @@ public class ShopServletContextHelper extends ServletContextHelper
     {
         try
         {
-            return new URL("http://localhost:8181/online-shop/" + name);
+            return new URL("http://localhost:8181/online-shop" + name);
         }
         catch (MalformedURLException e)
         {

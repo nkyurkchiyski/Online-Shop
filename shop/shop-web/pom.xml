@@ -45,7 +45,6 @@
                     <instructions>
                         <_wab>src/main/webapp/</_wab>
                         <Web-ContextPath>/online-shop</Web-ContextPath>
-                        <Bundle-ClassPath>WEB-INF/classes</Bundle-ClassPath>
                         <Embed-Dependency>*; scope=runtime; type=!pom</Embed-Dependency>
                         <Include-Resource> {maven-resources}, {maven-dependencies}
                         </Include-Resource>

@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1572983773143
-Build-Jdk: 1.8.0_181
-Built-By: Nikolay Kyurkchiyski
-Bundle-ClassPath: WEB-INF/classes,WEB-INF/classes
+Bnd-LastModified: 1573044836854
+Build-Jdk: 1.8.0_151
+Built-By: n.kyurkchiyski
+Bundle-ClassPath: WEB-INF/classes
 Bundle-ManifestVersion: 2
 Bundle-Name: shop-web
 Bundle-SymbolicName: com.example.shop.web
@@ -24,6 +24,7 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=osgi.compone
  lass=com.example.shop.base.service.CategoryService)";effective:=active,
  osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
 Service-Component: OSGI-INF/com.example.shop.web.helper.ShopServletConte
- xtHelper.xml,OSGI-INF/com.example.shop.web.servlet.IndexServlet.xml
+ xtHelper.xml,OSGI-INF/com.example.shop.web.servlet.AuthenticationServle
+ t.xml,OSGI-INF/com.example.shop.web.servlet.IndexServlet.xml
 Tool: Bnd-3.5.0.201709291849
 Web-ContextPath: /online-shop
