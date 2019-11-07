@@ -25,14 +25,37 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
+            <groupId>org.ops4j.pax.cdi</groupId>
+            <artifactId>pax-cdi-api</artifactId>
+            <version>0.8.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>jstl</artifactId>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-jcdi_1.0_spec</artifactId>
+            <version>1.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-atinject_1.0_spec</artifactId>
+            <version>1.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-annotation_1.1_spec</artifactId>
+            <version>1.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-servlet_3.0_spec</artifactId>
+            <version>1.0</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
     <build>
@@ -44,35 +67,26 @@
                 <configuration>
                     <instructions>
                         <_wab>src/main/webapp/</_wab>
-                        <Web-ContextPath>/online-shop</Web-ContextPath>
-                        <Embed-Dependency>*; scope=runtime; type=!pom</Embed-Dependency>
-                        <Include-Resource> {maven-resources},
-                            {maven-dependencies}
-                        </Include-Resource>
+                        <Web-ContextPath>online-shop</Web-ContextPath>
+                        <Pax-ManagedBeans>WEB-INF/beans.xml</Pax-ManagedBeans>
                         <Export-Package>!*</Export-Package>
                         <Import-Package>
-                            com.example.shop.base.service,
-                            com.example.shop.base.model,
-                            org.ops4j.pax.web.service,
-                            org.ops4j.pax.web.jsp,
-                            org.apache.el,
-                            org.apache.jasper.el,
-                            org.apache.jasper.runtime,
-                            org.apache.jasper.compiler,
-                            org.apache.taglibs.standard.tag.rt.core,
-                            javax.el,
-                            javax.servlet,
-                            javax.servlet.http,
                             javax.servlet.jsp,
-                            javax.servlet.jsp.tagext,
-                            javax.servlet.jsp.el,
                             javax.servlet.jsp.jstl.core,
                             javax.servlet.jsp.jstl.fmt,
-                            javax.servlet.jsp.jstl.sql,
                             javax.servlet.jsp.jstl.tlv,
-                            javax.servlet.jsp.resources
+                            org.apache.taglibs.standard.resources;version="1.1.2",
+                            org.apache.taglibs.standard.tag.common.core;version="1.1.2",
+                            org.apache.taglibs.standard.tag.rt.core;version="1.1.2",
+                            org.apache.taglibs.standard.tei;version="1.1.2",
+                            org.apache.taglibs.standard.tlv;version="1.1.2",
                             *
                         </Import-Package>
+                        <Require-Capability>
+                            org.ops4j.pax.cdi.extension,
+                            osgi.extender;
+                            filter:="(osgi.extender=pax.cdi)"
+                        </Require-Capability>
                     </instructions>
                 </configuration>
             </plugin>

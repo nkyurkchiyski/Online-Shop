@@ -3,11 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="4cbb79ee-659e-485d-8ade-5a9f79fb3b16" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-web/src/main/java/com/example/shop/web/helper/ShopServletContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-web/src/main/java/com/example/shop/web/servlet/AuthenticationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/java/com/example/shop/web/servlet/AuthenticationServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop-web/src/main/java/com/example/shop/web/servlet/IndexServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/java/com/example/shop/web/servlet/IndexServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/templates/head.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/templates/head.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/WEB-INF/jetty-web.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/shop-web/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-web/target/classes/com/example/shop/web/helper/ShopServletContext.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-web/target/classes/com/example/shop/web/servlet/AuthenticationServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/target/classes/com/example/shop/web/servlet/AuthenticationServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-web/target/classes/com/example/shop/web/servlet/IndexServlet$HttpServletRequestFilter.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/shop-web/target/classes/com/example/shop/web/servlet/IndexServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/target/classes/com/example/shop/web/servlet/IndexServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-web/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/shop-web/target/shop-web-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/target/shop-web-0.0.1-SNAPSHOT.jar" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,6 +23,20 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -50,6 +72,9 @@
       <workItem from="1572973195524" duration="1196000" />
       <workItem from="1572982819408" duration="65000" />
       <workItem from="1572983072465" duration="948000" />
+      <workItem from="1573135275723" duration="1452000" />
+      <workItem from="1573139269878" duration="1104000" />
+      <workItem from="1573141958696" duration="225000" />
     </task>
     <servers />
   </component>

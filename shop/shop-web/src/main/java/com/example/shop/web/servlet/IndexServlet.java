@@ -9,62 +9,36 @@ package com.example.shop.web.servlet;
 
 
 import java.io.IOException;
-import com.example.shop.base.service.CategoryService;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Reference;
-import org.osgi.service.component.annotations.ServiceScope;
 
+import com.example.shop.base.service.CategoryService;
+import org.ops4j.pax.cdi.api.OsgiService;
+
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
-import javax.servlet.Servlet;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 
 
-@Component(service = Servlet.class, scope = ServiceScope.PROTOTYPE, //
-                property = {"osgi.http.whiteboard.context.select=(osgi.http.whiteboard.context.name=online-shop)", //
-                            "osgi.http.whiteboard.servlet.pattern=/home"})
-public class IndexServlet extends HttpServlet
-{
+@WebServlet("/home")
+public class IndexServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    @Reference
-    CategoryService categoryService;
+    @Inject
+    @OsgiService
+    private CategoryService categoryService;
 
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-    {
-        RequestDispatcher rd = super.getServletContext().getNamedDispatcher("jsp");
-        rd.forward(new HttpServletRequestFilter(request, "/jsp/home.jsp"), response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher disp = getServletContext().getRequestDispatcher("/jsp/home.jsp");
+        disp.forward(request, response);
     }
 
-    private static class HttpServletRequestFilter extends HttpServletRequestWrapper
-    {
-
-        private String pathInfo;
-
-
-        public HttpServletRequestFilter(HttpServletRequest request, String pathInfo)
-        {
-            super(request);
-            this.pathInfo = pathInfo;
-        }
-
-
-        public String getServletPath()
-        {
-            return "/online-shop";
-        }
-
-
-        public String getPathInfo()
-        {
-            return pathInfo;
-        }
-
+    public void setCategoryService(CategoryService categoryService) {
+        this.categoryService = categoryService;
     }
 
 }
