@@ -11,6 +11,9 @@
     <bean id="roleDao" class="com.example.shop.base.dao.impl.RoleDaoImpl" />
     <bean id="categoryDao" class="com.example.shop.base.dao.impl.CategoryDaoImpl" />
     <bean id="productDao" class="com.example.shop.base.dao.impl.ProductDaoImpl" />
+    <bean id="userDao" class="com.example.shop.base.dao.impl.UserDaoImpl" />
+    <bean id="addressDao" class="com.example.shop.base.dao.impl.AddressDaoImpl" />
+    <bean id="orderDao" class="com.example.shop.base.dao.impl.OrderDaoImpl" />
 
     <!-- Rigister role service -->
     <service ref="roleService" interface="com.example.shop.base.service.RoleService" />
@@ -33,6 +36,27 @@
         class="com.example.shop.base.service.impl.ProductServiceImpl">
         <property name="productDao" ref="productDao" />
     </bean>
+
+    <!-- Rigister address service -->
+    <service ref="addressService" interface="com.example.shop.base.service.AddressService" />
+    <bean id="addressService"
+        class="com.example.shop.base.service.impl.AddressServiceImpl">
+        <property name="addressDao" ref="addressDao" />
+    </bean>
+
+    <!-- Rigister order service -->
+    <service ref="orderService" interface="com.example.shop.base.service.OrderService" />
+    <bean id="orderService" class="com.example.shop.base.service.impl.OrderServiceImpl">
+        <property name="orderDao" ref="orderDao" />
+    </bean>
+
+    <!-- Rigister user service -->
+    <service ref="userService" interface="com.example.shop.base.service.UserService" />
+    <bean id="userService" class="com.example.shop.base.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao" />
+    </bean>
+
+
 
 
     <!--TODO Rigister all other services service -->

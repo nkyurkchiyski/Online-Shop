@@ -1,12 +1,15 @@
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\model\User.java
+C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dao\AddressDao.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\model\OrderStatus.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\service\impl\RoleServiceImpl.java
+C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dao\impl\AddressDaoImpl.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dao\impl\UserDaoImpl.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\service\EncryptionService.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dao\OrderDao.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\model\key\ProductOrderId.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\model\Product.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\service\OrderService.java
+C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\service\AddressService.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\service\GenericService.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dao\CategoryDao.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dao\UserDao.java
@@ -21,7 +24,9 @@ C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\service\impl\CategoryServiceImpl.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\model\Role.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\service\AuthenticationService.java
+C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\service\impl\AddressServiceImpl.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\service\impl\OrderServiceImpl.java
+C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\model\Address.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dao\impl\ProductDaoImpl.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dao\GenericDao.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\service\impl\ProductServiceImpl.java

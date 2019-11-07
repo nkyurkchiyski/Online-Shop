@@ -15,7 +15,7 @@ import javax.jws.WebService;
 
 
 @WebService
-public interface OrderService extends GenericService<Order, Long>
+public interface OrderService extends GenericService<Order, Integer>
 {
     void setOrderDao(OrderDao orderDao);
 }

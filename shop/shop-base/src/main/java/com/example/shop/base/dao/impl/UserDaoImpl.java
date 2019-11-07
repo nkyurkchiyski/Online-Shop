@@ -20,7 +20,9 @@ public class UserDaoImpl implements UserDao
     public User findByUserName(String userName)
     {
         this.entityManager.getTransaction().begin();
-        User user = this.entityManager.createQuery("SELECT u FROM t_Users u WHERE u.cUserName = :userName", User.class).setParameter("userName", userName).getSingleResult();
+        final User user = this.entityManager.createQuery("SELECT u FROM t_Users u WHERE u.cUserName = :userName", User.class)//
+                                            .setParameter("userName", userName)
+                                            .getSingleResult();
         this.entityManager.getTransaction().commit();
         return user;
     }
@@ -30,7 +32,9 @@ public class UserDaoImpl implements UserDao
     public User findByEmail(String email)
     {
         this.entityManager.getTransaction().begin();
-        User user = this.entityManager.createQuery("SELECT u FROM t_Users u WHERE u.cUserEmail = :email", User.class).setParameter("email", email).getSingleResult();
+        final User user = this.entityManager.createQuery("SELECT u FROM t_Users u WHERE u.cUserEmail = :email", User.class)//
+                                            .setParameter("email", email)
+                                            .getSingleResult();
         this.entityManager.getTransaction().commit();
         return user;
     }
@@ -59,6 +63,7 @@ public class UserDaoImpl implements UserDao
     public void delete(User entity)
     {
         this.entityManager.getTransaction().begin();
+        //Change to setActive(false)
         this.entityManager.remove(entity);
         this.entityManager.getTransaction().commit();
     }
@@ -68,27 +73,28 @@ public class UserDaoImpl implements UserDao
     public List<User> findAll()
     {
         this.entityManager.getTransaction().begin();
-        List<User> users = this.entityManager.createQuery("SELECT u FROM t_Users u", User.class).getResultList();
+        final List<User> users = this.entityManager.createQuery("SELECT u FROM t_Users u", User.class)//
+                                                   .getResultList();
         this.entityManager.getTransaction().commit();
         return users;
     }
 
 
     @Override
-    public User findById(Long id)
+    public User findById(Integer id)
     {
         this.entityManager.getTransaction().begin();
-        User user = this.entityManager.find(User.class, id);
+        final User user = this.entityManager.find(User.class, id);
         this.entityManager.getTransaction().commit();
         return user;
     }
 
 
     @Override
-    public long size()
+    public Integer size()
     {
         this.entityManager.getTransaction().begin();
-        Long size = this.entityManager.createQuery("SELECT count(u) FROM User u", Long.class).getSingleResult();
+        final Integer size = this.entityManager.createQuery("SELECT count(u) FROM User u", Integer.class).getSingleResult();
         this.entityManager.getTransaction().commit();
         return size;
     }

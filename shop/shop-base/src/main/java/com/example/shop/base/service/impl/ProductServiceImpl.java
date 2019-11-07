@@ -29,7 +29,7 @@ public class ProductServiceImpl implements ProductService
 
 
     @Override
-    public Product getById(Long id)
+    public Product getById(Integer id)
     {
         final Product product = this.productDao.findById(id);
         return product;

@@ -11,7 +11,7 @@ package com.example.shop.base.dao;
 import com.example.shop.base.model.User;
 
 
-public interface UserDao extends GenericDao<User, Long>
+public interface UserDao extends GenericDao<User, Integer>
 {
     User findByUserName(String userName);
 

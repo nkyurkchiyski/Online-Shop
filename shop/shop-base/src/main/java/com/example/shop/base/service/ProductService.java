@@ -15,7 +15,7 @@ import javax.jws.WebService;
 
 
 @WebService
-public interface ProductService extends GenericService<Product, Long>
+public interface ProductService extends GenericService<Product, Integer>
 {
     Product getByName(String name);
 

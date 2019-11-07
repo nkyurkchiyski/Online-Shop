@@ -48,27 +48,29 @@ public class OrderDaoImpl implements OrderDao
     public List<Order> findAll()
     {
         this.entityManager.getTransaction().begin();
-        List<Order> orders = this.entityManager.createQuery("SELECT o FROM t_Orders o", Order.class).getResultList();
+        final List<Order> orders = this.entityManager.createQuery("SELECT o FROM t_Orders o", Order.class)//
+                                                     .getResultList();
         this.entityManager.getTransaction().commit();
         return orders;
     }
 
 
     @Override
-    public Order findById(Long id)
+    public Order findById(Integer id)
     {
         this.entityManager.getTransaction().begin();
-        Order order = this.entityManager.find(Order.class, id);
+        final Order order = this.entityManager.find(Order.class, id);
         this.entityManager.getTransaction().commit();
         return order;
     }
 
 
     @Override
-    public long size()
+    public Integer size()
     {
         this.entityManager.getTransaction().begin();
-        Long size = this.entityManager.createQuery("SELECT count(o) FROM t_Orders o", Long.class).getSingleResult();
+        final Integer size = this.entityManager.createQuery("SELECT count(o) FROM t_Orders o", Integer.class)//
+                                               .getSingleResult();
         this.entityManager.getTransaction().commit();
         return size;
     }

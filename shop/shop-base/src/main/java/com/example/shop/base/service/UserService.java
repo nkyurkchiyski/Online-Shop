@@ -15,7 +15,7 @@ import javax.jws.WebService;
 
 
 @WebService
-public interface UserService extends GenericService<User, Long>
+public interface UserService extends GenericService<User, Integer>
 {
     User getByUserName(String username);
 

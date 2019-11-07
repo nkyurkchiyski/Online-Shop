@@ -11,6 +11,6 @@ package com.example.shop.base.dao;
 import com.example.shop.base.model.Order;
 
 
-public interface OrderDao extends GenericDao<Order, Long>
+public interface OrderDao extends GenericDao<Order, Integer>
 {
 }

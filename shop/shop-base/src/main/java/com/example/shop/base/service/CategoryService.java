@@ -13,10 +13,12 @@ import com.example.shop.base.model.Category;
 
 import javax.jws.WebService;
 
+
 @WebService
-public interface CategoryService extends GenericService<Category, Long>
+public interface CategoryService extends GenericService<Category, Integer>
 {
     Category getByName(String name);
+
 
     void setCategoryDao(CategoryDao categoryDao);
 }

@@ -46,7 +46,8 @@
                         <_wab>src/main/webapp/</_wab>
                         <Web-ContextPath>/online-shop</Web-ContextPath>
                         <Embed-Dependency>*; scope=runtime; type=!pom</Embed-Dependency>
-                        <Include-Resource> {maven-resources}, {maven-dependencies}
+                        <Include-Resource> {maven-resources},
+                            {maven-dependencies}
                         </Include-Resource>
                         <Export-Package>!*</Export-Package>
                         <Import-Package>
@@ -64,6 +65,12 @@
                             javax.servlet.http,
                             javax.servlet.jsp,
                             javax.servlet.jsp.tagext,
+                            javax.servlet.jsp.el,
+                            javax.servlet.jsp.jstl.core,
+                            javax.servlet.jsp.jstl.fmt,
+                            javax.servlet.jsp.jstl.sql,
+                            javax.servlet.jsp.jstl.tlv,
+                            javax.servlet.jsp.resources
                             *
                         </Import-Package>
                     </instructions>

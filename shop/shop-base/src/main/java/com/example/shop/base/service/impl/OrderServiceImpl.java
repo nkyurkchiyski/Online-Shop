@@ -29,7 +29,7 @@ public class OrderServiceImpl implements OrderService
 
 
     @Override
-    public Order getById(Long id)
+    public Order getById(Integer id)
     {
         final Order order = this.orderDao.findById(id);
         return order;

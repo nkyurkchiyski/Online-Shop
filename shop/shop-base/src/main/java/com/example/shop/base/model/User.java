@@ -20,10 +20,7 @@ public class User
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cUserId")
-    private Long id;
-
-    @Column(name = "cUserName")
-    private String username;
+    private Integer id;
 
     @Column(name = "cUserFirstName")
     private String firstName;
@@ -54,33 +51,25 @@ public class User
     @OneToMany(mappedBy = "user", targetEntity = Order.class)
     private Set<Order> orders;
 
+    @ManyToOne
+    @JoinColumn(name = "cUserAddressId", nullable = true)
+    private Address address;
+
 
     public User()
     {
     }
 
 
-    public Long getId()
+    public Integer getId()
     {
         return id;
     }
 
 
-    public void setId(Long id)
+    public void setId(Integer id)
     {
         this.id = id;
-    }
-
-
-    public String getUsername()
-    {
-        return username;
-    }
-
-
-    public void setUsername(String username)
-    {
-        this.username = username;
     }
 
 

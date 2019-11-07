@@ -29,6 +29,6 @@ public interface GenericDao<E, PK extends Serializable>
     E findById(PK id);
 
 
-    long size();
+    Integer size();
 
 }

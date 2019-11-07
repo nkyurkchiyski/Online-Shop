@@ -15,7 +15,7 @@ import javax.jws.WebService;
 
 
 @WebService
-public interface RoleService extends GenericService<Role, Long>
+public interface RoleService extends GenericService<Role, Integer>
 {
     Role getByName(String name);
 

@@ -20,10 +20,10 @@ public class ProductOrderId implements Serializable
     private static final long serialVersionUID = 1L;
 
     @Column(name = "cProductOrderProductId")
-    private Long productId;
+    private Integer productId;
 
     @Column(name = "cProductOrderOrderId")
-    private Long orderId;
+    private Integer orderId;
 
 
     public ProductOrderId()
@@ -31,25 +31,25 @@ public class ProductOrderId implements Serializable
     }
 
 
-    public Long getProductId()
+    public Integer getProductId()
     {
         return productId;
     }
 
 
-    public Long getOrderId()
+    public Integer getOrderId()
     {
         return orderId;
     }
 
 
-    public void setProductId(Long productId)
+    public void setProductId(Integer productId)
     {
         this.productId = productId;
     }
 
 
-    public void setOrderId(Long orderId)
+    public void setOrderId(Integer orderId)
     {
         this.orderId = orderId;
     }
@@ -69,6 +69,3 @@ public class ProductOrderId implements Serializable
     }
 
 }
-
-
-

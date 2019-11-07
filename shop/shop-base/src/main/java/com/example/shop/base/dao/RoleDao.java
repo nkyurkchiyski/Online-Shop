@@ -11,7 +11,7 @@ package com.example.shop.base.dao;
 import com.example.shop.base.model.Role;
 
 
-public interface RoleDao extends GenericDao<Role, Long>
+public interface RoleDao extends GenericDao<Role, Integer>
 {
     Role findByName(String roleName);
 

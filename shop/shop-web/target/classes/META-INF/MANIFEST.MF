@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1573044836854
+Bnd-LastModified: 1573129056796
 Build-Jdk: 1.8.0_151
 Built-By: n.kyurkchiyski
 Bundle-ClassPath: WEB-INF/classes
@@ -9,13 +9,14 @@ Bundle-SymbolicName: com.example.shop.web
 Bundle-Version: 0.0.1.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
 Embed-Dependency: *; scope=runtime; type=!pom
-Import-Package: com.example.shop.base.service;version="[0.0,1)",com.exam
- ple.shop.base.model;version="[0.0,1)",javax.servlet;version="[3.1,4)",j
- avax.servlet.http;version="[3.1,4)",org.osgi.service.http.context;versi
- on="[1.0,2)",org.ops4j.pax.web.service,org.ops4j.pax.web.jsp,org.apache
- .el,org.apache.jasper.el,org.apache.jasper.runtime,org.apache.jasper.co
- mpiler,org.apache.taglibs.standard.tag.rt.core,javax.el,javax.servlet.j
- sp,javax.servlet.jsp.tagext
+Import-Package: com.example.shop.base.service;version="[0.0,1)",javax.se
+ rvlet;version="[3.1,4)",javax.servlet.http;version="[3.1,4)",com.exampl
+ e.shop.base.model;version="[0.0,1)",org.ops4j.pax.web.service,org.ops4j
+ .pax.web.jsp,org.apache.el,org.apache.jasper.el,org.apache.jasper.runti
+ me,org.apache.jasper.compiler,org.apache.taglibs.standard.tag.rt.core,j
+ avax.el,javax.servlet.jsp,javax.servlet.jsp.tagext,javax.servlet.jsp.el
+ ,javax.servlet.jsp.jstl.core,javax.servlet.jsp.jstl.fmt,javax.servlet.j
+ sp.jstl.sql,javax.servlet.jsp.jstl.tlv
 Provide-Capability: osgi.service;objectClass:List<String>="javax.servlet
  .Servlet",osgi.service;objectClass:List<String>="org.osgi.service.http.
  context.ServletContextHelper"
@@ -24,7 +25,7 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=osgi.compone
  lass=com.example.shop.base.service.CategoryService)";effective:=active,
  osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
 Service-Component: OSGI-INF/com.example.shop.web.helper.ShopServletConte
- xtHelper.xml,OSGI-INF/com.example.shop.web.servlet.AuthenticationServle
- t.xml,OSGI-INF/com.example.shop.web.servlet.IndexServlet.xml
+ xt.xml,OSGI-INF/com.example.shop.web.servlet.AuthenticationServlet.xml,
+ OSGI-INF/com.example.shop.web.servlet.IndexServlet.xml
 Tool: Bnd-3.5.0.201709291849
 Web-ContextPath: /online-shop

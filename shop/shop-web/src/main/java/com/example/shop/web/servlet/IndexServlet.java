@@ -14,10 +14,12 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ServiceScope;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 
 
@@ -32,13 +34,37 @@ public class IndexServlet extends HttpServlet
     CategoryService categoryService;
 
 
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        final String category = this.categoryService.getById(1L).getName();
-        request.setAttribute("model", category);
-        request.getRequestDispatcher("jsp/home.jsp").forward(request, response);
+        RequestDispatcher rd = super.getServletContext().getNamedDispatcher("jsp");
+        rd.forward(new HttpServletRequestFilter(request, "/jsp/home.jsp"), response);
+    }
+
+    private static class HttpServletRequestFilter extends HttpServletRequestWrapper
+    {
+
+        private String pathInfo;
+
+
+        public HttpServletRequestFilter(HttpServletRequest request, String pathInfo)
+        {
+            super(request);
+            this.pathInfo = pathInfo;
+        }
+
+
+        public String getServletPath()
+        {
+            return "/online-shop";
+        }
+
+
+        public String getPathInfo()
+        {
+            return pathInfo;
+        }
+
     }
 
 }

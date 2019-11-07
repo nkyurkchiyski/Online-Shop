@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService
 
 
     @Override
-    public User getById(Long id)
+    public User getById(Integer id)
     {
         final User user = this.userDao.findById(id);
         return user;

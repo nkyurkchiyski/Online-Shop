@@ -24,10 +24,16 @@ public class Product implements Serializable
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cProductId")
-    private Long id;
+    private Integer id;
 
     @Column(name = "cProductName")
     private String name;
+
+    @Column(name = "cProductDescription", columnDefinition = "TEXT")
+    private String description;
+
+    @Column(name = "cProductImageUrl", columnDefinition = "TEXT")
+    private String imageUrl;
 
     @Column(name = "cProductQuantity")
     private Integer quantity;
@@ -52,7 +58,7 @@ public class Product implements Serializable
     }
 
 
-    public Long getId()
+    public Integer getId()
     {
         return id;
     }
@@ -88,7 +94,7 @@ public class Product implements Serializable
     }
 
 
-    public void setId(Long id)
+    public void setId(Integer id)
     {
         this.id = id;
     }
@@ -121,6 +127,30 @@ public class Product implements Serializable
     public void setOrders(Set<ProductOrder> orders)
     {
         this.orders = orders;
+    }
+
+
+    public String getDescription()
+    {
+        return description;
+    }
+
+
+    public void setDescription(String description)
+    {
+        this.description = description;
+    }
+
+
+    public String getImageUrl()
+    {
+        return imageUrl;
+    }
+
+
+    public void setImageUrl(String imageUrl)
+    {
+        this.imageUrl = imageUrl;
     }
 
 }

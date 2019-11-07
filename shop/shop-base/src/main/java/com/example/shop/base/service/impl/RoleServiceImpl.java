@@ -30,7 +30,7 @@ public class RoleServiceImpl implements RoleService
 
 
     @Override
-    public Role getById(Long id)
+    public Role getById(Integer id)
     {
         final Role role = this.roleDao.findById(id);
         return role;

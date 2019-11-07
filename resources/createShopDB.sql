@@ -3,6 +3,15 @@ GO
 USE shopDB;
 GO
 
+CREATE TABLE t_Addresses (
+    cAddressId INT IDENTITY(1,1),
+     cAddressCity VARCHAR(255),
+     cAddressCountry VARCHAR(255),
+     cAddressPostCode VARCHAR(255),
+     cAddressStreet VARCHAR(255),
+     CONSTRAINT PK_Address PRIMARY KEY (cAddressId)
+)
+
 CREATE TABLE t_Roles (
   cRoleId INT IDENTITY(1,1),
   cRoleName VARCHAR(36) NOT NULL UNIQUE,
@@ -85,3 +94,4 @@ GRANT CONTROL ON t_Categories TO traineeUser;
 GRANT CONTROL ON t_Orders TO traineeUser;
 GRANT CONTROL ON t_ProductCategories TO traineeUser;
 GRANT CONTROL ON t_ProductOrders TO traineeUser;
+GRANT CONTROL ON t_Addresses TO traineeUser;

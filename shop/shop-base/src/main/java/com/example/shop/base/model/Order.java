@@ -24,7 +24,7 @@ public class Order implements Serializable
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cOrderId")
-    private Long id;
+    private Integer id;
 
     @Column(name = "cOrderOrderedOn")
     private LocalDate orderedOn;
@@ -49,7 +49,7 @@ public class Order implements Serializable
     }
 
 
-    public Long getId()
+    public Integer getId()
     {
         return id;
     }
@@ -79,7 +79,7 @@ public class Order implements Serializable
     }
 
 
-    public void setId(Long id)
+    public void setId(Integer id)
     {
         this.id = id;
     }
