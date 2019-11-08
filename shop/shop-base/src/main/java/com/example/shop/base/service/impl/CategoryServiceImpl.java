@@ -10,13 +10,19 @@ package com.example.shop.base.service.impl;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import org.ops4j.pax.cdi.api.*;
+
 import com.example.shop.base.dao.CategoryDao;
 import com.example.shop.base.model.Category;
 import com.example.shop.base.service.CategoryService;
 
-
+@Service @Component
+@Immediate
 public class CategoryServiceImpl implements CategoryService
 {
+    @Inject
     private CategoryDao categoryDao;
 
 

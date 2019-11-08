@@ -34,6 +34,7 @@
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
         </dependency>
+
     </dependencies>
     <build>
         <plugins>
@@ -44,7 +45,9 @@
                 <configuration>
                     <instructions>
                         <_wab>src/main/webapp/</_wab>
+                        <_dsannotations>*</_dsannotations>
                         <Web-ContextPath>/online-shop</Web-ContextPath>
+                        <Pax-ManagedBeans>WEB-INF/beans.xml</Pax-ManagedBeans>
                         <Embed-Dependency>*; scope=runtime; type=!pom</Embed-Dependency>
                         <Include-Resource> {maven-resources},
                             {maven-dependencies}
@@ -55,6 +58,7 @@
                             com.example.shop.base.model,
                             org.ops4j.pax.web.service,
                             org.ops4j.pax.web.jsp,
+                            org.ops4j.pax.cdi.api,
                             org.apache.el,
                             org.apache.jasper.el,
                             org.apache.jasper.runtime,
@@ -63,6 +67,7 @@
                             javax.el,
                             javax.servlet,
                             javax.servlet.http,
+                            javax.servlet.annotation,
                             javax.servlet.jsp,
                             javax.servlet.jsp.tagext,
                             javax.servlet.jsp.el,

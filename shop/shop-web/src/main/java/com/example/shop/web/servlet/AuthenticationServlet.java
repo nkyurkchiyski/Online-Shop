@@ -20,16 +20,10 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ServiceScope;
 
 
-@Component(service = Servlet.class, scope = ServiceScope.PROTOTYPE, //
-                property = {"osgi.http.whiteboard.context.select:String=(osgi.http.whiteboard.context.name=online-shop)", //
-                            "osgi.http.whiteboard.servlet.pattern:String=/auth/*"})
 public class AuthenticationServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
 
-
-    // @Reference
-    // CategoryService categoryService;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException

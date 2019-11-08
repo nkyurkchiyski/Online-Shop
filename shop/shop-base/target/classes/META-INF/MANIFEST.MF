@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1573127709371
+Bnd-LastModified: 1573207308925
 Build-Jdk: 1.8.0_151
 Built-By: n.kyurkchiyski
 Bundle-Blueprint: OSGI-INF/blueprint/blueprint.xml
@@ -16,19 +16,20 @@ Export-Package: com.example.shop.base;version="0.0.1",com.example.shop.b
  ce";version="0.0.1",com.example.shop.base.model.key;uses:="javax.persis
  tence";version="0.0.1",com.example.shop.base.service;uses:="com.example
  .shop.base.dao,com.example.shop.base.model,javax.jws";version="0.0.1"
-Export-Service: com.example.shop.base.service.AddressService;osgi.servic
- e.blueprint.compname=addressService,com.example.shop.base.service.Order
- Service;osgi.service.blueprint.compname=orderService,com.example.shop.b
- ase.service.UserService;osgi.service.blueprint.compname=userService,com
- .example.shop.base.service.ProductService;osgi.service.blueprint.compna
- me=productService,com.example.shop.base.service.CategoryService;osgi.se
- rvice.blueprint.compname=categoryService,com.example.shop.base.service.
- RoleService;osgi.service.blueprint.compname=roleService
+Export-Service: com.example.shop.base.service.ProductService;osgi.servic
+ e.blueprint.compname=productService,com.example.shop.base.service.UserS
+ ervice;osgi.service.blueprint.compname=userService,com.example.shop.bas
+ e.service.AddressService;osgi.service.blueprint.compname=addressService
+ ,com.example.shop.base.service.RoleService;osgi.service.blueprint.compn
+ ame=roleService,com.example.shop.base.service.OrderService;osgi.service
+ .blueprint.compname=orderService,com.example.shop.base.service.Category
+ Service;osgi.service.blueprint.compname=categoryService
 Import-Package: com.example.shop.base.dao,com.example.shop.base.model,co
- m.example.shop.base.model.key,com.example.shop.base.service,javax.jws,j
- avax.persistence;version="[2.1,3)",org.osgi.service.blueprint;version="
- [1.0.0,2.0.0)",org.hibernate.proxy;resolution:=optional,javassist.util.
- proxy;resolution:=optional
+ m.example.shop.base.model.key,com.example.shop.base.service,javax.injec
+ t,javax.jws,javax.persistence;version="[2.1,3)",org.ops4j.pax.cdi.api;v
+ ersion="[1.1,2)",org.osgi.service.blueprint;version="[1.0.0,2.0.0)",org
+ .hibernate.proxy;resolution:=optional,javassist.util.proxy;resolution:=
+ optional
 Meta-Persistence: META-INF/persistence.xml
 Provide-Capability: osgi.service;effective:=active;objectClass="javax.pe
  rsistence.EntityManager";osgi.unit.name=online-shop,osgi.service;effect
