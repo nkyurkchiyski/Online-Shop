@@ -57,6 +57,7 @@
             <version>1.0</version>
             <scope>provided</scope>
         </dependency>
+
     </dependencies>
     <build>
         <plugins>
@@ -67,10 +68,29 @@
                 <configuration>
                     <instructions>
                         <_wab>src/main/webapp/</_wab>
-                        <Web-ContextPath>online-shop</Web-ContextPath>
+                        <_dsannotations>*</_dsannotations>
+                        <Web-ContextPath>/online-shop</Web-ContextPath>
                         <Pax-ManagedBeans>WEB-INF/beans.xml</Pax-ManagedBeans>
+                        <Embed-Dependency>*; scope=runtime; type=!pom</Embed-Dependency>
+                        <Include-Resource> {maven-resources},
+                            {maven-dependencies}
+                        </Include-Resource>
                         <Export-Package>!*</Export-Package>
                         <Import-Package>
+                            com.example.shop.base.service,
+                            com.example.shop.base.model,
+                            org.ops4j.pax.web.service,
+                            org.ops4j.pax.web.jsp,
+                            org.ops4j.pax.cdi.api,
+                            org.apache.el,
+                            org.apache.jasper.el,
+                            org.apache.jasper.runtime,
+                            org.apache.jasper.compiler,
+                            org.apache.taglibs.standard.tag.rt.core,
+                            javax.el,
+                            javax.servlet,
+                            javax.servlet.http,
+                            javax.servlet.annotation,
                             javax.servlet.jsp,
                             javax.servlet.jsp.jstl.core,
                             javax.servlet.jsp.jstl.fmt,

@@ -1,13 +1,20 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Bnd-LastModified: 1573142110751
 Build-Jdk: 1.8.0_181
 Built-By: Nikolay Kyurkchiyski
+=======
+Bnd-LastModified: 1573207392732
+Build-Jdk: 1.8.0_151
+Built-By: n.kyurkchiyski
+>>>>>>> origin/cdi-attempt
 Bundle-ClassPath: WEB-INF/classes
 Bundle-ManifestVersion: 2
 Bundle-Name: shop-web
 Bundle-SymbolicName: com.example.shop.web
 Bundle-Version: 0.0.1.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
+<<<<<<< HEAD
 Import-Package: com.example.shop.base.service;version="[0.0,1)",javax.in
  ject;version="[1.0,2)",javax.servlet;version="[2.6,3)",javax.servlet.an
  notation;version="[2.6,3)",javax.servlet.http;version="[2.6,3)",org.ops
@@ -21,5 +28,19 @@ Pax-ManagedBeans: WEB-INF/beans.xml
 Require-Capability: org.ops4j.pax.cdi.extension,osgi.extender;filter:="(
  osgi.extender=pax.cdi)",osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8
  ))"
+=======
+Embed-Dependency: *; scope=runtime; type=!pom
+Import-Package: com.example.shop.base.service;version="[0.0,1)",com.exam
+ ple.shop.base.model;version="[0.0,1)",org.ops4j.pax.cdi.api;version="[1
+ .1,2)",javax.servlet;version="[3.1,4)",javax.servlet.http;version="[3.1
+ ,4)",javax.servlet.annotation;version="[3.1,4)",org.ops4j.pax.web.servi
+ ce,org.ops4j.pax.web.jsp,org.apache.el,org.apache.jasper.el,org.apache.
+ jasper.runtime,org.apache.jasper.compiler,org.apache.taglibs.standard.t
+ ag.rt.core,javax.el,javax.servlet.jsp,javax.servlet.jsp.tagext,javax.se
+ rvlet.jsp.el,javax.servlet.jsp.jstl.core,javax.servlet.jsp.jstl.fmt,jav
+ ax.servlet.jsp.jstl.sql,javax.servlet.jsp.jstl.tlv
+Pax-ManagedBeans: WEB-INF/beans.xml
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+>>>>>>> origin/cdi-attempt
 Tool: Bnd-3.5.0.201709291849
 Web-ContextPath: online-shop

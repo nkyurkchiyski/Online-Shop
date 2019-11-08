@@ -9,9 +9,8 @@ package com.example.shop.web.servlet;
 
 
 import java.io.IOException;
-
+import com.example.shop.base.model.Category;
 import com.example.shop.base.service.CategoryService;
-import org.ops4j.pax.cdi.api.OsgiService;
 
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
@@ -21,24 +20,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.ops4j.pax.cdi.api.Component;
+import org.ops4j.pax.cdi.api.Dynamic;
+import org.ops4j.pax.cdi.api.Immediate;
+import org.ops4j.pax.cdi.api.Service;
+
 
 @WebServlet("/home")
-public class IndexServlet extends HttpServlet {
+@Component @Immediate
+public class IndexServlet extends HttpServlet
+{
     private static final long serialVersionUID = 1L;
 
     @Inject
-    @OsgiService
-    private CategoryService categoryService;
+    @Service @Dynamic
+    CategoryService categoryService;
 
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher disp = getServletContext().getRequestDispatcher("/jsp/home.jsp");
-        disp.forward(request, response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+        final Category category = this.categoryService.getById(1);
+        request.setAttribute("model", "test");
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/home.jsp");
+        rd.forward(request, response);
     }
-
-    public void setCategoryService(CategoryService categoryService) {
-        this.categoryService = categoryService;
-    }
-
 }

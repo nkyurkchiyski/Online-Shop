@@ -11,10 +11,7 @@ package com.example.shop.base.service;
 import com.example.shop.base.dao.CategoryDao;
 import com.example.shop.base.model.Category;
 
-import javax.jws.WebService;
 
-
-@WebService
 public interface CategoryService extends GenericService<Category, Integer>
 {
     Category getByName(String name);

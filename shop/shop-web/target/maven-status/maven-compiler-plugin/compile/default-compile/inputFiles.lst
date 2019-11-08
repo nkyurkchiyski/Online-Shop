@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 D:\Users\nkyur\Documents\Repos\Online-Shop\shop\shop-web\src\main\java\com\example\shop\web\servlet\AuthenticationServlet.java
 D:\Users\nkyur\Documents\Repos\Online-Shop\shop\shop-web\src\main\java\com\example\shop\web\servlet\IndexServlet.java
+=======
+C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-web\src\main\java\com\example\shop\web\servlet\IndexServlet.java
+C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-web\src\main\java\com\example\shop\web\servlet\AuthenticationServlet.java
+>>>>>>> origin/cdi-attempt
