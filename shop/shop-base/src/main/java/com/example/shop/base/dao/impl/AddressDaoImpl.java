@@ -12,21 +12,22 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import com.example.shop.base.dao.AddressDao;
 import com.example.shop.base.model.Address;
+import org.apache.aries.blueprint.annotation.bean.Bean;
 
-
-public class AddressDaoImpl implements AddressDao
-{
+@Transactional
+@Bean(id = "addressDao")
+public class AddressDaoImpl implements AddressDao {
 
     @PersistenceContext(unitName = "online-shop")
     EntityManager entityManager;
 
 
     @Override
-    public Address save(Address entity)
-    {
+    public Address save(Address entity) {
         this.entityManager.getTransaction().begin();
         this.entityManager.persist(entity);
         this.entityManager.getTransaction().commit();
@@ -35,8 +36,7 @@ public class AddressDaoImpl implements AddressDao
 
 
     @Override
-    public void update(Address entity)
-    {
+    public void update(Address entity) {
         this.entityManager.getTransaction().begin();
         this.entityManager.merge(entity);
         this.entityManager.getTransaction().commit();
@@ -44,8 +44,7 @@ public class AddressDaoImpl implements AddressDao
 
 
     @Override
-    public void delete(Address entity)
-    {
+    public void delete(Address entity) {
         this.entityManager.getTransaction().begin();
         this.entityManager.remove(entity);
         this.entityManager.getTransaction().commit();
@@ -53,19 +52,17 @@ public class AddressDaoImpl implements AddressDao
 
 
     @Override
-    public List<Address> findAll()
-    {
+    public List<Address> findAll() {
         this.entityManager.getTransaction().begin();
         final List<Address> addresses = this.entityManager.createQuery("SELECT a FROM Address a", Address.class)//
-                                                          .getResultList();
+                .getResultList();
         this.entityManager.getTransaction().commit();
         return addresses;
     }
 
 
     @Override
-    public Address findById(Integer id)
-    {
+    public Address findById(Integer id) {
         this.entityManager.getTransaction().begin();
         final Address address = this.entityManager.find(Address.class, id);
         this.entityManager.getTransaction().commit();
@@ -74,11 +71,10 @@ public class AddressDaoImpl implements AddressDao
 
 
     @Override
-    public Integer size()
-    {
+    public Integer size() {
         this.entityManager.getTransaction().begin();
         final Integer size = this.entityManager.createQuery("SELECT count(a) FROM Address a", Integer.class)//
-                                               .getSingleResult();
+                .getSingleResult();
         this.entityManager.getTransaction().commit();
         return size;
     }

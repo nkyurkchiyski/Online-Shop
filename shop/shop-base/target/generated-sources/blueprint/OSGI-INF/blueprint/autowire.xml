@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+    <bean id="addressDao" class="com.example.shop.base.dao.impl.AddressDaoImpl"/>
+    <bean xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0" id="addressService" class="com.example.shop.base.service.impl.AddressServiceImpl" ext:field-injection="true">
+        <property name="addressDao" ref="addressDao"/>
+    </bean>
+    <bean id="categoryDao" class="com.example.shop.base.dao.impl.CategoryDaoImpl"/>
+    <bean xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0" id="categoryService" class="com.example.shop.base.service.impl.CategoryServiceImpl" ext:field-injection="true">
+        <property name="categoryDao" ref="categoryDao"/>
+    </bean>
+    <bean id="orderDao" class="com.example.shop.base.dao.impl.OrderDaoImpl"/>
+    <bean xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0" id="orderService" class="com.example.shop.base.service.impl.OrderServiceImpl" ext:field-injection="true">
+        <property name="orderDao" ref="orderDao"/>
+    </bean>
+    <bean id="productDao" class="com.example.shop.base.dao.impl.ProductDaoImpl"/>
+    <bean xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0" id="productService" class="com.example.shop.base.service.impl.ProductServiceImpl" ext:field-injection="true">
+        <property name="productDao" ref="productDao"/>
+    </bean>
+    <bean id="roleDao" class="com.example.shop.base.dao.impl.RoleDaoImpl"/>
+    <bean xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0" id="roleService" class="com.example.shop.base.service.impl.RoleServiceImpl" ext:field-injection="true">
+        <property name="roleDao" ref="roleDao"/>
+    </bean>
+    <bean id="userDao" class="com.example.shop.base.dao.impl.UserDaoImpl"/>
+    <bean xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0" id="userService" class="com.example.shop.base.service.impl.UserServiceImpl" ext:field-injection="true">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+    <enable xmlns="http://aries.apache.org/xmlns/jpa/v2.0.0"/>
+    <service ref="addressService" interface="com.example.shop.base.service.AddressService"/>
+    <service ref="categoryService" interface="com.example.shop.base.service.CategoryService"/>
+    <service ref="orderService" interface="com.example.shop.base.service.OrderService"/>
+    <service ref="productService" interface="com.example.shop.base.service.ProductService"/>
+    <service ref="roleService" interface="com.example.shop.base.service.RoleService"/>
+    <service ref="userService" interface="com.example.shop.base.service.UserService"/>
+    <enable xmlns="http://aries.apache.org/xmlns/transactions/v2.0.0"/>
+</blueprint>

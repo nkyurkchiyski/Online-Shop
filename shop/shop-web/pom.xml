@@ -15,6 +15,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <scanPath>com.example.shop.web</scanPath>
     </properties>
     <packaging>bundle</packaging>
 
@@ -25,42 +26,33 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.ops4j.pax.cdi</groupId>
-            <artifactId>pax-cdi-api</artifactId>
-            <version>0.8.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.geronimo.specs</groupId>
-            <artifactId>geronimo-jcdi_1.0_spec</artifactId>
-            <version>1.0</version>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.geronimo.specs</groupId>
-            <artifactId>geronimo-atinject_1.0_spec</artifactId>
-            <version>1.0</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.geronimo.specs</groupId>
-            <artifactId>geronimo-annotation_1.1_spec</artifactId>
-            <version>1.0.1</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.geronimo.specs</groupId>
-            <artifactId>geronimo-servlet_3.0_spec</artifactId>
-            <version>1.0</version>
-            <scope>provided</scope>
-        </dependency>
 
     </dependencies>
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.aries.blueprint</groupId>
+                <artifactId>blueprint-maven-plugin</artifactId>
+                <configuration>
+                    <scanPaths>
+                        <scanPath>com.example.shop.web</scanPath>
+                    </scanPaths>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>add-resource-dir</goal>
+                            <goal>blueprint-generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
@@ -77,11 +69,8 @@
                         </Include-Resource>
                         <Export-Package>!*</Export-Package>
                         <Import-Package>
-                            com.example.shop.base.service,
-                            com.example.shop.base.model,
-                            org.ops4j.pax.web.service,
-                            org.ops4j.pax.web.jsp,
-                            org.ops4j.pax.cdi.api,
+                            org.osgi.framework;version="[1.0.0,2.0.0)",
+                            org.osgi.service.http;version="[1.0.0,2.0.0)",
                             org.apache.el,
                             org.apache.jasper.el,
                             org.apache.jasper.runtime,
@@ -90,23 +79,14 @@
                             javax.el,
                             javax.servlet,
                             javax.servlet.http,
-                            javax.servlet.annotation,
                             javax.servlet.jsp,
-                            javax.servlet.jsp.jstl.core,
-                            javax.servlet.jsp.jstl.fmt,
-                            javax.servlet.jsp.jstl.tlv,
-                            org.apache.taglibs.standard.resources;version="1.1.2",
-                            org.apache.taglibs.standard.tag.common.core;version="1.1.2",
-                            org.apache.taglibs.standard.tag.rt.core;version="1.1.2",
-                            org.apache.taglibs.standard.tei;version="1.1.2",
-                            org.apache.taglibs.standard.tlv;version="1.1.2",
+                            javax.servlet.jsp.tagext,
                             *
                         </Import-Package>
-                        <Require-Capability>
-                            org.ops4j.pax.cdi.extension,
-                            osgi.extender;
-                            filter:="(osgi.extender=pax.cdi)"
-                        </Require-Capability>
+                        <DynamicImport-Package>
+                            org.ops4j.pax.cdi.*,
+                            org.ops4j.pax.web.*
+                        </DynamicImport-Package>
                     </instructions>
                 </configuration>
             </plugin>

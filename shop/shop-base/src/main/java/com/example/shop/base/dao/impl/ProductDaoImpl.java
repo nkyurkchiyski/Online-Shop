@@ -3,34 +3,34 @@ package com.example.shop.base.dao.impl;
 
 import com.example.shop.base.dao.ProductDao;
 import com.example.shop.base.model.Product;
+import org.apache.aries.blueprint.annotation.bean.Bean;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import java.util.List;
 
-
-public class ProductDaoImpl implements ProductDao
-{
+@Transactional
+@Bean(id = "productDao")
+public class ProductDaoImpl implements ProductDao {
     @PersistenceContext(unitName = "online-shop")
     EntityManager entityManager;
 
 
     @Override
-    public Product findByName(String productName)
-    {
+    public Product findByName(String productName) {
         this.entityManager.getTransaction().begin();
         final Product product = this.entityManager.createQuery("SELECT p FROM Product p WHERE name = :name", Product.class)//
-                                                  .setParameter("name", productName)
-                                                  .getSingleResult();
+                .setParameter("name", productName)
+                .getSingleResult();
         this.entityManager.getTransaction().commit();
         return product;
     }
 
 
     @Override
-    public Product save(Product entity)
-    {
+    public Product save(Product entity) {
         this.entityManager.getTransaction().begin();
         this.entityManager.persist(entity);
         this.entityManager.getTransaction().commit();
@@ -39,8 +39,7 @@ public class ProductDaoImpl implements ProductDao
 
 
     @Override
-    public void update(Product entity)
-    {
+    public void update(Product entity) {
         this.entityManager.getTransaction().begin();
         this.entityManager.merge(entity);
         this.entityManager.getTransaction().commit();
@@ -48,8 +47,7 @@ public class ProductDaoImpl implements ProductDao
 
 
     @Override
-    public void delete(Product entity)
-    {
+    public void delete(Product entity) {
         this.entityManager.getTransaction().begin();
         //Change to setAvailable(false)
         this.entityManager.remove(entity);
@@ -58,19 +56,17 @@ public class ProductDaoImpl implements ProductDao
 
 
     @Override
-    public List<Product> findAll()
-    {
+    public List<Product> findAll() {
         this.entityManager.getTransaction().begin();
         final List<Product> products = this.entityManager.createQuery("SELECT p FROM Product p JOIN FETCH p.categories", Product.class)//
-                                                         .getResultList();
+                .getResultList();
         this.entityManager.getTransaction().commit();
         return products;
     }
 
 
     @Override
-    public Product findById(Integer id)
-    {
+    public Product findById(Integer id) {
         this.entityManager.getTransaction().begin();
         final Product product = this.entityManager.find(Product.class, id);
         this.entityManager.getTransaction().commit();
@@ -79,11 +75,10 @@ public class ProductDaoImpl implements ProductDao
 
 
     @Override
-    public Integer size()
-    {
+    public Integer size() {
         this.entityManager.getTransaction().begin();
         final Integer size = this.entityManager.createQuery("SELECT count(p) FROM Product p", Integer.class)//
-                                               .getSingleResult();
+                .getSingleResult();
         this.entityManager.getTransaction().commit();
         return size;
     }

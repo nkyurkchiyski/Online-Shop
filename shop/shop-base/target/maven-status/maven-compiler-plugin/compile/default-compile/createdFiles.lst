@@ -7,7 +7,6 @@ com\example\shop\base\service\GenericService.class
 com\example\shop\base\dao\RoleDao.class
 com\example\shop\base\service\AddressService.class
 com\example\shop\base\service\CategoryService.class
-com\example\shop\base\App.class
 com\example\shop\base\model\Category.class
 com\example\shop\base\model\Product.class
 com\example\shop\base\model\Address.class

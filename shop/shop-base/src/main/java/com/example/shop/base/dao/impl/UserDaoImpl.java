@@ -3,46 +3,45 @@ package com.example.shop.base.dao.impl;
 
 import com.example.shop.base.dao.UserDao;
 import com.example.shop.base.model.User;
+import org.apache.aries.blueprint.annotation.bean.Bean;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import java.util.List;
 
-
-public class UserDaoImpl implements UserDao
-{
+@Transactional
+@Bean(id = "userDao")
+public class UserDaoImpl implements UserDao {
     @PersistenceContext(unitName = "online-shop")
     EntityManager entityManager;
 
 
     @Override
-    public User findByUserName(String userName)
-    {
+    public User findByUserName(String userName) {
         this.entityManager.getTransaction().begin();
         final User user = this.entityManager.createQuery("SELECT u FROM t_Users u WHERE u.cUserName = :userName", User.class)//
-                                            .setParameter("userName", userName)
-                                            .getSingleResult();
+                .setParameter("userName", userName)
+                .getSingleResult();
         this.entityManager.getTransaction().commit();
         return user;
     }
 
 
     @Override
-    public User findByEmail(String email)
-    {
+    public User findByEmail(String email) {
         this.entityManager.getTransaction().begin();
         final User user = this.entityManager.createQuery("SELECT u FROM t_Users u WHERE u.cUserEmail = :email", User.class)//
-                                            .setParameter("email", email)
-                                            .getSingleResult();
+                .setParameter("email", email)
+                .getSingleResult();
         this.entityManager.getTransaction().commit();
         return user;
     }
 
 
     @Override
-    public User save(User entity)
-    {
+    public User save(User entity) {
         this.entityManager.getTransaction().begin();
         this.entityManager.persist(entity);
         this.entityManager.getTransaction().commit();
@@ -51,8 +50,7 @@ public class UserDaoImpl implements UserDao
 
 
     @Override
-    public void update(User entity)
-    {
+    public void update(User entity) {
         this.entityManager.getTransaction().begin();
         this.entityManager.merge(entity);
         this.entityManager.getTransaction().commit();
@@ -60,8 +58,7 @@ public class UserDaoImpl implements UserDao
 
 
     @Override
-    public void delete(User entity)
-    {
+    public void delete(User entity) {
         this.entityManager.getTransaction().begin();
         //Change to setActive(false)
         this.entityManager.remove(entity);
@@ -70,19 +67,17 @@ public class UserDaoImpl implements UserDao
 
 
     @Override
-    public List<User> findAll()
-    {
+    public List<User> findAll() {
         this.entityManager.getTransaction().begin();
         final List<User> users = this.entityManager.createQuery("SELECT u FROM t_Users u", User.class)//
-                                                   .getResultList();
+                .getResultList();
         this.entityManager.getTransaction().commit();
         return users;
     }
 
 
     @Override
-    public User findById(Integer id)
-    {
+    public User findById(Integer id) {
         this.entityManager.getTransaction().begin();
         final User user = this.entityManager.find(User.class, id);
         this.entityManager.getTransaction().commit();
@@ -91,8 +86,7 @@ public class UserDaoImpl implements UserDao
 
 
     @Override
-    public Integer size()
-    {
+    public Integer size() {
         this.entityManager.getTransaction().begin();
         final Integer size = this.entityManager.createQuery("SELECT count(u) FROM User u", Integer.class).getSingleResult();
         this.entityManager.getTransaction().commit();

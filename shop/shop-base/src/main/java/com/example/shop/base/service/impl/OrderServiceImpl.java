@@ -13,54 +13,54 @@ import java.util.List;
 import com.example.shop.base.dao.OrderDao;
 import com.example.shop.base.model.Order;
 import com.example.shop.base.service.OrderService;
+import org.apache.aries.blueprint.annotation.bean.Bean;
+import org.apache.aries.blueprint.annotation.service.Service;
+
+import javax.inject.Inject;
 
 
-public class OrderServiceImpl implements OrderService
-{
+@Service(classes = OrderService.class)
+@Bean(id = "orderService")
+public class OrderServiceImpl implements OrderService {
+    @Inject
     private OrderDao orderDao;
 
 
     @Override
-    public Order create(Order entity)
-    {
+    public Order create(Order entity) {
         final Order order = this.orderDao.save(entity);
         return order;
     }
 
 
     @Override
-    public Order getById(Integer id)
-    {
+    public Order getById(Integer id) {
         final Order order = this.orderDao.findById(id);
         return order;
     }
 
 
     @Override
-    public List<Order> getAll()
-    {
+    public List<Order> getAll() {
         final List<Order> orders = this.orderDao.findAll();
         return orders;
     }
 
 
     @Override
-    public void update(Order entity)
-    {
+    public void update(Order entity) {
         this.orderDao.update(entity);
     }
 
 
     @Override
-    public void remove(Order entity)
-    {
+    public void remove(Order entity) {
         this.orderDao.delete(entity);
     }
 
 
     @Override
-    public void setOrderDao(OrderDao orderDao)
-    {
+    public void setOrderDao(OrderDao orderDao) {
         this.orderDao = orderDao;
     }
 

@@ -3,35 +3,35 @@ package com.example.shop.base.dao.impl;
 
 import com.example.shop.base.dao.CategoryDao;
 import com.example.shop.base.model.Category;
+import org.apache.aries.blueprint.annotation.bean.Bean;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import java.util.List;
 
-
-public class CategoryDaoImpl implements CategoryDao
-{
+@Transactional
+@Bean(id = "categoryDao")
+public class CategoryDaoImpl implements CategoryDao {
 
     @PersistenceContext(unitName = "online-shop")
     EntityManager entityManager;
 
 
     @Override
-    public Category findByName(String categoryName)
-    {
+    public Category findByName(String categoryName) {
         this.entityManager.getTransaction().begin();
         final Category category = this.entityManager.createQuery("SELECT c FROM Category c WHERE c.name = :name", Category.class)//
-                                                    .setParameter("name", categoryName)
-                                                    .getSingleResult();
+                .setParameter("name", categoryName)
+                .getSingleResult();
         this.entityManager.getTransaction().commit();
         return category;
     }
 
 
     @Override
-    public Category save(Category entity)
-    {
+    public Category save(Category entity) {
         this.entityManager.getTransaction().begin();
         this.entityManager.persist(entity);
         this.entityManager.getTransaction().commit();
@@ -40,8 +40,7 @@ public class CategoryDaoImpl implements CategoryDao
 
 
     @Override
-    public void update(Category entity)
-    {
+    public void update(Category entity) {
         this.entityManager.getTransaction().begin();
         this.entityManager.merge(entity);
         this.entityManager.getTransaction().commit();
@@ -49,8 +48,7 @@ public class CategoryDaoImpl implements CategoryDao
 
 
     @Override
-    public void delete(Category entity)
-    {
+    public void delete(Category entity) {
         this.entityManager.getTransaction().begin();
         this.entityManager.remove(entity);
         this.entityManager.getTransaction().commit();
@@ -58,19 +56,17 @@ public class CategoryDaoImpl implements CategoryDao
 
 
     @Override
-    public List<Category> findAll()
-    {
+    public List<Category> findAll() {
         this.entityManager.getTransaction().begin();
         final List<Category> categories = this.entityManager.createQuery("SELECT c FROM Category c", Category.class)//
-                                                            .getResultList();
+                .getResultList();
         this.entityManager.getTransaction().commit();
         return categories;
     }
 
 
     @Override
-    public Category findById(Integer id)
-    {
+    public Category findById(Integer id) {
         this.entityManager.getTransaction().begin();
         final Category category = this.entityManager.find(Category.class, id);
         this.entityManager.getTransaction().commit();
@@ -79,11 +75,10 @@ public class CategoryDaoImpl implements CategoryDao
 
 
     @Override
-    public Integer size()
-    {
+    public Integer size() {
         this.entityManager.getTransaction().begin();
         final Integer size = this.entityManager.createQuery("SELECT count(c) FROM Category c", Integer.class)//
-                                               .getSingleResult();
+                .getSingleResult();
         this.entityManager.getTransaction().commit();
         return size;
     }

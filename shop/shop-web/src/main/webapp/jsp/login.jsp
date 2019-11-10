@@ -16,22 +16,22 @@
 						<h4 class="m-0">Login</h4>
 					</div>
 					<div class="card-body">
-						<form name="authenticate" class="form-horizontal"
+						<form class="form-horizontal"
 							action="/online-shop/auth/login" method="post">
 							<div class="form-group row">
-								<label for="email_address"
+								<label for="email"
 									class="col-md-4 col-form-label text-md-right">E-Mail</label>
 								<div class="col-md-6">
-									<input type="text" id="user_email" placeholder="Username/Email"
-										class="form-control" name="_username" required>
+									<input type="text" id="email" name="email" placeholder="Email"
+										class="form-control" required>
 								</div>
 							</div>
 							<div class="form-group row">
 								<label class="col-md-4 col-form-label text-md-right"
-									for="user_password_first">Password</label>
+									for="password">Password</label>
 								<div class="col-md-6">
 									<input type="password" class="form-control" id="password"
-										placeholder="Password" name="password" required>
+										   name="password" placeholder="Password" required>
 								</div>
 							</div>
 							<div class="row d-flex justify-content-around">

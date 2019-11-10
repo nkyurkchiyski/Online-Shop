@@ -12,21 +12,22 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 import com.example.shop.base.dao.RoleDao;
 import com.example.shop.base.model.Role;
+import org.apache.aries.blueprint.annotation.bean.Bean;
 
-
-public class RoleDaoImpl implements RoleDao
-{
+@Transactional
+@Bean(id = "roleDao")
+public class RoleDaoImpl implements RoleDao {
 
     @PersistenceContext(unitName = "online-shop")
     EntityManager entityManager;
 
 
     @Override
-    public Role save(Role entity)
-    {
+    public Role save(Role entity) {
         this.entityManager.getTransaction().begin();
         this.entityManager.persist(entity);
         this.entityManager.getTransaction().commit();
@@ -35,8 +36,7 @@ public class RoleDaoImpl implements RoleDao
 
 
     @Override
-    public void update(Role entity)
-    {
+    public void update(Role entity) {
         this.entityManager.getTransaction().begin();
         this.entityManager.merge(entity);
         this.entityManager.getTransaction().commit();
@@ -44,8 +44,7 @@ public class RoleDaoImpl implements RoleDao
 
 
     @Override
-    public void delete(Role entity)
-    {
+    public void delete(Role entity) {
         this.entityManager.getTransaction().begin();
         this.entityManager.remove(entity);
         this.entityManager.getTransaction().commit();
@@ -53,19 +52,17 @@ public class RoleDaoImpl implements RoleDao
 
 
     @Override
-    public List<Role> findAll()
-    {
+    public List<Role> findAll() {
         this.entityManager.getTransaction().begin();
         final List<Role> roles = this.entityManager.createQuery("SELECT r FROM Role r", Role.class)//
-                                                   .getResultList();
+                .getResultList();
         this.entityManager.getTransaction().commit();
         return roles;
     }
 
 
     @Override
-    public Role findById(Integer id)
-    {
+    public Role findById(Integer id) {
         this.entityManager.getTransaction().begin();
         final Role role = this.entityManager.find(Role.class, id);
         this.entityManager.getTransaction().commit();
@@ -74,23 +71,21 @@ public class RoleDaoImpl implements RoleDao
 
 
     @Override
-    public Integer size()
-    {
+    public Integer size() {
         this.entityManager.getTransaction().begin();
         final Integer size = this.entityManager.createQuery("SELECT count(r) FROM Role r", Integer.class)//
-                                               .getSingleResult();
+                .getSingleResult();
         this.entityManager.getTransaction().commit();
         return size;
     }
 
 
     @Override
-    public Role findByName(String roleName)
-    {
+    public Role findByName(String roleName) {
         this.entityManager.getTransaction().begin();
         final Role role = this.entityManager.createQuery("SELECT r FROM Role r WHERE r.name = :name", Role.class)//
-                                            .setParameter("name", roleName)
-                                            .getSingleResult();
+                .setParameter("name", roleName)
+                .getSingleResult();
         this.entityManager.getTransaction().commit();
         return role;
     }
