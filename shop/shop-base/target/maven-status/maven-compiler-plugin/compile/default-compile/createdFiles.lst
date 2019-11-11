@@ -28,6 +28,7 @@ com\example\shop\base\model\Order.class
 com\example\shop\base\service\OrderService.class
 com\example\shop\base\dao\impl\OrderDaoImpl.class
 com\example\shop\base\dao\impl\AddressDaoImpl.class
+com\example\shop\base\model\Right.class
 com\example\shop\base\model\key\ProductOrderId.class
 com\example\shop\base\dao\impl\CategoryDaoImpl.class
 com\example\shop\base\model\OrderStatus.class

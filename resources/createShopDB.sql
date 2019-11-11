@@ -12,22 +12,37 @@ CREATE TABLE t_Addresses (
      CONSTRAINT PK_Address PRIMARY KEY (cAddressId)
 )
 
+CREATE TABLE t_Rights (
+  cRightId INT IDENTITY(1,1),
+  cRightName VARCHAR(36) NOT NULL UNIQUE,
+  CONSTRAINT PK_Right PRIMARY KEY (cRightId)
+)
+
 CREATE TABLE t_Roles (
   cRoleId INT IDENTITY(1,1),
   cRoleName VARCHAR(36) NOT NULL UNIQUE,
   CONSTRAINT PK_Role PRIMARY KEY (cRoleId)
 )
 
+CREATE TABLE t_RoleRights (
+  cRoleRightRoleId INT NOT NULL,
+  cRoleRoleRightId INT NOT NULL,
+  CONSTRAINT PK_RoleRight PRIMARY KEY (cRoleRightRoleId,cRoleRoleRightId),
+  CONSTRAINT FK_RoleRights_Rights FOREIGN KEY (cRoleRoleRightId) REFERENCES t_Rights (cRightId),
+  CONSTRAINT FK_RoleRights_Roles FOREIGN KEY (cRoleRightRoleId) REFERENCES t_Roles (cRoleId)
+)
+
 CREATE TABLE t_Users (
   cUserId INT IDENTITY(1,1),
-  cUserName VARCHAR(36) NOT NULL UNIQUE,
   cUserEmail VARCHAR(36) NOT NULL UNIQUE,
   cUserFirstName VARCHAR(36) NOT NULL,
   cUserLastName VARCHAR(36) NOT NULL,
   cUserPassword VARCHAR(512) NOT NULL,
   cUserCreatedAt DATETIME2 NOT NULL DEFAULT GETDATE(),
   cUserActive BIT NOT NULL DEFAULT 1,
-  CONSTRAINT PK_User PRIMARY KEY (cUserId)
+  cUserAddressId INT NULL,
+  CONSTRAINT PK_User PRIMARY KEY (cUserId),
+   CONSTRAINT FK_Users_Addresses FOREIGN KEY (cUserAddressId) REFERENCES t_Addresses (cAddressId)
 )
 
 CREATE TABLE t_UserRoles (
@@ -43,6 +58,8 @@ CREATE TABLE t_Products (
   cProductName VARCHAR(36) NOT NULL,
   cProductPrice DECIMAL(10,2) NOT NULL,
   cProductQuantity INT NOT NULL DEFAULT 0,
+  cProductDescription text NULL,
+  cProductImageUrl text NULL,
   CONSTRAINT PK_Product PRIMARY KEY (cProductId)
 )
 
@@ -88,6 +105,8 @@ USE shopDB
 GO
 GRANT CONTROL ON t_Users TO traineeUser;
 GRANT CONTROL ON t_Roles TO traineeUser;
+GRANT CONTROL ON t_Rights TO traineeUser;
+GRANT CONTROL ON t_RoleRights TO traineeUser;
 GRANT CONTROL ON t_UserRoles TO traineeUser;
 GRANT CONTROL ON t_Products TO traineeUser;
 GRANT CONTROL ON t_Categories TO traineeUser;
@@ -95,3 +114,23 @@ GRANT CONTROL ON t_Orders TO traineeUser;
 GRANT CONTROL ON t_ProductCategories TO traineeUser;
 GRANT CONTROL ON t_ProductOrders TO traineeUser;
 GRANT CONTROL ON t_Addresses TO traineeUser;
+
+
+INSERT INTO t_Categories(cCategoryName)
+VALUES('Electronics'),('Clothing'),('Food'),('Furniture'),('Housewares'),('Autoparts')
+
+INSERT INTO t_Roles(cRoleName)
+VALUES('NormalUser'),('Admin')
+
+INSERT INTO t_Users(cUserEmail,cUserFirstName,cUserLastName,cUserPassword,cUserActive)
+VALUES('admin@abv.bg','Ivan','Petrov','123456',1)
+
+INSERT INTO t_Users(cUserEmail,cUserFirstName,cUserLastName,cUserPassword,cUserActive)
+VALUES('gosho@abv.bg','Gosho','Ivanov','123',1)
+
+INSERT INTO t_UserRoles(cUserRoleUserId,cUserRoleRoleId)
+VALUES(1,2),(2,1)
+
+select * from t_Users u
+join t_UserRoles ur on u.cUserId = ur.cUserRoleUserId
+join t_Roles r on r.cRoleId = ur.cUserRoleRoleId

@@ -1,0 +1,56 @@
+2019-09-19 10:52:40 INFO  RightService:44 - Right successfully added!
+2019-09-19 10:52:40 INFO  RightService:44 - Right successfully added!
+2019-09-19 10:52:40 INFO  RightService:44 - Right successfully added!
+2019-09-19 10:52:40 INFO  RightService:44 - Right successfully added!
+2019-09-19 10:52:40 INFO  RoleService:46 - Role successfully added!
+2019-09-19 10:52:40 INFO  RoleService:46 - Role successfully added!
+2019-09-19 10:52:40 INFO  RoleService:121 - Role:Right relation successfully added!
+2019-09-19 10:52:40 INFO  RoleService:121 - Role:Right relation successfully added!
+2019-09-19 10:52:40 INFO  RoleService:121 - Role:Right relation successfully added!
+2019-09-19 10:52:40 INFO  RoleService:121 - Role:Right relation successfully added!
+2019-09-19 10:52:40 INFO  RoleService:121 - Role:Right relation successfully added!
+2019-09-19 10:52:40 INFO  UserService:46 - User successfully added!
+2019-09-19 10:52:40 INFO  UserService:46 - User successfully added!
+2019-09-19 10:52:40 INFO  UserService:121 - User:Role relation successfully added!
+2019-09-19 10:52:40 INFO  UserService:121 - User:Role relation successfully added!
+2019-09-19 10:52:40 INFO  UserService:79 - User successfully updated!
+2019-09-19 10:52:40 ERROR RightService:114 - Right with name 'find' already exists!
+2019-09-19 10:52:40 ERROR RightService:114 - Right with name 'create' already exists!
+2019-09-19 10:52:40 ERROR RightService:114 - Right with name 'update' already exists!
+2019-09-19 10:52:40 ERROR RightService:114 - Right with name 'delete' already exists!
+2019-09-19 10:52:40 ERROR RoleService:136 - Role with name 'admin' already exists!
+2019-09-19 10:52:40 ERROR RoleService:136 - Role with name 'user' already exists!
+2019-09-19 10:52:40 ERROR RoleService:152 - Role or Right not initilized!
+2019-09-19 10:52:40 ERROR RoleService:152 - Role or Right not initilized!
+2019-09-19 10:52:40 ERROR RoleService:152 - Role or Right not initilized!
+2019-09-19 10:52:40 ERROR RoleService:152 - Role or Right not initilized!
+2019-09-19 10:52:40 ERROR RoleService:152 - Role or Right not initilized!
+2019-09-19 10:52:40 INFO  UserService:46 - User successfully added!
+2019-09-19 10:52:40 ERROR UserService:136 - User with name 'regularUser' already exists!
+2019-09-19 10:52:40 ERROR UserService:152 - User or Role not initilized!
+2019-09-19 10:52:40 ERROR UserService:152 - User or Role not initilized!
+2019-09-19 10:52:40 INFO  RoleService:101 - Role successfully deleted!
+2019-09-19 10:52:40 ERROR RightService:114 - Right with name 'find' already exists!
+2019-09-19 10:52:40 ERROR RightService:114 - Right with name 'create' already exists!
+2019-09-19 10:52:40 ERROR RightService:114 - Right with name 'update' already exists!
+2019-09-19 10:52:40 ERROR RightService:114 - Right with name 'delete' already exists!
+2019-09-19 10:52:40 INFO  RoleService:46 - Role successfully added!
+2019-09-19 10:52:40 ERROR RoleService:136 - Role with name 'user' already exists!
+2019-09-19 10:52:40 ERROR RoleService:152 - Role or Right not initilized!
+2019-09-19 10:52:40 ERROR RoleService:152 - Role or Right not initilized!
+2019-09-19 10:52:40 ERROR RoleService:152 - Role or Right not initilized!
+2019-09-19 10:52:40 ERROR RoleService:152 - Role or Right not initilized!
+2019-09-19 10:52:40 ERROR RoleService:152 - Role or Right not initilized!
+2019-09-19 10:52:40 ERROR UserService:136 - User with name 'adminUser' already exists!
+2019-09-19 10:52:40 ERROR UserService:136 - User with name 'regularUser' already exists!
+2019-09-19 10:52:40 ERROR UserService:152 - User or Role not initilized!
+2019-09-19 10:52:40 ERROR UserService:152 - User or Role not initilized!
+2019-09-19 10:52:40 INFO  RightService:98 - Right successfully deleted!
+2019-09-19 10:52:40 INFO  RightService:98 - Right successfully deleted!
+2019-09-19 10:52:41 INFO  RightService:98 - Right successfully deleted!
+2019-09-19 10:52:41 INFO  RightService:98 - Right successfully deleted!
+2019-09-19 10:52:41 INFO  RoleService:101 - Role successfully deleted!
+2019-09-19 10:52:41 INFO  RoleService:101 - Role successfully deleted!
+2019-09-19 10:52:41 INFO  UserService:101 - User successfully deleted!
+2019-09-19 10:52:41 INFO  UserService:101 - User successfully deleted!
+2019-09-19 10:52:41 INFO  UserService:101 - User successfully deleted!

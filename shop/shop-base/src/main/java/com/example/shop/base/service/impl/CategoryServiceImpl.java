@@ -11,7 +11,6 @@ package com.example.shop.base.service.impl;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
 import com.example.shop.base.dao.CategoryDao;
 import com.example.shop.base.service.CategoryService;

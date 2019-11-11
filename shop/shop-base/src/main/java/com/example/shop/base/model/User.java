@@ -9,14 +9,18 @@ package com.example.shop.base.model;
 
 
 import javax.persistence.*;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Set;
 
 
 @Entity
 @Table(name = "t_Users")
-public class User
+public class User implements Serializable
 {
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cUserId")
@@ -51,8 +55,8 @@ public class User
     @OneToMany(mappedBy = "user", targetEntity = Order.class)
     private Set<Order> orders;
 
-    @ManyToOne
-    @JoinColumn(name = "cUserAddressId", nullable = true)
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "cUserAddressId", foreignKey = @ForeignKey(name = "FK_Users_Addresses"))
     private Address address;
 
 
@@ -166,5 +170,23 @@ public class User
     public void setOrders(Set<Order> orders)
     {
         this.orders = orders;
+    }
+
+
+    public void addRole(Role role)
+    {
+        this.roles.add(role);
+    }
+
+
+    public void removeRole(Role role)
+    {
+        this.roles.remove(role);
+    }
+
+
+    public boolean isAdmin()
+    {
+        return this.roles.stream().anyMatch(x -> x.getName().equalsIgnoreCase("admin"));
     }
 }

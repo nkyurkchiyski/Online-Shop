@@ -43,13 +43,6 @@ public class Category implements Serializable
     {
     }
 
-
-    public static long getSerialversionuid()
-    {
-        return serialVersionUID;
-    }
-
-
     public Integer getId()
     {
         return id;

@@ -31,6 +31,13 @@ public class Role implements Serializable
     @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
     private Set<User> users;
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @JoinTable(name = "t_RoleRights", //
+                    joinColumns = {@JoinColumn(name = "cRoleRightRoleId")}, //
+                    inverseJoinColumns = {@JoinColumn(name = "cRoleRightRightId")}, //
+                    foreignKey = @ForeignKey(name = "FK_RoleRights_Roles"), //
+                    inverseForeignKey = @ForeignKey(name = "FK_RoleRights_Rights"))
+    private Set<Role> rights;
 
     public Role()
     {

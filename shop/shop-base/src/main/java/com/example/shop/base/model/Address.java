@@ -9,14 +9,13 @@ package com.example.shop.base.model;
 
 
 import java.io.Serializable;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -43,8 +42,8 @@ public class Address implements Serializable
     @Column(name = "cAddressPostCode")
     private String postCode;
 
-    @OneToMany(mappedBy = "address")
-    private Set<User> users;
+    @OneToOne(mappedBy = "address")
+    private User user;
 
 
     public Address()
@@ -81,13 +80,6 @@ public class Address implements Serializable
         return postCode;
     }
 
-
-    public Set<User> getUsers()
-    {
-        return users;
-    }
-
-
     public void setId(Integer id)
     {
         this.id = id;
@@ -118,9 +110,16 @@ public class Address implements Serializable
     }
 
 
-    public void setUsers(Set<User> users)
+    public User getUser()
     {
-        this.users = users;
+        return user;
     }
+
+
+    public void setUser(User user)
+    {
+        this.user = user;
+    }
+
 
 }
