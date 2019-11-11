@@ -2,57 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4cbb79ee-659e-485d-8ade-5a9f79fb3b16" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-web/src/main/java/com/example/shop/web/servlet/HomeServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/osgi.bnd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/AddressDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/AddressDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/CategoryDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/CategoryDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/OrderDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/OrderDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/ProductDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/ProductDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/RoleDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/RoleDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/UserDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/service/impl/AddressServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/service/impl/AddressServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/service/impl/ProductServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/service/impl/RoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/src/main/resources/OSGI-INF/blueprint/blueprint.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/OSGI-INF/blueprint/blueprint.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/impl/AddressDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/impl/AddressDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/impl/CategoryDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/impl/CategoryDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/impl/OrderDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/impl/OrderDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/impl/ProductDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/impl/ProductDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/impl/RoleDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/impl/RoleDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/impl/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/impl/UserDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/service/impl/AddressServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/service/impl/AddressServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/service/impl/CategoryServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/service/impl/CategoryServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/service/impl/OrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/service/impl/OrderServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/service/impl/ProductServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/service/impl/ProductServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/service/impl/RoleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/service/impl/RoleServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/shop-base-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/shop-base-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/java/com/example/shop/web/servlet/AuthenticationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/java/com/example/shop/web/servlet/AuthenticationServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/java/com/example/shop/web/servlet/IndexServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/target/classes/com/example/shop/web/servlet/AuthenticationServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/target/classes/com/example/shop/web/servlet/AuthenticationServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/target/classes/com/example/shop/web/servlet/IndexServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/target/shop-web-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/target/shop-web-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-web/src/main/java/com/example/shop/web/handler/AbstractHandler.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,6 +29,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
+        <option value="AnnotationType" />
       </list>
     </option>
   </component>
@@ -134,6 +87,7 @@
       <workItem from="1573285338764" duration="689000" />
       <workItem from="1573299917349" duration="154000" />
       <workItem from="1573308057501" duration="183000" />
+      <workItem from="1573489260625" duration="2509000" />
     </task>
     <servers />
   </component>
