@@ -2,11 +2,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-<c:import url="templates/head.jsp" />
+<c:import url="../templates/head.jsp" />
 </head>
 <body>
 	<header>
-		<c:import url="templates/nav.jsp" />
+		<c:import url="../templates/nav.jsp" />
 	</header>
 	<div class="container-fluid m-5">
 		<div class="row justify-content-center">
@@ -68,8 +68,8 @@
 				</div>
 			</div>
 		</div>
-		<c:import url="templates/footer.jsp" />
+		<c:import url="../templates/footer.jsp" />
 	</div>
 </body>
-<c:import url="templates/scripts.jsp" />
+<c:import url="../templates/scripts.jsp" />
 </html>

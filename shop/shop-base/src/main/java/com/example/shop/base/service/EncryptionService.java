@@ -13,5 +13,5 @@ public interface EncryptionService
     public String hash(String password);
 
 
-    public boolean verify(String password);
+    public boolean verify(String password, String hashed);
 }

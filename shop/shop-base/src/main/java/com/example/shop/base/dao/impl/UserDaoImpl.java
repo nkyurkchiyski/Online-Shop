@@ -11,85 +11,72 @@ import javax.transaction.Transactional;
 
 import java.util.List;
 
+
 @Transactional
 @Bean(id = "userDao")
-public class UserDaoImpl implements UserDao {
+public class UserDaoImpl implements UserDao
+{
     @PersistenceContext(unitName = "online-shop")
     EntityManager entityManager;
 
 
     @Override
-    public User findByUserName(String userName) {
-        this.entityManager.getTransaction().begin();
-        final User user = this.entityManager.createQuery("SELECT u FROM t_Users u WHERE u.cUserName = :userName", User.class)//
-                .setParameter("userName", userName)
-                .getSingleResult();
-        this.entityManager.getTransaction().commit();
+    public User findByEmail(String email)
+    {
+        final User user = this.entityManager.createQuery("SELECT u FROM User u WHERE u.email = :email", User.class)//
+                                            .setParameter("email", email)
+                                            .getSingleResult();
         return user;
     }
 
 
     @Override
-    public User findByEmail(String email) {
-        this.entityManager.getTransaction().begin();
-        final User user = this.entityManager.createQuery("SELECT u FROM t_Users u WHERE u.cUserEmail = :email", User.class)//
-                .setParameter("email", email)
-                .getSingleResult();
-        this.entityManager.getTransaction().commit();
-        return user;
-    }
-
-
-    @Override
-    public User save(User entity) {
-        this.entityManager.getTransaction().begin();
+    public User save(User entity)
+    {
         this.entityManager.persist(entity);
-        this.entityManager.getTransaction().commit();
+        this.entityManager.flush();
         return entity;
     }
 
 
     @Override
-    public void update(User entity) {
-        this.entityManager.getTransaction().begin();
+    public User update(User entity)
+    {
         this.entityManager.merge(entity);
-        this.entityManager.getTransaction().commit();
+        this.entityManager.flush();
+        return entity;
     }
 
 
     @Override
-    public void delete(User entity) {
-        this.entityManager.getTransaction().begin();
-        //Change to setActive(false)
-        this.entityManager.remove(entity);
-        this.entityManager.getTransaction().commit();
+    public void delete(User entity)
+    {
+        this.entityManager.merge(entity);
+        this.entityManager.flush();
     }
 
 
     @Override
-    public List<User> findAll() {
-        this.entityManager.getTransaction().begin();
-        final List<User> users = this.entityManager.createQuery("SELECT u FROM t_Users u", User.class)//
-                .getResultList();
-        this.entityManager.getTransaction().commit();
+    public List<User> findAll()
+    {
+        final List<User> users = this.entityManager.createQuery("SELECT u FROM User u WHERE u.isActive = true", User.class)//
+                                                   .getResultList();
         return users;
     }
 
 
     @Override
-    public User findById(Integer id) {
-        this.entityManager.getTransaction().begin();
+    public User findById(Integer id)
+    {
         final User user = this.entityManager.find(User.class, id);
-        this.entityManager.getTransaction().commit();
         return user;
     }
 
 
     @Override
-    public Integer size() {
-        this.entityManager.getTransaction().begin();
+    public Integer size()
+    {
         final Integer size = this.entityManager.createQuery("SELECT count(u) FROM User u", Integer.class).getSingleResult();
-        this.entityManager.getTransaction().commit();
         return size;
     }
 }

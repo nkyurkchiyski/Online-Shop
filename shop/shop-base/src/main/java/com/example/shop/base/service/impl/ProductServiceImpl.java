@@ -11,6 +11,7 @@ package com.example.shop.base.service.impl;
 import java.util.List;
 
 import com.example.shop.base.dao.ProductDao;
+import com.example.shop.base.dto.ProductDto;
 import com.example.shop.base.model.Product;
 import com.example.shop.base.service.ProductService;
 import org.apache.aries.blueprint.annotation.bean.Bean;
@@ -25,50 +26,53 @@ public class ProductServiceImpl implements ProductService {
     @Inject
     private ProductDao productDao;
 
-
     @Override
-    public Product create(Product entity) {
-        final Product product = this.productDao.save(entity);
-        return product;
+    public ProductDto create(ProductDto dto)
+    {
+        // TODO Auto-generated method stub
+        return null;
     }
 
-
     @Override
-    public Product getById(Integer id) {
-        final Product product = this.productDao.findById(id);
-        return product;
+    public ProductDto getById(Integer id)
+    {
+        // TODO Auto-generated method stub
+        return null;
     }
 
-
     @Override
-    public List<Product> getAll() {
-        final List<Product> products = this.productDao.findAll();
-        return products;
+    public List<ProductDto> getAll()
+    {
+        // TODO Auto-generated method stub
+        return null;
     }
 
-
     @Override
-    public void update(Product entity) {
-        this.productDao.update(entity);
+    public ProductDto update(ProductDto dto)
+    {
+        // TODO Auto-generated method stub
+        return null;
     }
 
-
     @Override
-    public void remove(Product entity) {
-        this.productDao.delete(entity);
+    public void remove(ProductDto dto)
+    {
+        // TODO Auto-generated method stub
+
     }
 
-
     @Override
-    public Product getByName(String name) {
-        final Product product = this.productDao.findByName(name);
-        return product;
+    public ProductDto getByName(String name)
+    {
+        // TODO Auto-generated method stub
+        return null;
     }
 
-
     @Override
-    public void setProductDao(ProductDao productDao) {
-        this.productDao = productDao;
+    public void setProductDao(ProductDao productDao)
+    {
+        // TODO Auto-generated method stub
+
     }
 
 }

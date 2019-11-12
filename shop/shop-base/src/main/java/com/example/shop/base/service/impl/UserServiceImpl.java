@@ -9,73 +9,92 @@ package com.example.shop.base.service.impl;
 
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.example.shop.base.dao.UserDao;
+import com.example.shop.base.dto.UserDto;
 import com.example.shop.base.model.User;
 import com.example.shop.base.service.UserService;
 import org.apache.aries.blueprint.annotation.bean.Bean;
 import org.apache.aries.blueprint.annotation.service.Service;
+import org.modelmapper.ModelMapper;
 
 import javax.inject.Inject;
 
 
 @Service(classes = UserService.class)
 @Bean(id = "userService")
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService
+{
     @Inject
     private UserDao userDao;
 
+    private ModelMapper mapper;
 
-    @Override
-    public User create(User entity) {
-        final User user = this.userDao.save(entity);
-        return user;
+
+    public UserServiceImpl()
+    {
+        this.mapper = new ModelMapper();
     }
 
 
     @Override
-    public User getById(Integer id) {
-        final User user = this.userDao.findById(id);
-        return user;
-    }
-
-
-    @Override
-    public List<User> getAll() {
-        final List<User> users = this.userDao.findAll();
-        return users;
-    }
-
-
-    @Override
-    public void update(User entity) {
-        this.userDao.update(entity);
-    }
-
-
-    @Override
-    public void remove(User entity) {
-        this.userDao.delete(entity);
-    }
-
-
-    @Override
-    public User getByUserName(String username) {
-        final User user = this.userDao.findByUserName(username);
-        return user;
-    }
-
-
-    @Override
-    public User getByEmail(String email) {
-        final User user = this.userDao.findByEmail(email);
-        return user;
-    }
-
-
-    @Override
-    public void setUserDao(UserDao userDao) {
+    public void setUserDao(UserDao userDao)
+    {
         this.userDao = userDao;
+    }
+
+
+    @Override
+    public UserDto create(UserDto entity)
+    {
+        final User user = this.mapper.map(entity, User.class);
+        this.userDao.save(user);
+        return this.mapper.map(user, UserDto.class);
+    }
+
+
+    @Override
+    public UserDto getById(Integer id)
+    {
+        final User user = this.userDao.findById(id);
+        return this.mapper.map(user, UserDto.class);
+    }
+
+
+    @Override
+    public List<UserDto> getAll()
+    {
+        final List<User> users = this.userDao.findAll();
+        return users.stream()
+                    .map(source -> this.mapper.map(source, UserDto.class))//
+                    .collect(Collectors.toList());
+    }
+
+
+    @Override
+    public UserDto update(UserDto entity)
+    {
+        final User user = this.mapper.map(entity, User.class);
+        this.userDao.update(user);
+        return this.mapper.map(user, UserDto.class);
+    }
+
+
+    @Override
+    public void remove(UserDto entity)
+    {
+        final User user = this.mapper.map(entity, User.class);
+        user.setActive(false);
+        this.userDao.delete(user);
+    }
+
+
+    @Override
+    public UserDto getByEmail(String email)
+    {
+        final User user = this.userDao.findByEmail(email);
+        return this.mapper.map(user, UserDto.class);
     }
 
 }

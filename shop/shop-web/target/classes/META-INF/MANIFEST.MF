@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1573475514800
+Bnd-LastModified: 1573563883010
 Build-Jdk: 1.8.0_151
 Built-By: n.kyurkchiyski
 Bundle-ClassPath: WEB-INF/classes
@@ -12,12 +12,12 @@ DynamicImport-Package: org.ops4j.pax.cdi.*,org.ops4j.pax.web.*
 Embed-Dependency: *; scope=runtime; type=!pom
 Import-Package: org.osgi.framework;version="[1.0.0,2.0.0)",javax.servlet
  ;version="[3.1,4)",javax.servlet.http;version="[3.1,4)",com.example.sho
- p.base.model;version="[0.0,1)",com.example.shop.base.service;version="[
- 0.0,1)",javax.servlet.annotation;version="[3.1,4)",org.osgi.service.htt
- p;version="[1.0.0,2.0.0)",org.apache.el,org.apache.jasper.el,org.apache
- .jasper.runtime,org.apache.jasper.compiler,org.apache.taglibs.standard.
- tag.rt.core,javax.el,javax.servlet.jsp,javax.servlet.jsp.tagext
+ p.base.dto;version="[0.0,1)",com.example.shop.base.service;version="[0.
+ 0,1)",javax.servlet.annotation;version="[3.1,4)",org.osgi.service.http;
+ version="[1.0.0,2.0.0)",org.apache.el,org.apache.jasper.el,org.apache.j
+ asper.runtime,org.apache.jasper.compiler,org.apache.taglibs.standard.ta
+ g.rt.core,javax.el,javax.servlet.jsp,javax.servlet.jsp.tagext
 Pax-ManagedBeans: WEB-INF/beans.xml
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
-Tool: Bnd-3.5.0.201709291849
+Tool: Bnd-4.2.0.201903051501
 Web-ContextPath: /online-shop

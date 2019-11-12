@@ -18,7 +18,6 @@ public class UserDto
     private String lastName;
     private LocalDate createdAt;
     private boolean isActive;
-    private RoleDto role;
 
 
     public String getEmail()
@@ -51,12 +50,6 @@ public class UserDto
     }
 
 
-    public RoleDto getRole()
-    {
-        return role;
-    }
-
-
     public void setEmail(String email)
     {
         this.email = email;
@@ -84,12 +77,6 @@ public class UserDto
     public void setActive(boolean isActive)
     {
         this.isActive = isActive;
-    }
-
-
-    public void setRole(RoleDto role)
-    {
-        this.role = role;
     }
 
 }

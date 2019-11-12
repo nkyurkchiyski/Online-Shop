@@ -11,6 +11,7 @@ package com.example.shop.base.service.impl;
 import java.util.List;
 
 import com.example.shop.base.dao.AddressDao;
+import com.example.shop.base.dto.AddressDto;
 import com.example.shop.base.model.Address;
 import com.example.shop.base.service.AddressService;
 import org.apache.aries.blueprint.annotation.bean.Bean;
@@ -24,41 +25,47 @@ public class AddressServiceImpl implements AddressService {
     @Inject
     private AddressDao addressDao;
 
-
     @Override
-    public Address create(Address entity) {
-        return this.addressDao.save(entity);
+    public AddressDto create(AddressDto dto)
+    {
+        // TODO Auto-generated method stub
+        return null;
     }
 
-
     @Override
-    public Address getById(Integer id) {
-        return this.addressDao.findById(id);
+    public AddressDto getById(Integer id)
+    {
+        // TODO Auto-generated method stub
+        return null;
     }
 
-
     @Override
-    public List<Address> getAll() {
-        return this.addressDao.findAll();
+    public List<AddressDto> getAll()
+    {
+        // TODO Auto-generated method stub
+        return null;
     }
 
-
     @Override
-    public void update(Address entity) {
-        this.addressDao.update(entity);
+    public AddressDto update(AddressDto dto)
+    {
+        // TODO Auto-generated method stub
+        return null;
     }
 
-
     @Override
-    public void remove(Address entity) {
-        this.addressDao.delete(entity);
+    public void remove(AddressDto dto)
+    {
+        // TODO Auto-generated method stub
+
     }
 
-
     @Override
-    public void setAddressDao(AddressDao addressDao) {
-        this.addressDao = addressDao;
+    public void setAddressDao(AddressDao addressDao)
+    {
+        // TODO Auto-generated method stub
 
     }
+
 
 }

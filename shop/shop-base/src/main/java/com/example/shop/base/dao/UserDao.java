@@ -13,8 +13,5 @@ import com.example.shop.base.model.User;
 
 public interface UserDao extends GenericDao<User, Integer>
 {
-    User findByUserName(String userName);
-
-
     User findByEmail(String email);
 }

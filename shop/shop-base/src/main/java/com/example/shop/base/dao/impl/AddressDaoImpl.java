@@ -36,10 +36,11 @@ public class AddressDaoImpl implements AddressDao {
 
 
     @Override
-    public void update(Address entity) {
+    public Address update(Address entity) {
         this.entityManager.getTransaction().begin();
         this.entityManager.merge(entity);
         this.entityManager.getTransaction().commit();
+        return entity;
     }
 
 

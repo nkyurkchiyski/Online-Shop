@@ -11,6 +11,7 @@ package com.example.shop.base.service.impl;
 import java.util.List;
 
 import com.example.shop.base.dao.OrderDao;
+import com.example.shop.base.dto.OrderDto;
 import com.example.shop.base.model.Order;
 import com.example.shop.base.service.OrderService;
 import org.apache.aries.blueprint.annotation.bean.Bean;
@@ -25,43 +26,49 @@ public class OrderServiceImpl implements OrderService {
     @Inject
     private OrderDao orderDao;
 
+    @Override
+    public OrderDto create(OrderDto dto)
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
     @Override
-    public Order create(Order entity) {
-        final Order order = this.orderDao.save(entity);
-        return order;
+    public OrderDto getById(Integer id)
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public List<OrderDto> getAll()
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public OrderDto update(OrderDto dto)
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void remove(OrderDto dto)
+    {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void setOrderDao(OrderDao orderDao)
+    {
+        // TODO Auto-generated method stub
+
     }
 
 
-    @Override
-    public Order getById(Integer id) {
-        final Order order = this.orderDao.findById(id);
-        return order;
-    }
 
-
-    @Override
-    public List<Order> getAll() {
-        final List<Order> orders = this.orderDao.findAll();
-        return orders;
-    }
-
-
-    @Override
-    public void update(Order entity) {
-        this.orderDao.update(entity);
-    }
-
-
-    @Override
-    public void remove(Order entity) {
-        this.orderDao.delete(entity);
-    }
-
-
-    @Override
-    public void setOrderDao(OrderDao orderDao) {
-        this.orderDao = orderDao;
-    }
 
 }

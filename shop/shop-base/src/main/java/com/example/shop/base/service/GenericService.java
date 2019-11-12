@@ -14,7 +14,7 @@ import java.util.List;
 
 public interface GenericService<E, PK extends Serializable>
 {
-    E create(E entity);
+    E create(E dto);
 
 
     E getById(PK id);
@@ -23,9 +23,9 @@ public interface GenericService<E, PK extends Serializable>
     List<E> getAll();
 
 
-    void update(E entity);
+    E update(E dto);
 
 
-    void remove(E entity);
+    void remove(E dto);
 
 }

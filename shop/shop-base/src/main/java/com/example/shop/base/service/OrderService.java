@@ -9,13 +9,10 @@ package com.example.shop.base.service;
 
 
 import com.example.shop.base.dao.OrderDao;
-import com.example.shop.base.model.Order;
-
-import javax.jws.WebService;
+import com.example.shop.base.dto.OrderDto;
 
 
-@WebService
-public interface OrderService extends GenericService<Order, Integer>
+public interface OrderService extends GenericService<OrderDto, Integer>
 {
     void setOrderDao(OrderDao orderDao);
 }

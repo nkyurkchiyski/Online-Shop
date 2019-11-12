@@ -9,15 +9,12 @@ package com.example.shop.base.service;
 
 
 import com.example.shop.base.dao.ProductDao;
-import com.example.shop.base.model.Product;
-
-import javax.jws.WebService;
+import com.example.shop.base.dto.ProductDto;
 
 
-@WebService
-public interface ProductService extends GenericService<Product, Integer>
+public interface ProductService extends GenericService<ProductDto, Integer>
 {
-    Product getByName(String name);
+    ProductDto getByName(String name);
 
 
     void setProductDao(ProductDao productDao);

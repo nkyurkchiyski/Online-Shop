@@ -9,18 +9,12 @@ package com.example.shop.base.service;
 
 
 import com.example.shop.base.dao.UserDao;
-import com.example.shop.base.model.User;
-
-import javax.jws.WebService;
+import com.example.shop.base.dto.UserDto;
 
 
-@WebService
-public interface UserService extends GenericService<User, Integer>
+public interface UserService extends GenericService<UserDto, Integer>
 {
-    User getByUserName(String username);
-
-
-    User getByEmail(String email);
+    UserDto getByEmail(String email);
 
 
     void setUserDao(UserDao userDao);

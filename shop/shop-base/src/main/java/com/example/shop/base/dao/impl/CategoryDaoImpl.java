@@ -40,10 +40,11 @@ public class CategoryDaoImpl implements CategoryDao {
 
 
     @Override
-    public void update(Category entity) {
+    public Category update(Category entity) {
         this.entityManager.getTransaction().begin();
         this.entityManager.merge(entity);
         this.entityManager.getTransaction().commit();
+        return entity;
     }
 
 

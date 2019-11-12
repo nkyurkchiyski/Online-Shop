@@ -24,6 +24,7 @@
             <plugin>
                 <groupId>org.apache.aries.blueprint</groupId>
                 <artifactId>blueprint-maven-plugin</artifactId>
+                <version>1.10.0</version>
                 <configuration>
                     <scanPaths>
                         <scanPath>com.example.shop.base</scanPath>
@@ -41,15 +42,21 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
+                <version>3.5.1</version>
                 <extensions>true</extensions>
                 <inherited>true</inherited>
                 <configuration>
                     <instructions>
                         <Meta-Persistence>META-INF/persistence.xml</Meta-Persistence>
-                        <Dynamic-Import-Package>*, org.hibernate.proxy,
-                            javassist.util.proxy
-                        </Dynamic-Import-Package>
                     </instructions>
+                    <Import-Package>
+                        org.modelmapper.internal.cglib.proxy,
+                        org.modelmapper.internal.cglib.core,
+                        org.modelmapper.internal.cglib.transform,
+                        org.hibernate.proxy,
+                        javassist.util.proxy,
+                        *
+                    </Import-Package>
                 </configuration>
             </plugin>
         </plugins>
@@ -59,10 +66,12 @@
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.apache.aries.jpa.javax.persistence</groupId>
             <artifactId>javax.persistence_2.1</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>javax.transaction</groupId>
@@ -70,15 +79,16 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>javax.interceptor</groupId>
-            <artifactId>javax.interceptor-api</artifactId>
-            <version>1.2</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.mindrot</groupId>
             <artifactId>jbcrypt</artifactId>
             <version>0.4</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>2.3.0</version>
+            <optional>true</optional>
         </dependency>
 
         <dependency>

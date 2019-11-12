@@ -16,36 +16,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.example.shop.web.controller.AuthenticationController;
+import com.example.shop.web.handler.Handler;
+import com.example.shop.web.handler.RequestHandler;
+
 
 @WebServlet("/auth/*")
 public class AuthenticationServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;
 
+    private Handler requestHandler;
+
+
+    @Override
+    public void init() throws ServletException
+    {
+        this.requestHandler = new RequestHandler(new AuthenticationController());
+    }
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-        this.processRequest(req, resp);
+        this.requestHandler.handle(req, resp);
     }
 
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-        final String email = req.getParameter("email");
-        final String password = req.getParameter("password");
-
-        req.setAttribute("email", email);
-        req.setAttribute("pass", password);
-
-        req.getRequestDispatcher("/jsp/home.jsp").forward(req, resp);
+        this.requestHandler.handle(req, resp);
     }
 
-
-    private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
-    {
-
-        req.getRequestDispatcher(String.format("/jsp%s.jsp", req.getRequestURI())).forward(req, resp);
-    }
 }

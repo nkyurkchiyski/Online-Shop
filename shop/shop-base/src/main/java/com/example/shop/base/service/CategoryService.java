@@ -9,12 +9,12 @@ package com.example.shop.base.service;
 
 
 import com.example.shop.base.dao.CategoryDao;
-import com.example.shop.base.model.Category;
+import com.example.shop.base.dto.CategoryDto;
 
 
-public interface CategoryService extends GenericService<Category, Integer>
+public interface CategoryService extends GenericService<CategoryDto, Integer>
 {
-    Category getByName(String name);
+    CategoryDto getByName(String name);
 
 
     void setCategoryDao(CategoryDao categoryDao);

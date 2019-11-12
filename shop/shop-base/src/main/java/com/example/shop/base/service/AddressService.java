@@ -8,14 +8,11 @@
 package com.example.shop.base.service;
 
 
-import javax.jws.WebService;
-
 import com.example.shop.base.dao.AddressDao;
-import com.example.shop.base.model.Address;
+import com.example.shop.base.dto.AddressDto;
 
 
-@WebService
-public interface AddressService extends GenericService<Address, Integer>
+public interface AddressService extends GenericService<AddressDto, Integer>
 {
     void setAddressDao(AddressDao addressDao);
 }

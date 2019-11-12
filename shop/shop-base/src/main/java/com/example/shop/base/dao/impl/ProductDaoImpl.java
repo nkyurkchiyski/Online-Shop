@@ -39,10 +39,11 @@ public class ProductDaoImpl implements ProductDao {
 
 
     @Override
-    public void update(Product entity) {
+    public Product update(Product entity) {
         this.entityManager.getTransaction().begin();
         this.entityManager.merge(entity);
         this.entityManager.getTransaction().commit();
+        return entity;
     }
 
 

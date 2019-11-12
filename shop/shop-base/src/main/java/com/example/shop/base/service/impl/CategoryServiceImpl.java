@@ -13,6 +13,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import com.example.shop.base.dao.CategoryDao;
+import com.example.shop.base.dto.CategoryDto;
 import com.example.shop.base.service.CategoryService;
 import org.apache.aries.blueprint.annotation.bean.Bean;
 import org.apache.aries.blueprint.annotation.service.Service;
@@ -24,46 +25,55 @@ public class CategoryServiceImpl implements CategoryService {
     @Inject
     private CategoryDao categoryDao;
 
+    @Override
+    public CategoryDto create(CategoryDto dto)
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
 
     @Override
-    public Category create(Category entity) {
-        return this.categoryDao.save(entity);
+    public CategoryDto getById(Integer id)
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public List<CategoryDto> getAll()
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public CategoryDto update(CategoryDto dto)
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void remove(CategoryDto dto)
+    {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public CategoryDto getByName(String name)
+    {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void setCategoryDao(CategoryDao categoryDao)
+    {
+        // TODO Auto-generated method stub
+
     }
 
 
-    @Override
-    public Category getById(Integer id) {
-        return this.categoryDao.findById(id);
-    }
-
-
-    @Override
-    public List<Category> getAll() {
-        return this.categoryDao.findAll();
-    }
-
-
-    @Override
-    public void update(Category entity) {
-        this.categoryDao.update(entity);
-    }
-
-
-    @Override
-    public void remove(Category entity) {
-        this.categoryDao.delete(entity);
-    }
-
-
-    @Override
-    public Category getByName(String name) {
-        return this.categoryDao.findByName(name);
-    }
-
-
-    @Override
-    public void setCategoryDao(CategoryDao categoryDao) {
-        this.categoryDao = categoryDao;
-    }
 
 }

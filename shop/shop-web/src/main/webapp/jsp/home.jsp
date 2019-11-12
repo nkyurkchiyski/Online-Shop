@@ -21,9 +21,6 @@
             shopping.
         </p>
         <hr class="my-3">
-        <%= (String) request.getAttribute("model")%>
-        <%= (String) request.getAttribute("email")%>
-        <%= (String) request.getAttribute("pass")%>
     </div>
 </div>
 <c:import url="templates/footer.jsp"/>

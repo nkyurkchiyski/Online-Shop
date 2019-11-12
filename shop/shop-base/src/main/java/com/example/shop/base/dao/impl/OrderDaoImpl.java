@@ -28,10 +28,11 @@ public class OrderDaoImpl implements OrderDao {
 
 
     @Override
-    public void update(Order entity) {
+    public Order update(Order entity) {
         this.entityManager.getTransaction().begin();
         this.entityManager.merge(entity);
         this.entityManager.getTransaction().commit();
+        return entity;
     }
 
 

@@ -8,12 +8,16 @@
 package com.example.shop.base.service.impl;
 
 
+import org.apache.aries.blueprint.annotation.bean.Bean;
+import org.apache.aries.blueprint.annotation.service.Service;
 import org.mindrot.jbcrypt.BCrypt;
 
 import com.example.shop.base.service.EncryptionService;
 
 
-public class BCryptService implements EncryptionService
+@Service(classes = BCryptServiceImpl.class)
+@Bean(id = "bcryptService")
+public class BCryptServiceImpl implements EncryptionService
 {
 
     @Override
@@ -24,9 +28,8 @@ public class BCryptService implements EncryptionService
 
 
     @Override
-    public boolean verify(String password)
+    public boolean verify(String password, String hashed)
     {
-        final String hashed = this.hash(password);
         return BCrypt.checkpw(password, hashed);
     }
 

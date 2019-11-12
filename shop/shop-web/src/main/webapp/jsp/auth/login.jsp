@@ -2,11 +2,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-<c:import url="templates/head.jsp" />
+<c:import url="../templates/head.jsp" />
 </head>
 <body>
 	<header>
-		<c:import url="templates/nav.jsp" />
+		<c:import url="../templates/nav.jsp" />
 	</header>
 	<div class="container-fluid m-5">
 		<div class="row justify-content-center">
@@ -16,11 +16,10 @@
 						<h4 class="m-0">Login</h4>
 					</div>
 					<div class="card-body">
-						<form class="form-horizontal"
-							action="/online-shop/auth/login" method="post">
+						<form class="form-horizontal" action="/online-shop/auth/login"
+							method="post">
 							<div class="form-group row">
-								<label for="email"
-									class="col-md-4 col-form-label text-md-right">E-Mail</label>
+								<label for="email" class="col-md-4 col-form-label text-md-right">E-Mail</label>
 								<div class="col-md-6">
 									<input type="text" id="email" name="email" placeholder="Email"
 										class="form-control" required>
@@ -31,7 +30,7 @@
 									for="password">Password</label>
 								<div class="col-md-6">
 									<input type="password" class="form-control" id="password"
-										   name="password" placeholder="Password" required>
+										name="password" placeholder="Password" required>
 								</div>
 							</div>
 							<div class="row d-flex justify-content-around">
@@ -45,8 +44,10 @@
 				</div>
 			</div>
 		</div>
-		<c:import url="templates/footer.jsp" />
+		<div>
+		</div>
+		<c:import url="../templates/footer.jsp" />
 	</div>
 </body>
-<c:import url="templates/scripts.jsp" />
+<c:import url="../templates/scripts.jsp" />
 </html>
