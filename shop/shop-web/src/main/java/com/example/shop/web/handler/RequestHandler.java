@@ -40,15 +40,7 @@ public class RequestHandler implements Handler
         {
             controllerMethod.invoke(this.controller, req, resp);
         }
-        catch (IllegalAccessException e)
-        {
-            e.printStackTrace();
-        }
-        catch (IllegalArgumentException e)
-        {
-            e.printStackTrace();
-        }
-        catch (InvocationTargetException e)
+        catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e)
         {
             e.printStackTrace();
         }

@@ -19,18 +19,23 @@ public class FormMapper implements Mapper {
     }
 
     @Override
-    public <T> T map(HttpServletRequest request, Class<T> type) throws IllegalAccessException, InstantiationException {
-        T obj = type.newInstance();
-        final Field[] fields = type.getDeclaredFields();
-        for (Field field : fields) {
-            final String fieldName = field.getName();
-            final Class<?> fieldType = field.getType();
-            final String parameterValue = request.getParameter(fieldName);
+    public <T> T map(HttpServletRequest request, Class<T> type) {
+        T obj = null;
+        try {
+            obj = type.newInstance();
+            final Field[] fields = type.getDeclaredFields();
+            for (Field field : fields) {
+                final String fieldName = field.getName();
+                final Class<?> fieldType = field.getType();
+                final String parameterValue = request.getParameter(fieldName);
 
-            if (parameterValue != null) {
-                field.setAccessible(true);
-                field.set(obj, this.parse(fieldType, parameterValue));
+                if (parameterValue != null) {
+                    field.setAccessible(true);
+                    field.set(obj, this.parse(fieldType, parameterValue));
+                }
             }
+        } catch (InstantiationException | IllegalAccessException e) {
+            e.printStackTrace();
         }
         return obj;
     }

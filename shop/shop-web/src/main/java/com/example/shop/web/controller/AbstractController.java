@@ -22,7 +22,7 @@ public abstract class AbstractController implements Controller
     @Override
     public void redirectToHome(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-        req.getRequestDispatcher("/jsp/home.jsp").forward(req, resp);
+        resp.sendRedirect("/online-shop/home");
     }
 
 

@@ -11,71 +11,68 @@ package com.example.shop.base.dto;
 import java.time.LocalDate;
 
 
-public class UserDto
-{
+public class UserDto {
     private String email;
     private String firstName;
     private String lastName;
     private LocalDate createdAt;
     private boolean isActive;
+    private boolean isAdmin;
 
+    public boolean isAdmin() {
+        return isAdmin;
+    }
 
-    public String getEmail()
-    {
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
+    public String getEmail() {
         return email;
     }
 
 
-    public String getFirstName()
-    {
+    public String getFirstName() {
         return firstName;
     }
 
 
-    public String getLastName()
-    {
+    public String getLastName() {
         return lastName;
     }
 
 
-    public LocalDate getCreatedAt()
-    {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
 
 
-    public boolean isActive()
-    {
+    public boolean isActive() {
         return isActive;
     }
 
 
-    public void setEmail(String email)
-    {
+    public void setEmail(String email) {
         this.email = email;
     }
 
 
-    public void setFirstName(String firstName)
-    {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
 
-    public void setLastName(String lastName)
-    {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
 
-    public void setCreatedAt(LocalDate createdAt)
-    {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
 
 
-    public void setActive(boolean isActive)
-    {
+    public void setActive(boolean isActive) {
         this.isActive = isActive;
     }
 

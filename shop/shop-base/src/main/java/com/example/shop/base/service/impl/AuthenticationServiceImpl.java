@@ -27,8 +27,7 @@ import com.example.shop.base.service.EncryptionService;
 
 @Service(classes = AuthenticationService.class)
 @Bean(id = "authenticationService")
-public class AuthenticationServiceImpl implements AuthenticationService
-{
+public class AuthenticationServiceImpl implements AuthenticationService {
     @Inject
     private UserDao userDao;
 
@@ -38,24 +37,22 @@ public class AuthenticationServiceImpl implements AuthenticationService
     private ModelMapper mapper;
 
 
-    public AuthenticationServiceImpl()
-    {
+    public AuthenticationServiceImpl() {
         this.mapper = new ModelMapper();
     }
 
 
     @Override
-    public UserDto register(UserRegisterDto dto)
-    {
+    public UserDto register(UserRegisterDto dto) {
         // TODO Auto-generated method stub
         return null;
     }
 
 
     @Override
-    public UserDto login(UserLoginDto dto)
-    {
+    public UserDto login(UserLoginDto dto) {
         final User user = this.userDao.findByEmail(dto.getEmail());
+        //TODO check encrypted pass
         // final boolean matched = this.encryptionService.verify(dto.getPassword(), user.getPassword());
         //
         // if (!matched)
@@ -64,6 +61,7 @@ public class AuthenticationServiceImpl implements AuthenticationService
         // }
 
         final UserDto userDto = this.mapper.map(user, UserDto.class);
+        userDto.setAdmin(user.isAdmin());
         return userDto;
     }
 
