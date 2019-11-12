@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4cbb79ee-659e-485d-8ade-5a9f79fb3b16" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/java/com/example/shop/web/handler/AbstractHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-web/src/main/java/com/example/shop/web/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/java/com/example/shop/web/controller/AuthenticationController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,9 +28,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
         <option value="AnnotationType" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -88,6 +88,7 @@
       <workItem from="1573299917349" duration="154000" />
       <workItem from="1573308057501" duration="183000" />
       <workItem from="1573489260625" duration="2509000" />
+      <workItem from="1573575803639" duration="3066000" />
     </task>
     <servers />
   </component>
