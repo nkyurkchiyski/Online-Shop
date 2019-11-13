@@ -55,25 +55,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void remove(ProductDto dto)
-    {
-        // TODO Auto-generated method stub
+    public void remove(Integer id) {
 
     }
 
     @Override
-    public ProductDto getByName(String name)
-    {
-        // TODO Auto-generated method stub
+    public <T> T getByName(String name, Class<T> type) {
         return null;
     }
-
-    @Override
-    public void setProductDao(ProductDao productDao)
-    {
-        // TODO Auto-generated method stub
-
-    }
-
-
 }

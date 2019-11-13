@@ -41,7 +41,7 @@ public class Product implements Serializable
     @Column(name = "cProductPrice")
     private BigDecimal price;
 
-    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
     @JoinTable(name = "t_ProductCategories", //
                     joinColumns = {@JoinColumn(name = "cProductCategoryProductId")}, //
                     inverseJoinColumns = {@JoinColumn(name = "cProductCategoryCategoryId")}, //
@@ -49,7 +49,7 @@ public class Product implements Serializable
                     inverseForeignKey = @ForeignKey(name = "FK_ProductCategories_Categories"))
     private Set<Category> categories;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "product", cascade = CascadeType.MERGE, orphanRemoval = true)
     private Set<ProductOrder> orders;
 
 

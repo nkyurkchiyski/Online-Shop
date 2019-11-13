@@ -45,7 +45,7 @@ public class User implements Serializable
     @Column(name = "cUserActive")
     private boolean isActive;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE})
     @JoinTable(name = "t_UserRoles", //
                     joinColumns = {@JoinColumn(name = "cUserRoleUserId")}, //
                     inverseJoinColumns = {@JoinColumn(name = "cUserRoleRoleId")}, //

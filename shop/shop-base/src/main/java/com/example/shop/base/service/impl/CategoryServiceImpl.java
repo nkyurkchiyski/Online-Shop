@@ -26,54 +26,37 @@ public class CategoryServiceImpl implements CategoryService {
     private CategoryDao categoryDao;
 
     @Override
-    public <T> T create(CategoryDto dto, Class<T> type)
-    {
+    public <T> T create(CategoryDto dto, Class<T> type) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public <T> T getById(Integer id, Class<T> type)
-    {
+    public <T> T getById(Integer id, Class<T> type) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public <T> List<T> getAll(Class<T> type)
-    {
+    public <T> List<T> getAll(Class<T> type) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public <T> T update(CategoryDto dto, Class<T> type)
-    {
+    public <T> T update(CategoryDto dto, Class<T> type) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public void remove(CategoryDto dto)
-    {
-        // TODO Auto-generated method stub
+    public void remove(Integer id) {
 
     }
 
+
     @Override
-    public CategoryDto getByName(String name)
-    {
-        // TODO Auto-generated method stub
+    public <T> T getByName(String name, Class<T> type) {
         return null;
     }
-
-    @Override
-    public void setCategoryDao(CategoryDao categoryDao)
-    {
-        // TODO Auto-generated method stub
-
-    }
-
-
-
 }

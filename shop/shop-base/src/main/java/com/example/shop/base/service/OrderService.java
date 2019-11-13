@@ -14,5 +14,4 @@ import com.example.shop.base.dto.OrderDto;
 
 public interface OrderService extends GenericService<OrderDto, Integer>
 {
-    void setOrderDao(OrderDao orderDao);
 }

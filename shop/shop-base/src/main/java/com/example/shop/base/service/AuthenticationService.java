@@ -8,15 +8,15 @@
 package com.example.shop.base.service;
 
 
-import com.example.shop.base.dto.UserDto;
+import com.example.shop.base.dto.UserViewDto;
 import com.example.shop.base.dto.UserLoginDto;
-import com.example.shop.base.dto.UserRegisterDto;
+import com.example.shop.base.dto.UserDto;
 
 
 public interface AuthenticationService
 {
-    public UserDto register(UserRegisterDto dto);
+    public UserViewDto register(UserDto dto);
 
 
-    public UserDto login(UserLoginDto dto);
+    public UserViewDto login(UserLoginDto dto);
 }

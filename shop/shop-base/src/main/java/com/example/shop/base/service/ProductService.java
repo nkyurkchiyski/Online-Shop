@@ -12,10 +12,6 @@ import com.example.shop.base.dao.ProductDao;
 import com.example.shop.base.dto.ProductDto;
 
 
-public interface ProductService extends GenericService<ProductDto, Integer>
-{
-    ProductDto getByName(String name);
-
-
-    void setProductDao(ProductDao productDao);
+public interface ProductService extends GenericService<ProductDto, Integer> {
+    <T> T getByName(String name, Class<T> type);
 }

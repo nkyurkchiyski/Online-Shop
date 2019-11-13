@@ -58,19 +58,9 @@ public class AddressServiceImpl implements AddressService
         return null;
     }
 
-
     @Override
-    public void remove(AddressDto dto)
-    {
-        // TODO Auto-generated method stub
+    public void remove(Integer id) {
 
-    }
-
-
-    @Override
-    public void setAddressDao(AddressDao addressDao)
-    {
-        this.addressDao = addressDao;
     }
 
 }

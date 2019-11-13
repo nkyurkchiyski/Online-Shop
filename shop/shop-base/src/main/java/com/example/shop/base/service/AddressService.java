@@ -14,5 +14,4 @@ import com.example.shop.base.dto.AddressDto;
 
 public interface AddressService extends GenericService<AddressDto, Integer>
 {
-    void setAddressDao(AddressDao addressDao);
 }

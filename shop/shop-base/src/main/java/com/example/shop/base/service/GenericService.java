@@ -26,6 +26,6 @@ public interface GenericService<E, PK extends Serializable>
     <T> T update(E dto, Class<T> type);
 
 
-    void remove(E dto);
+    void remove(PK id);
 
 }

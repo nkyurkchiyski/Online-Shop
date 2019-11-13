@@ -8,15 +8,9 @@
 package com.example.shop.base.service;
 
 
-import com.example.shop.base.dao.UserDao;
 import com.example.shop.base.dto.UserDto;
 
 
-public interface UserService extends GenericService<UserDto, Integer>
-{
-    UserDto getByEmail(String email);
-
-
-    void setUserDao(UserDao userDao);
-
+public interface UserService extends GenericService<UserDto, Integer> {
+    <T> T getByEmail(String email, Class<T> type);
 }

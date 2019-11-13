@@ -27,46 +27,31 @@ public class OrderServiceImpl implements OrderService {
     private OrderDao orderDao;
 
     @Override
-    public <T> T create(OrderDto dto, Class<T> type)
-    {
+    public <T> T create(OrderDto dto, Class<T> type) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public <T> T getById(Integer id, Class<T> type)
-    {
+    public <T> T getById(Integer id, Class<T> type) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public <T> List<T> getAll(Class<T> type)
-    {
+    public <T> List<T> getAll(Class<T> type) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public <T> T update(OrderDto dto, Class<T> type)
-    {
+    public <T> T update(OrderDto dto, Class<T> type) {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public void remove(OrderDto dto)
-    {
-        // TODO Auto-generated method stub
+    public void remove(Integer id) {
 
     }
-
-    @Override
-    public void setOrderDao(OrderDao orderDao)
-    {
-        // TODO Auto-generated method stub
-
-    }
-
-
 }

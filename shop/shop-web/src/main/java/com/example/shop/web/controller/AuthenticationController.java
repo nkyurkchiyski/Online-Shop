@@ -14,9 +14,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.example.shop.base.dto.UserDto;
+import com.example.shop.base.dto.UserViewDto;
 import com.example.shop.base.dto.UserLoginDto;
-import com.example.shop.base.dto.UserRegisterDto;
+import com.example.shop.base.dto.UserDto;
 import com.example.shop.base.service.AuthenticationService;
 import com.example.shop.web.mapper.FormMapper;
 import com.example.shop.web.mapper.Mapper;
@@ -54,12 +54,11 @@ public class AuthenticationController extends AbstractController
     @Endpoint(method = "post", path = "/auth/register")
     public void registerPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-        final UserRegisterDto registerDto = this.mapper.map(req, UserRegisterDto.class);
-        final UserDto userDto = this.authenticationService.register(registerDto);
+        final UserDto dto = this.mapper.map(req, UserDto.class);
+        final UserViewDto userViewDto = this.authenticationService.register(dto);
 
-        req.getSession().setAttribute("username", userDto.getEmail());
-        req.getSession().setAttribute("isAdmin", userDto.isAdmin());
-        this.redirectToHome(req, resp);
+        req.getSession().setAttribute("username", userViewDto.getEmail());
+        req.getSession().setAttribute("isAdmin", userViewDto.isAdmin());
         this.redirectToHome(req, resp);
     }
 
@@ -68,10 +67,10 @@ public class AuthenticationController extends AbstractController
     public void loginPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         final UserLoginDto loginDto = this.mapper.map(req, UserLoginDto.class);
-        final UserDto userDto = this.authenticationService.login(loginDto);
+        final UserViewDto userViewDto = this.authenticationService.login(loginDto);
 
-        req.getSession().setAttribute("username", userDto.getEmail());
-        req.getSession().setAttribute("isAdmin", userDto.isAdmin());
+        req.getSession().setAttribute("username", userViewDto.getEmail());
+        req.getSession().setAttribute("isAdmin", userViewDto.isAdmin());
         this.redirectToHome(req, resp);
     }
 

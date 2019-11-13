@@ -16,7 +16,6 @@ com\example\shop\base\dao\CategoryDao.class
 com\example\shop\base\service\impl\ShaServiceImpl.class
 com\example\shop\base\service\impl\UserServiceImpl.class
 com\example\shop\base\dao\impl\UserDaoImpl.class
-com\example\shop\base\dto\UserRegisterDto.class
 com\example\shop\base\service\EncryptionService.class
 com\example\shop\base\dto\ProductDto.class
 com\example\shop\base\service\OrderService.class
@@ -40,6 +39,7 @@ com\example\shop\base\model\ProductOrder.class
 com\example\shop\base\model\Role.class
 com\example\shop\base\model\Order.class
 com\example\shop\base\dao\impl\OrderDaoImpl.class
+com\example\shop\base\dto\UserViewDto.class
 com\example\shop\base\dao\impl\AddressDaoImpl.class
 com\example\shop\base\dto\RoleDto.class
 com\example\shop\base\service\impl\AuthenticationServiceImpl.class
