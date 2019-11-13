@@ -27,28 +27,28 @@ public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
 
     @Override
-    public ProductDto create(ProductDto dto)
+    public <T> T create(ProductDto dto, Class<T> type)
     {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public ProductDto getById(Integer id)
+    public <T> T getById(Integer id, Class<T> type)
     {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public List<ProductDto> getAll()
+    public <T> List<T> getAll(Class<T> type)
     {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public ProductDto update(ProductDto dto)
+    public <T> T update(ProductDto dto, Class<T> type)
     {
         // TODO Auto-generated method stub
         return null;
@@ -74,5 +74,6 @@ public class ProductServiceImpl implements ProductService {
         // TODO Auto-generated method stub
 
     }
+
 
 }

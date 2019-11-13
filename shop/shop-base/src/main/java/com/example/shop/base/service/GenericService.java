@@ -14,16 +14,16 @@ import java.util.List;
 
 public interface GenericService<E, PK extends Serializable>
 {
-    E create(E dto);
+    <T> T create(E dto, Class<T> type);
 
 
-    E getById(PK id);
+    <T> T getById(PK id, Class<T> type);
 
 
-    List<E> getAll();
+    <T> List<T> getAll(Class<T> type);
 
 
-    E update(E dto);
+    <T> T update(E dto, Class<T> type);
 
 
     void remove(E dto);

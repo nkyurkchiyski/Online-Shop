@@ -46,42 +46,6 @@ public class UserServiceImpl implements UserService
 
 
     @Override
-    public UserDto create(UserDto entity)
-    {
-        final User user = this.mapper.map(entity, User.class);
-        this.userDao.save(user);
-        return this.mapper.map(user, UserDto.class);
-    }
-
-
-    @Override
-    public UserDto getById(Integer id)
-    {
-        final User user = this.userDao.findById(id);
-        return this.mapper.map(user, UserDto.class);
-    }
-
-
-    @Override
-    public List<UserDto> getAll()
-    {
-        final List<User> users = this.userDao.findAll();
-        return users.stream()
-                    .map(source -> this.mapper.map(source, UserDto.class))//
-                    .collect(Collectors.toList());
-    }
-
-
-    @Override
-    public UserDto update(UserDto entity)
-    {
-        final User user = this.mapper.map(entity, User.class);
-        this.userDao.update(user);
-        return this.mapper.map(user, UserDto.class);
-    }
-
-
-    @Override
     public void remove(UserDto entity)
     {
         final User user = this.mapper.map(entity, User.class);
@@ -95,6 +59,42 @@ public class UserServiceImpl implements UserService
     {
         final User user = this.userDao.findByEmail(email);
         return this.mapper.map(user, UserDto.class);
+    }
+
+
+    @Override
+    public <T> T create(UserDto dto, Class<T> type)
+    {
+        final User user = this.mapper.map(dto, User.class);
+        this.userDao.save(user);
+        return this.mapper.map(user, type);
+    }
+
+
+    @Override
+    public <T> T getById(Integer id, Class<T> type)
+    {
+        final User user = this.userDao.findById(id);
+        return this.mapper.map(user, type);
+    }
+
+
+    @Override
+    public <T> List<T> getAll(Class<T> type)
+    {
+        final List<User> users = this.userDao.findAll();
+        return users.stream()
+                    .map(source -> this.mapper.map(source, type))//
+                    .collect(Collectors.toList());
+    }
+
+
+    @Override
+    public <T> T update(UserDto dto, Class<T> type)
+    {
+        final User user = this.mapper.map(dto, User.class);
+        this.userDao.update(user);
+        return this.mapper.map(user, type);
     }
 
 }

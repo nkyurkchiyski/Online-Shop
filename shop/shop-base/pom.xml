@@ -50,9 +50,6 @@
                         <Meta-Persistence>META-INF/persistence.xml</Meta-Persistence>
                     </instructions>
                     <Import-Package>
-                        org.modelmapper.internal.cglib.proxy,
-                        org.modelmapper.internal.cglib.core,
-                        org.modelmapper.internal.cglib.transform,
                         org.hibernate.proxy,
                         javassist.util.proxy,
                         *
@@ -79,10 +76,9 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>org.mindrot</groupId>
-            <artifactId>jbcrypt</artifactId>
-            <version>0.4</version>
-            <optional>true</optional>
+            <groupId>javax.interceptor</groupId>
+            <artifactId>javax.interceptor-api</artifactId>
+            <version>1.2</version>
         </dependency>
         <dependency>
             <groupId>org.modelmapper</groupId>

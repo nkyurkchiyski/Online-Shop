@@ -17,13 +17,13 @@
 					</div>
 					<div class="card-body">
 						<form name="authenticate" class="form-horizontal"
-							action="/online-shop/auth/login" method="post">
+							action="/online-shop/auth/register" method="post">
 							<div class="form-group row">
 								<label for="email_address"
 									class="col-md-4 col-form-label text-md-right">E-Mail</label>
 								<div class="col-md-6">
 									<input type="text" id="user_email" placeholder="Username/Email"
-										class="form-control" name="_username" required>
+										class="form-control" name="email" required>
 								</div>
 							</div>
 							<div class="form-group row">
@@ -31,7 +31,7 @@
 									Name</label>
 								<div class="col-md-6">
 									<input type="text" id="first_name" placeholder="First Name"
-										class="form-control" required>
+										class="form-control" name="firstName" required>
 								</div>
 							</div>
 							<div class="form-group row">
@@ -39,7 +39,7 @@
 									Name</label>
 								<div class="col-md-6">
 									<input type="text" id="last_name" placeholder="Last Name"
-										class="form-control" required>
+										class="form-control" name="lastName" required>
 								</div>
 							</div>
 							<div class="form-group row">
@@ -54,7 +54,7 @@
 									Password</label>
 								<div class="col-md-6">
 									<input type="password" class="form-control"
-										id="comfirm_password" placeholder="Confirm Password" required>
+										id="comfirm_password" placeholder="Confirm Password" name="confirmPassword" required>
 								</div>
 							</div>
 							<div class="row d-flex justify-content-around">

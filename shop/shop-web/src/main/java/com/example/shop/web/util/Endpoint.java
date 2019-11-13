@@ -10,5 +10,5 @@ import java.lang.annotation.Target;
 public @interface Endpoint {
     public String method() default "get";
 
-    public String path() default "/";
+    public String path() default "/home";
 }

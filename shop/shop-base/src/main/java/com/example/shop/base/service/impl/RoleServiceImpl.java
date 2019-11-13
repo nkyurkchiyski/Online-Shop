@@ -9,70 +9,108 @@ package com.example.shop.base.service.impl;
 
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.example.shop.base.dao.RoleDao;
+import com.example.shop.base.dao.UserDao;
 import com.example.shop.base.dto.RoleDto;
 import com.example.shop.base.model.Role;
+import com.example.shop.base.model.User;
 import com.example.shop.base.service.RoleService;
 import org.apache.aries.blueprint.annotation.bean.Bean;
 import org.apache.aries.blueprint.annotation.service.Service;
+import org.modelmapper.ModelMapper;
 
 import javax.inject.Inject;
 
 
 @Service(classes = RoleService.class)
 @Bean(id = "roleService")
-public class RoleServiceImpl implements RoleService {
+public class RoleServiceImpl implements RoleService
+{
+    @Inject
+    private UserDao userDao;
+
     @Inject
     private RoleDao roleDao;
 
-    @Override
-    public RoleDto create(RoleDto dto)
+    private ModelMapper mapper;
+
+
+    public RoleServiceImpl()
     {
-        // TODO Auto-generated method stub
-        return null;
+        this.mapper = new ModelMapper();
     }
 
-    @Override
-    public RoleDto getById(Integer id)
-    {
-        // TODO Auto-generated method stub
-        return null;
-    }
 
     @Override
-    public List<RoleDto> getAll()
+    public <T> List<T> getAll(Class<T> type)
     {
-        // TODO Auto-generated method stub
-        return null;
+        final List<Role> roles = this.roleDao.findAll();
+        return roles.stream()
+                    .map(source -> this.mapper.map(source, type))//
+                    .collect(Collectors.toList());
     }
 
-    @Override
-    public RoleDto update(RoleDto dto)
-    {
-        // TODO Auto-generated method stub
-        return null;
-    }
 
     @Override
     public void remove(RoleDto dto)
     {
-        // TODO Auto-generated method stub
-
+        final Role role = this.mapper.map(dto, Role.class);
+        this.roleDao.delete(role);
     }
+
 
     @Override
     public RoleDto getByName(String name)
     {
-        // TODO Auto-generated method stub
-        return null;
+        final Role role = this.roleDao.findByName(name);
+        return this.mapper.map(role, RoleDto.class);
+    }
+
+
+    @Override
+    public <T> T create(RoleDto dto, Class<T> type)
+    {
+        final Role role = this.mapper.map(dto, Role.class);
+        this.roleDao.save(role);
+        return this.mapper.map(role, type);
+    }
+
+
+    @Override
+    public <T> T getById(Integer id, Class<T> type)
+    {
+        final Role role = this.roleDao.findById(id);
+        return this.mapper.map(role, type);
+    }
+
+
+    @Override
+    public <T> T update(RoleDto dto, Class<T> type)
+    {
+        final Role role = this.mapper.map(dto, Role.class);
+        this.roleDao.update(role);
+        return this.mapper.map(role, type);
     }
 
     @Override
-    public void setRoleDao(RoleDao roleDao)
+    public void addUserToRole(Integer userId, String roleName)
     {
-        // TODO Auto-generated method stub
+        final User user = this.userDao.findById(userId);
+        final Role role = this.roleDao.findByName(roleName);
+        role.addUser(user);
+        this.roleDao.update(role);
+    }
 
+
+    @Override
+    public void removeUserFromRole(Integer userId, String roleName)
+    {
+        final User user = this.userDao.findById(userId);
+        final Role role = this.roleDao.findByName(roleName);
+        role.removeUser(user);
+        this.roleDao.update(role);
     }
 
 }

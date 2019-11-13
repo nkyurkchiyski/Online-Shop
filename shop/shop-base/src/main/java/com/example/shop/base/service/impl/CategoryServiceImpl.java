@@ -26,28 +26,28 @@ public class CategoryServiceImpl implements CategoryService {
     private CategoryDao categoryDao;
 
     @Override
-    public CategoryDto create(CategoryDto dto)
+    public <T> T create(CategoryDto dto, Class<T> type)
     {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public CategoryDto getById(Integer id)
+    public <T> T getById(Integer id, Class<T> type)
     {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public List<CategoryDto> getAll()
+    public <T> List<T> getAll(Class<T> type)
     {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public CategoryDto update(CategoryDto dto)
+    public <T> T update(CategoryDto dto, Class<T> type)
     {
         // TODO Auto-generated method stub
         return null;

@@ -23,9 +23,18 @@ public class UserDaoImpl implements UserDao
     @Override
     public User findByEmail(String email)
     {
-        final User user = this.entityManager.createQuery("SELECT u FROM User u JOIN FETCH u.roles WHERE u.email = :email", User.class)//
-                                            .setParameter("email", email)
-                                            .getSingleResult();
+        User user;
+        try
+        {
+            user = this.entityManager.createQuery("SELECT u FROM User u JOIN FETCH u.roles WHERE u.email = :email", User.class)//
+                                     .setParameter("email", email)
+                                     .getSingleResult();
+        }
+        catch (Exception e)
+        {
+            user = null;
+        }
+
         return user;
     }
 
@@ -33,8 +42,9 @@ public class UserDaoImpl implements UserDao
     @Override
     public User save(User entity)
     {
+        this.entityManager.getTransaction().begin();
         this.entityManager.persist(entity);
-        this.entityManager.flush();
+        this.entityManager.getTransaction().commit();
         return entity;
     }
 
@@ -42,8 +52,9 @@ public class UserDaoImpl implements UserDao
     @Override
     public User update(User entity)
     {
+        this.entityManager.getTransaction().begin();
         this.entityManager.merge(entity);
-        this.entityManager.flush();
+        this.entityManager.getTransaction().commit();
         return entity;
     }
 
@@ -51,8 +62,9 @@ public class UserDaoImpl implements UserDao
     @Override
     public void delete(User entity)
     {
+        this.entityManager.getTransaction().begin();
         this.entityManager.merge(entity);
-        this.entityManager.flush();
+        this.entityManager.getTransaction().commit();
     }
 
 

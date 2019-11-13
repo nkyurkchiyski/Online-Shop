@@ -7,8 +7,6 @@
  */
 package com.example.shop.base.service;
 
-
-import com.example.shop.base.dao.RoleDao;
 import com.example.shop.base.dto.RoleDto;
 
 
@@ -17,6 +15,8 @@ public interface RoleService extends GenericService<RoleDto, Integer>
     RoleDto getByName(String name);
 
 
-    void setRoleDao(RoleDao roleDao);
+    void addUserToRole(Integer userId, String roleName);
+
+    void removeUserFromRole(Integer userId, String roleName);
 
 }

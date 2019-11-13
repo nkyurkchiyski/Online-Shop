@@ -27,28 +27,28 @@ public class OrderServiceImpl implements OrderService {
     private OrderDao orderDao;
 
     @Override
-    public OrderDto create(OrderDto dto)
+    public <T> T create(OrderDto dto, Class<T> type)
     {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public OrderDto getById(Integer id)
+    public <T> T getById(Integer id, Class<T> type)
     {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public List<OrderDto> getAll()
+    public <T> List<T> getAll(Class<T> type)
     {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public OrderDto update(OrderDto dto)
+    public <T> T update(OrderDto dto, Class<T> type)
     {
         // TODO Auto-generated method stub
         return null;
@@ -67,8 +67,6 @@ public class OrderServiceImpl implements OrderService {
         // TODO Auto-generated method stub
 
     }
-
-
 
 
 }

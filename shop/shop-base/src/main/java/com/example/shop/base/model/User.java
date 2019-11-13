@@ -12,6 +12,7 @@ import javax.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Set;
 
 
@@ -184,6 +185,11 @@ public class User implements Serializable
         this.roles.remove(role);
     }
 
+    @PrePersist
+    private void prePersist() {
+        this.createdAt = LocalDate.now();
+        this.isActive = true;
+    }
 
     public boolean isAdmin()
     {

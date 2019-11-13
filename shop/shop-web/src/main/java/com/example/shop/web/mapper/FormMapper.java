@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.function.Function;
 
 public class FormMapper implements Mapper {
+    @SuppressWarnings("rawtypes")
     private static final Map<Class, Function<String, ?>> parsers = new HashMap<Class, Function<String, ?>>();
 
     static {
@@ -20,9 +21,9 @@ public class FormMapper implements Mapper {
 
     @Override
     public <T> T map(HttpServletRequest request, Class<T> type) {
-        T obj = null;
+        T instanceType = null;
         try {
-            obj = type.newInstance();
+            instanceType = type.newInstance();
             final Field[] fields = type.getDeclaredFields();
             for (Field field : fields) {
                 final String fieldName = field.getName();
@@ -31,15 +32,16 @@ public class FormMapper implements Mapper {
 
                 if (parameterValue != null) {
                     field.setAccessible(true);
-                    field.set(obj, this.parse(fieldType, parameterValue));
+                    field.set(instanceType, this.parse(fieldType, parameterValue));
                 }
             }
         } catch (InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
-        return obj;
+        return instanceType;
     }
 
+    @SuppressWarnings("unchecked")
     private <E> E parse(Class<E> type, String value) {
         return (E) parsers.get(type).apply(value);
     }

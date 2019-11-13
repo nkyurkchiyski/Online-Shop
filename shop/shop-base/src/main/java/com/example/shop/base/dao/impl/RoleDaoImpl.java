@@ -55,7 +55,7 @@ public class RoleDaoImpl implements RoleDao {
     @Override
     public List<Role> findAll() {
         this.entityManager.getTransaction().begin();
-        final List<Role> roles = this.entityManager.createQuery("SELECT r FROM Role r", Role.class)//
+        final List<Role> roles = this.entityManager.createQuery("SELECT r FROM Role r JOIN FETCH r.users", Role.class)//
                 .getResultList();
         this.entityManager.getTransaction().commit();
         return roles;
@@ -84,7 +84,7 @@ public class RoleDaoImpl implements RoleDao {
     @Override
     public Role findByName(String roleName) {
         this.entityManager.getTransaction().begin();
-        final Role role = this.entityManager.createQuery("SELECT r FROM Role r WHERE r.name = :name", Role.class)//
+        final Role role = this.entityManager.createQuery("SELECT r FROM Role r JOIN FETCH r.users WHERE r.name = :name ", Role.class)//
                 .setParameter("name", roleName)
                 .getSingleResult();
         this.entityManager.getTransaction().commit();

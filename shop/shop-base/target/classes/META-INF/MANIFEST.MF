@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1573582701527
-Build-Jdk: 1.8.0_181
-Built-By: Nikolay Kyurkchiyski
+Bnd-LastModified: 1573650251137
+Build-Jdk: 1.8.0_151
+Built-By: n.kyurkchiyski
 Bundle-Blueprint: OSGI-INF/blueprint/autowire.xml
 Bundle-ManifestVersion: 2
 Bundle-Name: shop-base
@@ -15,27 +15,26 @@ Export-Package: com.example.shop.base.dao;uses:="com.example.shop.base.m
  stence";version="0.0.1",com.example.shop.base.model.key;uses:="javax.pe
  rsistence";version="0.0.1",com.example.shop.base.service;uses:="com.exa
  mple.shop.base.dao,com.example.shop.base.dto";version="0.0.1"
-Export-Service: com.example.shop.base.service.CategoryService;osgi.servi
- ce.blueprint.compname=categoryService,com.example.shop.base.service.Ord
- erService;osgi.service.blueprint.compname=orderService,com.example.shop
- .base.service.RoleService;osgi.service.blueprint.compname=roleService,c
- om.example.shop.base.service.UserService;osgi.service.blueprint.compnam
- e=userService,com.example.shop.base.service.AuthenticationService;osgi.
- service.blueprint.compname=authenticationService,com.example.shop.base.
- service.ProductService;osgi.service.blueprint.compname=productService,c
- om.example.shop.base.service.AddressService;osgi.service.blueprint.comp
- name=addressService,com.example.shop.base.service.impl.BCryptServiceImp
- l;osgi.service.blueprint.compname=bcryptService
+Export-Service: com.example.shop.base.service.impl.ShaServiceImpl;osgi.s
+ ervice.blueprint.compname=shaService,com.example.shop.base.service.Auth
+ enticationService;osgi.service.blueprint.compname=authenticationService
+ ,com.example.shop.base.service.UserService;osgi.service.blueprint.compn
+ ame=userService,com.example.shop.base.service.CategoryService;osgi.serv
+ ice.blueprint.compname=categoryService,com.example.shop.base.service.Or
+ derService;osgi.service.blueprint.compname=orderService,com.example.sho
+ p.base.service.AddressService;osgi.service.blueprint.compname=addressSe
+ rvice,com.example.shop.base.service.RoleService;osgi.service.blueprint.
+ compname=roleService,com.example.shop.base.service.ProductService;osgi.
+ service.blueprint.compname=productService
 Import-Package: com.example.shop.base.dao,com.example.shop.base.dto,com.
  example.shop.base.model,com.example.shop.base.model.key,com.example.sho
  p.base.service,javax.inject,javax.persistence;version="[2.1,3)";resolut
  ion:=optional,javax.transaction;version="[1.3,2)";resolution:=optional,
  org.apache.aries.blueprint.annotation.bean;version="[1.0,2)";resolution
  :=optional,org.apache.aries.blueprint.annotation.service;version="[1.0,
- 2)";resolution:=optional,org.mindrot.jbcrypt;resolution:=optional,org.m
- odelmapper;version="[2.3,3)";resolution:=optional,org.osgi.service.blue
- print;version="[1.0.0,2.0.0)",org.hibernate.proxy;resolution:=optional,
- javassist.util.proxy;resolution:=optional
+ 2)";resolution:=optional,org.modelmapper;version="[2.3,3)";resolution:=
+ optional,org.osgi.service.blueprint;version="[1.0.0,2.0.0)",org.hiberna
+ te.proxy;resolution:=optional,javassist.util.proxy;resolution:=optional
 Meta-Persistence: META-INF/persistence.xml
 Provide-Capability: osgi.service;effective:=active;objectClass="javax.pe
  rsistence.EntityManager";osgi.unit.name=online-shop,osgi.service;effect
@@ -47,8 +46,7 @@ Provide-Capability: osgi.service;effective:=active;objectClass="javax.pe
 Require-Capability: osgi.extender;osgi.extender="aries.jpa",osgi.service
  ;effective:=active;objectClass="javax.persistence.spi.PersistenceProvid
  er";javax.persistence.provider="org.hibernate.jpa.HibernatePersistenceP
- rovider",osgi.service;effective:=active;objectClass="javax.transaction.
- TransactionManager",osgi.service;effective:=active;objectClass="javax.s
- ql.DataSource";filter:="(osgi.jndi.service.name=online-shop)",osgi.ee;f
- ilter:="(&(osgi.ee=JavaSE)(version=1.8))"
+ rovider",osgi.service;effective:=active;objectClass="javax.sql.DataSour
+ ce";filter:="(osgi.jndi.service.name=online-shop)",osgi.ee;filter:="(&(
+ osgi.ee=JavaSE)(version=1.8))"
 Tool: Bnd-3.5.0.201709291849

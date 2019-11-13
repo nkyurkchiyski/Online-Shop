@@ -12,46 +12,52 @@ import java.util.List;
 
 import com.example.shop.base.dao.AddressDao;
 import com.example.shop.base.dto.AddressDto;
-import com.example.shop.base.model.Address;
 import com.example.shop.base.service.AddressService;
 import org.apache.aries.blueprint.annotation.bean.Bean;
 import org.apache.aries.blueprint.annotation.service.Service;
 
 import javax.inject.Inject;
 
+
 @Service(classes = AddressService.class)
 @Bean(id = "addressService")
-public class AddressServiceImpl implements AddressService {
+public class AddressServiceImpl implements AddressService
+{
     @Inject
     private AddressDao addressDao;
 
+
     @Override
-    public AddressDto create(AddressDto dto)
+    public <T> T create(AddressDto dto, Class<T> type)
     {
         // TODO Auto-generated method stub
         return null;
     }
 
+
     @Override
-    public AddressDto getById(Integer id)
+    public <T> T getById(Integer id, Class<T> type)
     {
         // TODO Auto-generated method stub
         return null;
     }
 
+
     @Override
-    public List<AddressDto> getAll()
+    public <T> List<T> getAll(Class<T> type)
     {
         // TODO Auto-generated method stub
         return null;
     }
 
+
     @Override
-    public AddressDto update(AddressDto dto)
+    public <T> T update(AddressDto dto, Class<T> type)
     {
         // TODO Auto-generated method stub
         return null;
     }
+
 
     @Override
     public void remove(AddressDto dto)
@@ -60,12 +66,11 @@ public class AddressServiceImpl implements AddressService {
 
     }
 
+
     @Override
     public void setAddressDao(AddressDao addressDao)
     {
-        // TODO Auto-generated method stub
-
+        this.addressDao = addressDao;
     }
-
 
 }

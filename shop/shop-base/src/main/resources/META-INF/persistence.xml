@@ -3,10 +3,11 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
     version="2.0">
     <persistence-unit name="online-shop"
-        transaction-type="JTA">
+        transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- Only used when transaction-type=JTA -->
         <jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=online-shop)</jta-data-source>
+        <non-jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=online-shop)</non-jta-data-source>
         <properties>
             <property name="hibernate.connection.url"
                 value="jdbc:sqlserver://localhost:1433;databaseName=shopDB;" />
