@@ -22,7 +22,6 @@
     <bean id="roleDao" class="com.example.shop.base.dao.impl.RoleDaoImpl"/>
     <bean xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0" id="roleService" class="com.example.shop.base.service.impl.RoleServiceImpl" ext:field-injection="true">
         <property name="roleDao" ref="roleDao"/>
-        <property name="userDao" ref="userDao"/>
     </bean>
     <bean id="shaService" class="com.example.shop.base.service.impl.ShaServiceImpl"/>
     <bean id="userDao" class="com.example.shop.base.dao.impl.UserDaoImpl"/>

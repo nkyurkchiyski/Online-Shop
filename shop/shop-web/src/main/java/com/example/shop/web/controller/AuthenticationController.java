@@ -18,8 +18,6 @@ import com.example.shop.base.dto.UserViewDto;
 import com.example.shop.base.dto.UserLoginDto;
 import com.example.shop.base.dto.UserDto;
 import com.example.shop.base.service.AuthenticationService;
-import com.example.shop.web.mapper.FormMapper;
-import com.example.shop.web.mapper.Mapper;
 import com.example.shop.web.util.Endpoint;
 import com.example.shop.web.util.ServiceUtil;
 
@@ -27,13 +25,11 @@ import com.example.shop.web.util.ServiceUtil;
 public class AuthenticationController extends AbstractController
 {
     private AuthenticationService authenticationService;
-    private Mapper mapper;
 
 
     public AuthenticationController()
     {
         this.authenticationService = ServiceUtil.getService(AuthenticationController.class, AuthenticationService.class);
-        this.mapper = new FormMapper();
     }
 
 
@@ -57,8 +53,7 @@ public class AuthenticationController extends AbstractController
         final UserDto dto = this.mapper.map(req, UserDto.class);
         final UserViewDto userViewDto = this.authenticationService.register(dto);
 
-        req.getSession().setAttribute("username", userViewDto.getEmail());
-        req.getSession().setAttribute("isAdmin", userViewDto.isAdmin());
+        req.getSession().setAttribute("user", userViewDto);
         this.redirectToHome(req, resp);
     }
 
@@ -69,8 +64,7 @@ public class AuthenticationController extends AbstractController
         final UserLoginDto loginDto = this.mapper.map(req, UserLoginDto.class);
         final UserViewDto userViewDto = this.authenticationService.login(loginDto);
 
-        req.getSession().setAttribute("username", userViewDto.getEmail());
-        req.getSession().setAttribute("isAdmin", userViewDto.isAdmin());
+        req.getSession().setAttribute("user", userViewDto);
         this.redirectToHome(req, resp);
     }
 

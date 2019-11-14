@@ -17,9 +17,8 @@ import java.util.Map;
 
 public class RequestHandler implements Handler
 {
-
     private Map<String, Map<String, Method>> routingTable;
-    private Controller controller;
+    private final Controller controller;
 
 
     public RequestHandler(Controller controller)

@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 
 import com.example.shop.base.dao.UserDao;
 import com.example.shop.base.dto.UserDto;
-import com.example.shop.base.dto.UserViewDto;
 import com.example.shop.base.model.Role;
 import com.example.shop.base.model.User;
 import com.example.shop.base.service.EncryptionService;
@@ -30,7 +29,8 @@ import javax.inject.Inject;
 
 @Service(classes = UserService.class)
 @Bean(id = "userService")
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService
+{
     @Inject
     private UserDao userDao;
 
@@ -40,17 +40,18 @@ public class UserServiceImpl implements UserService {
     @Inject
     private EncryptionService encryptionService;
 
-
     private ModelMapper mapper;
 
 
-    public UserServiceImpl() {
+    public UserServiceImpl()
+    {
         this.mapper = new ModelMapper();
     }
 
 
     @Override
-    public void remove(Integer id) {
+    public void remove(Integer id)
+    {
         final User user = this.getById(id, User.class);
         user.setActive(false);
         this.userDao.delete(user);
@@ -58,15 +59,17 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public <T> T getByEmail(String email, Class<T> type) {
+    public <T> T getByEmail(String email, Class<T> type)
+    {
         final User user = this.userDao.findByEmail(email);
         return this.mapper.map(user, type);
     }
 
 
     @Override
-    public <T> T create(UserDto dto, Class<T> type) {
-        this.validateUserRegisterDto(dto);
+    public <T> T create(UserDto dto, Class<T> type)
+    {
+        this.validateUserDto(dto);
 
         final String hashed = this.encryptionService.hash(dto.getPassword());
         dto.setPassword(hashed);
@@ -81,37 +84,43 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public <T> T getById(Integer id, Class<T> type) {
+    public <T> T getById(Integer id, Class<T> type)
+    {
         final User user = this.userDao.findById(id);
         return this.mapper.map(user, type);
     }
 
 
     @Override
-    public <T> List<T> getAll(Class<T> type) {
+    public <T> List<T> getAll(Class<T> type)
+    {
         final List<User> users = this.userDao.findAll();
         return users.stream()
-                .map(source -> this.mapper.map(source, type))//
-                .collect(Collectors.toList());
+                    .map(source -> this.mapper.map(source, type))//
+                    .collect(Collectors.toList());
     }
 
 
     @Override
-    public <T> T update(UserDto dto, Class<T> type) {
+    public <T> T update(UserDto dto, Class<T> type)
+    {
         final User user = this.mapper.map(dto, User.class);
         this.userDao.update(user);
         return this.mapper.map(user, type);
     }
 
 
-    private void validateUserRegisterDto(final UserDto dto) {
+    private void validateUserDto(final UserDto dto)
+    {
         final boolean exists = this.userDao.findByEmail(dto.getEmail()) != null;
 
-        if (exists) {
+        if (exists)
+        {
             throw new IllegalArgumentException("User with the same email already exists!");
         }
 
-        if (!dto.getPassword().equals(dto.getConfirmPassword())) {
+        if (!dto.getPassword().equals(dto.getConfirmPassword()))
+        {
             throw new IllegalArgumentException("Passwords do not match!");
         }
     }

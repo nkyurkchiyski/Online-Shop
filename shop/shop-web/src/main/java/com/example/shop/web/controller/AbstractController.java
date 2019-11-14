@@ -14,11 +14,22 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.example.shop.web.mapper.FormMapper;
+import com.example.shop.web.mapper.Mapper;
 import com.example.shop.web.util.EndpointUtil;
 
 
 public abstract class AbstractController implements Controller
 {
+    protected final Mapper mapper;
+
+
+    public AbstractController()
+    {
+        this.mapper = new FormMapper();
+    }
+
+
     @Override
     public void redirectToHome(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
