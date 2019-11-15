@@ -3,7 +3,7 @@ feature:install scr transaction jdbc pax-jdbc-config pax-jdbc-mssql pax-jdbc-poo
 feature:install aries-blueprint
 feature:install webconsole
 feature:install http-whiteboard
-install -s mvn:org.modelmapper/modelmapper/2.3.0
+install -s mvn:org.modelmapper/modelmapper/2.3.5
 
 uninstall mvn:com.example.shop/shop-base/0.0.1-SNAPSHOT
 uninstall mvn:com.example.shop/shop-web/0.0.1-SNAPSHOT

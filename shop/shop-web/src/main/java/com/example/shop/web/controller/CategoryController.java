@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.example.shop.base.dto.CategoryDto;
+import com.example.shop.base.dto.CategoryProductsDto;
 import com.example.shop.base.service.CategoryService;
 import com.example.shop.web.util.Endpoint;
 import com.example.shop.web.util.ServiceUtil;
@@ -89,6 +90,9 @@ public class CategoryController extends AbstractController
     @Endpoint(path = "/category/details")
     public void detailsGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
+        final Integer id = Integer.parseInt(req.getParameter("id"));
+        final CategoryProductsDto dto = this.categoryService.getById(id, CategoryProductsDto.class);
+        req.setAttribute("category", dto);
         this.redirectToJsp(req, resp);
     }
 

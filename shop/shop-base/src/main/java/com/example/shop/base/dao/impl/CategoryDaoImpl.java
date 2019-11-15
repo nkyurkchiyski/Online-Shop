@@ -3,6 +3,7 @@ package com.example.shop.base.dao.impl;
 
 import com.example.shop.base.dao.CategoryDao;
 import com.example.shop.base.model.Category;
+
 import org.apache.aries.blueprint.annotation.bean.Bean;
 
 import javax.persistence.EntityManager;

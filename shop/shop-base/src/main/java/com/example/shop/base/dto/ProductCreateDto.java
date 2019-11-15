@@ -1,7 +1,7 @@
 /*
- * ProductDto.java
+ * ProductCreateDto.java
  *
- * created at 2019-11-11 by n.kyurkchiyski <YOURMAILADDRESS>
+ * created at 2019-11-15 by n.kyurkchiyski <YOURMAILADDRESS>
  *
  * Copyright (c) SEEBURGER AG, Germany. All Rights Reserved.
  */
@@ -11,13 +11,27 @@ package com.example.shop.base.dto;
 import java.math.BigDecimal;
 
 
-public class ProductDto
+public class ProductCreateDto
 {
     private Integer id;
     private String name;
+    private String description;
     private String imageUrl;
     private BigDecimal price;
     private Integer quantity;
+    private Integer[] categoryIds;
+
+
+    public Integer[] getCategoryIds()
+    {
+        return categoryIds;
+    }
+
+
+    public void setCategoryIds(Integer[] categoryIds)
+    {
+        this.categoryIds = categoryIds;
+    }
 
 
     public Integer getId()
@@ -29,6 +43,12 @@ public class ProductDto
     public String getName()
     {
         return name;
+    }
+
+
+    public String getDescription()
+    {
+        return description;
     }
 
 
@@ -59,6 +79,12 @@ public class ProductDto
     public void setName(String name)
     {
         this.name = name;
+    }
+
+
+    public void setDescription(String description)
+    {
+        this.description = description;
     }
 
 

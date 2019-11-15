@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                             <div class="row d-flex justify-content-around">
-                                <a class="btn btn-lg btn-light" href="/online-shop/home">
+                                <a class="btn btn-lg btn-light" href="/online-shop/category/all">
                                     Cancel </a>
                                 <button type="submit" class="btn btn-lg btn-secondary">
                                     Submit</button>

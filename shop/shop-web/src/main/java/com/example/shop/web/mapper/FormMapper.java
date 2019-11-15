@@ -3,6 +3,7 @@ package com.example.shop.web.mapper;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
@@ -21,6 +22,7 @@ public class FormMapper implements Mapper
         parsers.put(Double.class, Double::parseDouble);
         parsers.put(Float.class, Float::parseFloat);
         parsers.put(Boolean.class, Boolean::parseBoolean);
+        parsers.put(BigDecimal.class, BigDecimal::new);
     }
 
 

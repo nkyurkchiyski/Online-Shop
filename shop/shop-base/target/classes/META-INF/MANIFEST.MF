@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1573737139229
+Bnd-LastModified: 1573811213827
 Build-Jdk: 1.8.0_151
 Built-By: n.kyurkchiyski
 Bundle-Blueprint: OSGI-INF/blueprint/autowire.xml
@@ -18,14 +18,14 @@ Export-Package: com.example.shop.base.dao;uses:="com.example.shop.base.m
 Export-Service: com.example.shop.base.service.AuthenticationService;osgi
  .service.blueprint.compname=authenticationService,com.example.shop.base
  .service.UserService;osgi.service.blueprint.compname=userService,com.ex
- ample.shop.base.service.AddressService;osgi.service.blueprint.compname=
- addressService,com.example.shop.base.service.impl.ShaServiceImpl;osgi.s
- ervice.blueprint.compname=shaService,com.example.shop.base.service.Prod
- uctService;osgi.service.blueprint.compname=productService,com.example.s
- hop.base.service.OrderService;osgi.service.blueprint.compname=orderServ
- ice,com.example.shop.base.service.CategoryService;osgi.service.blueprin
- t.compname=categoryService,com.example.shop.base.service.RoleService;os
- gi.service.blueprint.compname=roleService
+ ample.shop.base.service.impl.ShaServiceImpl;osgi.service.blueprint.comp
+ name=shaService,com.example.shop.base.service.RoleService;osgi.service.
+ blueprint.compname=roleService,com.example.shop.base.service.OrderServi
+ ce;osgi.service.blueprint.compname=orderService,com.example.shop.base.s
+ ervice.ProductService;osgi.service.blueprint.compname=productService,co
+ m.example.shop.base.service.AddressService;osgi.service.blueprint.compn
+ ame=addressService,com.example.shop.base.service.CategoryService;osgi.s
+ ervice.blueprint.compname=categoryService
 Import-Package: com.example.shop.base.dao,com.example.shop.base.dto,com.
  example.shop.base.model,com.example.shop.base.model.key,com.example.sho
  p.base.service,javax.inject,javax.persistence;version="[2.1,3)";resolut
