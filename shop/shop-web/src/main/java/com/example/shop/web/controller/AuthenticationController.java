@@ -16,14 +16,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.example.shop.base.dto.UserViewDto;
 import com.example.shop.base.dto.UserLoginDto;
-import com.example.shop.base.dto.UserDto;
+import com.example.shop.base.dto.UserFormDto;
 import com.example.shop.base.service.AuthenticationService;
 import com.example.shop.web.annotation.Endpoint;
 import com.example.shop.web.util.ServiceUtil;
 import com.example.shop.web.annotation.WebController;
 
 @WebController(path = "/auth")
-public class AuthenticationController extends AbstractController {
+public class AuthenticationController extends BaseController {
     private AuthenticationService authenticationService;
 
 
@@ -46,7 +46,7 @@ public class AuthenticationController extends AbstractController {
 
     @Endpoint(method = "post", urls = "/auth/register")
     public void registerPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        final UserDto dto = this.mapper.map(req, UserDto.class);
+        final UserFormDto dto = this.mapper.map(req, UserFormDto.class);
         final UserViewDto userViewDto = this.authenticationService.register(dto);
 
         req.getSession().setAttribute("user", userViewDto);

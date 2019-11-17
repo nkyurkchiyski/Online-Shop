@@ -19,8 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.example.shop.base.dto.CategoryDto;
 import com.example.shop.base.dto.ProductDto;
 import com.example.shop.base.dto.ProductFormDto;
-import com.example.shop.base.dto.ProductDetailsDto;
-import com.example.shop.base.model.Product;
+import com.example.shop.base.dto.ProductViewDto;
 import com.example.shop.base.service.CategoryService;
 import com.example.shop.base.service.ProductService;
 import com.example.shop.web.annotation.Endpoint;
@@ -29,7 +28,7 @@ import com.example.shop.web.annotation.WebController;
 
 
 @WebController(path = "/product")
-public class ProductController extends AbstractController {
+public class ProductController extends BaseController {
     private ProductService productService;
     private CategoryService categoryService;
 
@@ -50,19 +49,20 @@ public class ProductController extends AbstractController {
 
     @Endpoint(urls = "/product/edit")
     public void editGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //TODO test
         final Integer id = Integer.parseInt(req.getParameter("id"));
-        final ProductDetailsDto dto = this.productService.getById(id, ProductDetailsDto.class);
-        req.setAttribute("product", dto);
+        final ProductViewDto productDto = this.productService.getById(id, ProductViewDto.class);
+        final List<CategoryDto> categoryDtos = this.categoryService.getAll(CategoryDto.class);
+
+        req.setAttribute("product", productDto);
+        req.setAttribute("categories", categoryDtos);
         this.redirectToJsp(req, resp);
     }
 
 
     @Endpoint(urls = "/product/delete")
     public void deleteGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //TODO test
         final Integer id = Integer.parseInt(req.getParameter("id"));
-        final ProductDetailsDto dto = this.productService.getById(id, ProductDetailsDto.class);
+        final ProductViewDto dto = this.productService.getById(id, ProductViewDto.class);
         req.setAttribute("product", dto);
         this.redirectToJsp(req, resp);
     }
@@ -79,15 +79,14 @@ public class ProductController extends AbstractController {
 
     @Endpoint(method = "post", urls = "/product/edit")
     public void editPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //TODO test
+        //TODO add validation in service
         final ProductFormDto dto = getProductFormDto(req);
-        final ProductDto product = this.productService.create(dto, ProductDto.class);
+        final ProductDto product = this.productService.update(dto, ProductDto.class);
         resp.sendRedirect(String.format("/online-shop/product/details?id=%s", product.getId()));
     }
 
     @Endpoint(method = "post", urls = "/product/delete")
     public void deletePost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //TODO test
         final Integer id = Integer.parseInt(req.getParameter("id"));
         this.productService.remove(id);
         resp.sendRedirect("/online-shop/product/all");
@@ -95,18 +94,19 @@ public class ProductController extends AbstractController {
 
     @Endpoint(urls = "/product/details")
     public void detailsGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //TODO test
+        //TODO test create jsp
         final Integer id = Integer.parseInt(req.getParameter("id"));
-        final ProductDetailsDto dto = this.productService.getById(id, ProductDetailsDto.class);
+        final ProductViewDto dto = this.productService.getById(id, ProductViewDto.class);
         req.setAttribute("product", dto);
         this.redirectToJsp(req, resp);
     }
 
     @Endpoint(urls = "/product/all")
     public void allGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //TODO test
+        //TODO add filter
         final List<ProductDto> productDtos = this.productService.getAll(ProductDto.class);
         req.setAttribute("products", productDtos);
+        req.setAttribute("filter", "All");
         this.redirectToJsp(req, resp);
     }
 

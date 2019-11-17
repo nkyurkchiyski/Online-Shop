@@ -10,7 +10,7 @@ package com.example.shop.base.service.impl;
 
 import javax.inject.Inject;
 
-import com.example.shop.base.dto.UserDto;
+import com.example.shop.base.dto.UserFormDto;
 import com.example.shop.base.service.UserService;
 import org.apache.aries.blueprint.annotation.bean.Bean;
 import org.apache.aries.blueprint.annotation.service.Service;
@@ -41,7 +41,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
 
     @Override
-    public UserViewDto register(UserDto dto) {
+    public UserViewDto register(UserFormDto dto) {
         return this.userService.create(dto, UserViewDto.class);
     }
 

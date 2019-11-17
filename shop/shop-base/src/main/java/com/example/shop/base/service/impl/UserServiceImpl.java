@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.example.shop.base.dao.UserDao;
-import com.example.shop.base.dto.UserDto;
+import com.example.shop.base.dto.UserFormDto;
 import com.example.shop.base.model.Role;
 import com.example.shop.base.model.User;
 import com.example.shop.base.service.EncryptionService;
@@ -67,7 +67,7 @@ public class UserServiceImpl implements UserService
 
 
     @Override
-    public <T> T create(UserDto dto, Class<T> type)
+    public <T> T create(UserFormDto dto, Class<T> type)
     {
         this.validateUserDto(dto);
 
@@ -102,7 +102,7 @@ public class UserServiceImpl implements UserService
 
 
     @Override
-    public <T> T update(UserDto dto, Class<T> type)
+    public <T> T update(UserFormDto dto, Class<T> type)
     {
         final User user = this.mapper.map(dto, User.class);
         this.userDao.update(user);
@@ -110,7 +110,7 @@ public class UserServiceImpl implements UserService
     }
 
 
-    private void validateUserDto(final UserDto dto)
+    private void validateUserDto(final UserFormDto dto)
     {
         final boolean exists = this.userDao.findByEmail(dto.getEmail()) != null;
 

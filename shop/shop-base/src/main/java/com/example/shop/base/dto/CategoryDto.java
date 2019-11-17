@@ -8,33 +8,36 @@
 package com.example.shop.base.dto;
 
 
-public class CategoryDto
-{
+public class CategoryDto {
     private Integer id;
     private String name;
 
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
 
-    public Integer getId()
-    {
+    public Integer getId() {
         return id;
     }
 
 
-    public void setId(Integer id)
-    {
+    public void setId(Integer id) {
         this.id = id;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof CategoryDto)) {
+            return false;
+        }
+
+        return this.getId().equals(((CategoryDto) obj).getId());
+    }
 }

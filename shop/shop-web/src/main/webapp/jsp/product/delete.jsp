@@ -1,12 +1,95 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page import="com.example.shop.base.dto.CategoryDto" %>
+<%@page import="java.util.List" %>
+<%@ page import="com.example.shop.base.dto.ProductViewDto" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    ProductViewDto product = (ProductViewDto) request.getAttribute("product");
+%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+    <c:import url="../templates/head.jsp"/>
 </head>
 <body>
-
+<header>
+    <c:import url="../templates/nav.jsp"/>
+</header>
+<div class="container-fluid m-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow">
+                <div class="card-header form-title bg-warning">
+                    <h4 class="m-0">Delete Product</h4>
+                </div>
+                <div class="card-body">
+                    <form class="form-horizontal" action="/online-shop/product/delete"
+                          method="post">
+                        <input type="hidden" id="id" name="id" value="<%=product.getId()%>" required>
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
+                            <div class="col-md-6">
+                                <input disabled type="text" id="name" name="name" placeholder="Name"
+                                       class="form-control" value="<%=product.getName()%>" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="imageUrl"
+                                   class="col-md-4 col-form-label text-md-right">Image Url</label>
+                            <div class="col-md-6">
+                                <input disabled type="text" id="imageUrl" name="imageUrl" value="<%=product.getImageUrl()%>"
+                                       placeholder="Image Url" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="price" class="col-md-4 col-form-label text-md-right">Price</label>
+                            <div class="col-md-6">
+                                <input disabled type="number" step="0.01" id="price" name="price"
+                                       placeholder="Price" class="form-control" value="<%=product.getPrice()%>"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="quantity"
+                                   class="col-md-4 col-form-label text-md-right">Quantity</label>
+                            <div class="col-md-6">
+                                <input disabled type="number" step="1" id="quantity" name="quantity"
+                                       placeholder="Quantity" class="form-control" value="<%=product.getQuantity()%>"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="categories"
+                                   class="col-md-4 col-form-label text-md-right">Categories</label>
+                            <div class="col-md-6">
+                                <select disabled class="form-control" id="categories"
+                                        name="categories">
+                                    <option selected>Select category</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="description"
+                                   class="col-md-4 col-form-label text-md-right">Description</label>
+                            <div class="col-md-6">
+									<textarea disabled id="description" name="description"
+                                              placeholder="Description" class="form-control" required
+                                              rows="3"><%=product.getDescription()%></textarea>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-around">
+                            <a class="btn btn-lg btn-light" href="/online-shop/home">
+                                Cancel </a>
+                            <button type="submit" class="btn btn-lg btn-secondary">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <c:import url="../templates/footer.jsp"/>
+</div>
 </body>
+<c:import url="../templates/scripts.jsp"/>
 </html>

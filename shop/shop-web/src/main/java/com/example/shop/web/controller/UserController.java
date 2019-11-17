@@ -22,7 +22,7 @@ import com.example.shop.web.util.ServiceUtil;
 import com.example.shop.web.annotation.WebController;
 
 @WebController(path = "/user")
-public class UserController extends AbstractController
+public class UserController extends BaseController
 {
     private UserService userService;
 

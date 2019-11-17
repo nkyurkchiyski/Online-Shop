@@ -19,12 +19,12 @@ import com.example.shop.web.mapper.Mapper;
 import com.example.shop.web.util.EndpointUtil;
 
 
-public abstract class AbstractController implements Controller
+public abstract class BaseController implements Controller
 {
     protected final Mapper mapper;
 
 
-    public AbstractController()
+    public BaseController()
     {
         this.mapper = new FormMapper();
     }

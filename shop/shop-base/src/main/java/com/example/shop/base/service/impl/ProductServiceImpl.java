@@ -78,16 +78,29 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public <T> T update(ProductFormDto dto, Class<T> type) {
         //TODO add validation
-        final Product product = this.mapper.map(dto, Product.class);
-        final Set<Category> categories = this.getCategories(dto.getCategoryIds());
-        product.setCategories(categories);
+        final Product product = this.getById(dto.getId(), Product.class);
+        this.updateProductInformation(dto, product);
         this.productDao.update(product);
         return this.mapper.map(product, type);
     }
 
+    private void updateProductInformation(ProductFormDto dto, Product product) {
+        if (product != null) {
+            final Set<Category> categories = this.getCategories(dto.getCategoryIds());
+            product.setCategories(categories);
+            product.setDescription(dto.getDescription());
+            product.setName(dto.getName());
+            product.setPrice(dto.getPrice());
+            product.setImageUrl(dto.getImageUrl());
+            product.setQuantity(dto.getQuantity());
+        }
+    }
+
     @Override
     public void remove(Integer id) {
-
+        final Product product = this.getById(id, Product.class);
+        product.setActive(false);
+        this.productDao.update(product);
     }
 
     @Override

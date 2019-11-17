@@ -16,8 +16,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "t_Roles")
-public class Role implements Serializable
-{
+public class Role implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -31,61 +30,44 @@ public class Role implements Serializable
     @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
     private Set<User> users;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    @JoinTable(name = "t_RoleRights", //
-                    joinColumns = {@JoinColumn(name = "cRoleRightRoleId")}, //
-                    inverseJoinColumns = {@JoinColumn(name = "cRoleRightRightId")}, //
-                    foreignKey = @ForeignKey(name = "FK_RoleRights_Roles"), //
-                    inverseForeignKey = @ForeignKey(name = "FK_RoleRights_Rights"))
-    private Set<Role> rights;
-
-    public Role()
-    {
+    public Role() {
     }
 
 
-    public Integer getId()
-    {
+    public Integer getId() {
         return id;
     }
 
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
 
-    public Set<User> getUsers()
-    {
+    public Set<User> getUsers() {
         return users;
     }
 
 
-    public void setId(Integer id)
-    {
+    public void setId(Integer id) {
         this.id = id;
     }
 
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
 
-    public void setUsers(Set<User> users)
-    {
+    public void setUsers(Set<User> users) {
         this.users = users;
     }
 
-    public void addUser(User user)
-    {
+    public void addUser(User user) {
         this.users.add(user);
     }
 
-    public void removeUser(User user)
-    {
+    public void removeUser(User user) {
         this.users.remove(user);
     }
 

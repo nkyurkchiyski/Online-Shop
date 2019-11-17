@@ -7,8 +7,8 @@ com\example\shop\web\servlet\WebAppServlet.class
 com\example\shop\web\util\EndpointUtil.class
 com\example\shop\web\filter\AlreadyLoggedInFilter.class
 com\example\shop\web\handler\Handler.class
-com\example\shop\web\controller\AbstractController.class
 com\example\shop\web\controller\UserController.class
+com\example\shop\web\controller\BaseController.class
 com\example\shop\web\controller\HomeController.class
 com\example\shop\web\filter\LoggedInFilter.class
 com\example\shop\web\handler\RequestHandler.class

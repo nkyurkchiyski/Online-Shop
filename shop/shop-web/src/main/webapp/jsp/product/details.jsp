@@ -1,12 +1,72 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page import="com.example.shop.base.dto.UserViewDto" %>
+<%@ page import="com.example.shop.base.dto.ProductViewDto" %>
+<%@ page import="com.example.shop.base.dto.CategoryDto" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+    ProductViewDto product = (ProductViewDto) request.getAttribute("product");
+    UserViewDto user = (UserViewDto) request.getSession().getAttribute("user");
+%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+    <c:import url="../templates/head.jsp"/>
 </head>
 <body>
+<header>
+    <c:import url="../templates/nav.jsp"/>
+</header>
+<div class="container-fluid my-5">
+    <div class="text-center pb-4">
+        <h2>
+            Product Details
+        </h2>
+    </div>
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <img height="500px" style="object-fit: scale-down" src="<%=product.getImageUrl()%>">
+        </div>
 
+        <div class="col-md-6 text-left">
+            <h3><%=product.getName()%>
+            </h3>
+            <hr>
+            <h4>$<%=product.getPrice()%>
+            </h4>
+            <hr>
+            <h5>Description</h5>
+            <p><%=product.getDescription()%>
+            </p>
+            <hr>
+            <p class="font-weight-light"><span class="font-weight-bold">Categories: </span><%
+                for (CategoryDto category :
+                        product.getCategories()) {
+
+            %>
+                <a href="/online-shop/category/details?id=<%=category.getId()%>"><%=category.getName()%>
+                </a>
+                <%
+                    }
+                %>
+            </p>
+            <%
+                if (user.isAdmin()) {
+            %>
+            <hr>
+            <h5>Actions</h5>
+            <div>
+                <a href="/online-shop/product/edit?id=<%=product.getId()%>"
+                   class="btn btn-warning">Edit</a> <a
+                    href="/online-shop/product/delete?id=<%=product.getId()%>"
+                    class="btn btn-danger">Delete</a>
+                <%
+                    }
+                %></div>
+
+        </div>
+
+    </div>
+    <c:import url="../templates/footer.jsp"/>
+</div>
 </body>
+<c:import url="../templates/scripts.jsp"/>
 </html>

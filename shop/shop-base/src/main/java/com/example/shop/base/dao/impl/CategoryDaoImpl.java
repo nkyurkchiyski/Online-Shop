@@ -26,7 +26,8 @@ public class CategoryDaoImpl implements CategoryDao {
     public Category findByName(String categoryName) {
         Category category;
         try {
-            category = this.em.createQuery("SELECT c FROM Category c WHERE c.name = :name", Category.class)//
+            category = this.em.createQuery("SELECT c FROM Category c " +
+                    "WHERE c.name = :name", Category.class)//
                     .setParameter("name", categoryName)
                     .getSingleResult();
         } catch (NoResultException e) {
@@ -64,7 +65,7 @@ public class CategoryDaoImpl implements CategoryDao {
 
     @Override
     public List<Category> findAll() {
-        final List<Category> categories = this.em.createQuery("SELECT c FROM Category c", Category.class)//
+        final List<Category> categories = this.em.createQuery("SELECT c FROM Category c ", Category.class)//
                 .getResultList();
         return categories;
     }
@@ -74,7 +75,9 @@ public class CategoryDaoImpl implements CategoryDao {
     public Category findById(Integer id) {
         Category category;
         try {
-            category = this.em.createQuery("SELECT c FROM Category c LEFT JOIN FETCH c.products WHERE c.id = :id", Category.class)//
+            category = this.em.createQuery("SELECT c FROM Category c " +
+                    "LEFT JOIN FETCH c.products p WHERE c.id = :id " +
+                    "AND (p IS NULL OR p.isActive = true)", Category.class)//
                     .setParameter("id", id)
                     .getSingleResult();
         } catch (NoResultException e) {

@@ -24,7 +24,7 @@ import com.example.shop.web.annotation.WebController;
 
 
 @WebController(path = "/category")
-public class CategoryController extends AbstractController
+public class CategoryController extends BaseController
 {
     private CategoryService categoryService;
 

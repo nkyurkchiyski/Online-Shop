@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebController(path = "/home")
-public class HomeController extends AbstractController {
+public class HomeController extends BaseController {
 
     @Endpoint(urls = {"/", "/home"})
     public void homeGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

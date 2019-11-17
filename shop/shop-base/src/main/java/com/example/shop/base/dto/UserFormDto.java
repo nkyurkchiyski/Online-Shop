@@ -8,7 +8,7 @@
 package com.example.shop.base.dto;
 
 
-public class UserDto
+public class UserFormDto
 {
     private String email;
     private String firstName;
