@@ -1,66 +1,96 @@
 package com.example.shop.web.handler;
 
 
-import com.example.shop.web.controller.Controller;
-import com.example.shop.web.util.Endpoint;
+import com.example.shop.web.controller.*;
+import com.example.shop.web.annotation.Endpoint;
 import com.example.shop.web.util.EndpointUtil;
+import com.example.shop.web.annotation.WebController;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
 
-public class RequestHandler implements Handler
-{
-    private Map<String, Map<String, Method>> routingTable;
-    private final Controller controller;
+public class RequestHandler implements Handler {
+    private static RequestHandler INSTANCE;
+
+    private Map<String, Map<String, Method>> routingTable = new HashMap<>();
+    private Map<String, Controller> controllers = new HashMap<>();
 
 
-    public RequestHandler(Controller controller)
-    {
-        this.controller = controller;
-        this.initializeRoutingTable(controller);
+    private RequestHandler() {
+        this.initializeControllers();
+        this.initializeRoutingTable();
     }
 
-
     @Override
-    public void handle(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
-    {
+    public void handle(HttpServletRequest req, HttpServletResponse resp) {
+        String fullPath = EndpointUtil.getPath(req.getRequestURI(), req.getContextPath());
+        final String controllerPath = EndpointUtil.getControllerPath(fullPath);
         final String method = req.getMethod().toLowerCase();
-        final String path = EndpointUtil.getPath(req.getRequestURI(), req.getContextPath());
-        final Method controllerMethod = this.routingTable.get(method).get(path);
 
-        try
-        {
-            controllerMethod.invoke(this.controller, req, resp);
+        Controller controller = this.controllers.get(controllerPath);
+        if (controller == null) {
+            controller = this.controllers.get("/home");
+            fullPath = "/home";
         }
-        catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e)
-        {
+
+        final Method controllerMethod = this.routingTable.get(method).get(fullPath);
+
+        try {
+            controllerMethod.invoke(controller, req, resp);
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
             e.printStackTrace();
         }
     }
 
+    public static synchronized RequestHandler getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new RequestHandler();
+        }
+        return INSTANCE;
+    }
 
-    private void initializeRoutingTable(Controller controller)
-    {
-        final Method[] methods = controller.getClass().getDeclaredMethods();
-        this.routingTable = new HashMap<String, Map<String, Method>>();
-        for (Method method : methods)
-        {
-            if (method.isAnnotationPresent(Endpoint.class))
-            {
-                final Endpoint endpoint = method.getAnnotation(Endpoint.class);
-                final String endpointMethod = endpoint.method().toLowerCase();
-                final String endpointPath = endpoint.path();
+    private void initializeRoutingTable() {
+        for (final Map.Entry<String, Controller> entry : this.controllers.entrySet()) {
+            final Method[] methods = entry.getValue().getClass().getDeclaredMethods();
+            for (final Method method : methods) {
+                if (method.isAnnotationPresent(Endpoint.class)) {
+                    final Endpoint endpoint = method.getAnnotation(Endpoint.class);
+                    final String endpointMethod = endpoint.method().toLowerCase();
+                    final String[] endpointUrls = endpoint.urls();
 
-                this.routingTable.putIfAbsent(endpointMethod, new HashMap<String, Method>());
-                this.routingTable.get(endpointMethod).put(endpointPath, method);
+                    this.routingTable.putIfAbsent(endpointMethod, new HashMap<>());
+                    for (final String url : endpointUrls) {
+                        this.routingTable.get(endpointMethod).put(url, method);
+                    }
+                }
             }
         }
+    }
+
+    private void initializeControllers() {
+        try {
+            this.addController(ProductController.class);
+            this.addController(OrderController.class);
+            this.addController(CategoryController.class);
+            this.addController(AuthenticationController.class);
+            this.addController(UserController.class);
+            this.addController(HomeController.class);
+        } catch (IllegalAccessException | InstantiationException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void addController(Class<?> type) throws IllegalAccessException, InstantiationException {
+        this.controllers.put(getControllerPath(type), (Controller) type.newInstance());
+    }
+
+    private String getControllerPath(Class<?> type) {
+        final WebController annotation = type.getAnnotation(WebController.class);
+        return annotation.path();
     }
 }

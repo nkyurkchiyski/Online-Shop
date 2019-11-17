@@ -55,7 +55,7 @@
 					        {
 					%>
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="/online-shop/products/create">Create
+					<a class="dropdown-item" href="/online-shop/product/create">Create
 						Product</a>
 					<%
 					    }

@@ -8,6 +8,9 @@
 package com.example.shop.web.controller;
 
 
+import com.example.shop.web.annotation.WebController;
+
+@WebController(path = "/order")
 public class OrderController extends AbstractController
 {
 

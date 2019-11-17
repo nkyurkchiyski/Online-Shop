@@ -18,38 +18,34 @@ import com.example.shop.base.dto.UserViewDto;
 import com.example.shop.base.dto.UserLoginDto;
 import com.example.shop.base.dto.UserDto;
 import com.example.shop.base.service.AuthenticationService;
-import com.example.shop.web.util.Endpoint;
+import com.example.shop.web.annotation.Endpoint;
 import com.example.shop.web.util.ServiceUtil;
+import com.example.shop.web.annotation.WebController;
 
-
-public class AuthenticationController extends AbstractController
-{
+@WebController(path = "/auth")
+public class AuthenticationController extends AbstractController {
     private AuthenticationService authenticationService;
 
 
-    public AuthenticationController()
-    {
+    public AuthenticationController() {
         this.authenticationService = ServiceUtil.getService(AuthenticationController.class, AuthenticationService.class);
     }
 
 
-    @Endpoint(path = "/auth/login")
-    public void loginGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
-    {
+    @Endpoint(urls = "/auth/login")
+    public void loginGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.redirectToJsp(req, resp);
     }
 
 
-    @Endpoint(path = "/auth/register")
-    public void registerGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
-    {
+    @Endpoint(urls = "/auth/register")
+    public void registerGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.redirectToJsp(req, resp);
     }
 
 
-    @Endpoint(method = "post", path = "/auth/register")
-    public void registerPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
-    {
+    @Endpoint(method = "post", urls = "/auth/register")
+    public void registerPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         final UserDto dto = this.mapper.map(req, UserDto.class);
         final UserViewDto userViewDto = this.authenticationService.register(dto);
 
@@ -58,9 +54,8 @@ public class AuthenticationController extends AbstractController
     }
 
 
-    @Endpoint(method = "post", path = "/auth/login")
-    public void loginPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
-    {
+    @Endpoint(method = "post", urls = "/auth/login")
+    public void loginPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         final UserLoginDto loginDto = this.mapper.map(req, UserLoginDto.class);
         final UserViewDto userViewDto = this.authenticationService.login(loginDto);
 
@@ -69,9 +64,8 @@ public class AuthenticationController extends AbstractController
     }
 
 
-    @Endpoint(path = "/auth/logout")
-    public void logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
-    {
+    @Endpoint(urls = "/auth/logout")
+    public void logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getSession().invalidate();
         this.redirectToHome(req, resp);
     }

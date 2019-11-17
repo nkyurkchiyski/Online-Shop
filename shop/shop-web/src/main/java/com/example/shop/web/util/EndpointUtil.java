@@ -8,12 +8,26 @@
 package com.example.shop.web.util;
 
 
-public class EndpointUtil
-{
-    public static String getPath(final String uri, final String context)
-    {
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class EndpointUtil {
+    private static final Pattern PATTERN = Pattern.compile("/[a-z]*");
+
+    public static String getPath(final String uri, final String context) {
         return uri.replace(context, "");
     }
+
+    public static String getControllerPath(final String fullPath) {
+        final Matcher matcher = PATTERN.matcher(fullPath);
+
+        if (!matcher.find()) {
+            return null;
+        }
+
+        return matcher.group();
+    }
+
 }
 
 

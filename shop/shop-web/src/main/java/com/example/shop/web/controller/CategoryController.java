@@ -18,10 +18,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.example.shop.base.dto.CategoryDto;
 import com.example.shop.base.dto.CategoryProductsDto;
 import com.example.shop.base.service.CategoryService;
-import com.example.shop.web.util.Endpoint;
+import com.example.shop.web.annotation.Endpoint;
 import com.example.shop.web.util.ServiceUtil;
+import com.example.shop.web.annotation.WebController;
 
 
+@WebController(path = "/category")
 public class CategoryController extends AbstractController
 {
     private CategoryService categoryService;
@@ -33,14 +35,14 @@ public class CategoryController extends AbstractController
     }
 
 
-    @Endpoint(path = "/category/create")
+    @Endpoint(urls = "/category/create")
     public void createGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         this.redirectToJsp(req, resp);
     }
 
 
-    @Endpoint(method = "post", path = "/category/create")
+    @Endpoint(method = "post", urls = "/category/create")
     public void createPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         CategoryDto dto = this.mapper.map(req, CategoryDto.class);
@@ -49,7 +51,7 @@ public class CategoryController extends AbstractController
     }
 
 
-    @Endpoint(path = "/category/edit")
+    @Endpoint(urls = "/category/edit")
     public void editGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         final Integer id = Integer.parseInt(req.getParameter("id"));
@@ -59,7 +61,7 @@ public class CategoryController extends AbstractController
     }
 
 
-    @Endpoint(method = "post", path = "/category/edit")
+    @Endpoint(method = "post", urls = "/category/edit")
     public void editPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         CategoryDto dto = this.mapper.map(req, CategoryDto.class);
@@ -68,7 +70,7 @@ public class CategoryController extends AbstractController
     }
 
 
-    @Endpoint(path = "/category/delete")
+    @Endpoint(urls = "/category/delete")
     public void deleteGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         final Integer id = Integer.parseInt(req.getParameter("id"));
@@ -78,7 +80,7 @@ public class CategoryController extends AbstractController
     }
 
 
-    @Endpoint(method = "post", path = "/category/delete")
+    @Endpoint(method = "post", urls = "/category/delete")
     public void deletePost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         final Integer id = Integer.parseInt(req.getParameter("id"));
@@ -87,7 +89,7 @@ public class CategoryController extends AbstractController
     }
 
 
-    @Endpoint(path = "/category/details")
+    @Endpoint(urls = "/category/details")
     public void detailsGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         final Integer id = Integer.parseInt(req.getParameter("id"));
@@ -97,7 +99,7 @@ public class CategoryController extends AbstractController
     }
 
 
-    @Endpoint(path = "/category/all")
+    @Endpoint(urls = "/category/all")
     public void allGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         final List<CategoryDto> dtos = this.categoryService.getAll(CategoryDto.class);

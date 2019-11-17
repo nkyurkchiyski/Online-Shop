@@ -17,10 +17,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.example.shop.base.dto.UserProfileDto;
 import com.example.shop.base.dto.UserViewDto;
 import com.example.shop.base.service.UserService;
-import com.example.shop.web.util.Endpoint;
+import com.example.shop.web.annotation.Endpoint;
 import com.example.shop.web.util.ServiceUtil;
+import com.example.shop.web.annotation.WebController;
 
-
+@WebController(path = "/user")
 public class UserController extends AbstractController
 {
     private UserService userService;
@@ -32,7 +33,7 @@ public class UserController extends AbstractController
     }
 
 
-    @Endpoint(path = "/user/profile")
+    @Endpoint(urls = "/user/profile")
     public void profileGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         final UserViewDto currentUser = (UserViewDto)req.getSession().getAttribute("user");
@@ -43,14 +44,14 @@ public class UserController extends AbstractController
     }
 
 
-    @Endpoint(method = "post", path = "/user/edit")
+    @Endpoint(method = "post", urls = "/user/edit")
     public void editPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         //TODO Add UserEditDto, map it from form, redirtect to profile page
         this.redirectToHome(req, resp);
     }
 
-    @Endpoint(method = "post", path = "/user/delete")
+    @Endpoint(method = "post", urls = "/user/delete")
     public void deletePost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         final UserViewDto currentUser = (UserViewDto)req.getSession().getAttribute("user");

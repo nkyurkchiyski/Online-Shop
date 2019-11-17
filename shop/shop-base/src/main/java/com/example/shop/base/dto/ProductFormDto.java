@@ -11,7 +11,7 @@ package com.example.shop.base.dto;
 import java.math.BigDecimal;
 
 
-public class ProductCreateDto
+public class ProductFormDto
 {
     private Integer id;
     private String name;
