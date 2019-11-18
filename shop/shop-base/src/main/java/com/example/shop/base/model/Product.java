@@ -10,7 +10,6 @@ package com.example.shop.base.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -30,10 +29,10 @@ public class Product implements Serializable {
     @Column(name = "cProductName")
     private String name;
 
-    @Column(name = "cProductDescription", columnDefinition = "TEXT")
+    @Column(name = "cProductDescription", columnDefinition = "varchar(MAX)")
     private String description;
 
-    @Column(name = "cProductImageUrl", columnDefinition = "TEXT")
+    @Column(name = "cProductImageUrl", columnDefinition = "varchar(MAX)")
     private String imageUrl;
 
     @Column(name = "cProductQuantity")
@@ -51,7 +50,7 @@ public class Product implements Serializable {
     @Column(name = "cProductActive")
     private boolean isActive;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = {CascadeType.MERGE}, fetch = FetchType.LAZY)
     @JoinTable(name = "t_ProductCategories", //
             joinColumns = {@JoinColumn(name = "cProductCategoryProductId")}, //
             inverseJoinColumns = {@JoinColumn(name = "cProductCategoryCategoryId")}, //
@@ -59,7 +58,7 @@ public class Product implements Serializable {
             inverseForeignKey = @ForeignKey(name = "FK_ProductCategories_Categories"))
     private Set<Category> categories;
 
-    @OneToMany(mappedBy = "product", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(mappedBy = "product", cascade = {CascadeType.MERGE})
     private Set<ProductOrder> orders;
 
 

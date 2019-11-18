@@ -58,8 +58,8 @@ CREATE TABLE t_Products (
   cProductName VARCHAR(36) NOT NULL,
   cProductPrice DECIMAL(10,2) NOT NULL,
   cProductQuantity INT NOT NULL DEFAULT 0,
-  cProductDescription text NULL,
-  cProductImageUrl text NULL,
+  cProductDescription VARCHAR(MAX) NULL,
+  cProductImageUrl VARCHAR(MAX) NULL,
   CONSTRAINT PK_Product PRIMARY KEY (cProductId)
 )
 
@@ -130,7 +130,8 @@ VALUES('gosho@abv.bg','Gosho','Ivanov','123',1)
 
 INSERT INTO t_UserRoles(cUserRoleUserId,cUserRoleRoleId)
 VALUES(1,2),(2,1)
+ALTER TABLE t_Products
+ALTER COLUMN cProductImageUrl varchar(max);
 
-select * from t_Users u
-join t_UserRoles ur on u.cUserId = ur.cUserRoleUserId
-join t_Roles r on r.cRoleId = ur.cUserRoleRoleId
+ALTER TABLE t_Products
+ALTER COLUMN cProductDescription varchar(max);

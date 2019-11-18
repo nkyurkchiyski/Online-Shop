@@ -40,7 +40,7 @@ public class FormMapper implements Mapper
                 final Class< ? > fieldType = field.getType();
                 final String parameterValue = request.getParameter(fieldName);
 
-                if (parameterValue != null)
+                if (parameterValue != null && parameterValue.trim().length() > 0)
                 {
                     field.setAccessible(true);
                     field.set(instanceType, this.parse(fieldType, parameterValue));

@@ -8,10 +8,10 @@
 package com.example.shop.base.service;
 
 
-import com.example.shop.base.dao.CategoryDao;
 import com.example.shop.base.dto.CategoryDto;
 
 
-public interface CategoryService extends GenericService<CategoryDto, Integer> {
+public interface CategoryService extends GenericService<CategoryDto, Integer>
+{
     <T> T getByName(String name, Class<T> type);
 }

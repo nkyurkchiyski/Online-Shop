@@ -8,10 +8,16 @@
 package com.example.shop.base.dao;
 
 
+import java.math.BigDecimal;
+import java.util.List;
+
 import com.example.shop.base.model.Product;
 
 
 public interface ProductDao extends GenericDao<Product, Integer>
 {
     Product findByName(String productName);
+
+
+    List<Product> findAllByFilters(String[] searchTerms, String categoryIds, BigDecimal minPrice, BigDecimal maxPrice);
 }

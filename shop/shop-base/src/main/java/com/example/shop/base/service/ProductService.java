@@ -7,11 +7,14 @@
  */
 package com.example.shop.base.service;
 
+
 import com.example.shop.base.dto.ProductFormDto;
+import com.example.shop.base.dto.SearchDto;
 
 import java.util.List;
 
 
-public interface ProductService extends GenericService<ProductFormDto, Integer> {
-    <T> List<T> getAllByName(String name, Class<T> type);
+public interface ProductService extends GenericService<ProductFormDto, Integer>
+{
+    <T> List<T> getAllBySearch(SearchDto dto, Class<T> type);
 }

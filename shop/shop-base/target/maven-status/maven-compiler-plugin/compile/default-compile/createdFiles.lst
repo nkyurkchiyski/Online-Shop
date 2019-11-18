@@ -31,6 +31,7 @@ com\example\shop\base\dto\CategoryDto.class
 com\example\shop\base\dto\UserProfileDto.class
 com\example\shop\base\service\CategoryService.class
 com\example\shop\base\dto\AddressDto.class
+com\example\shop\base\dto\SearchDto.class
 com\example\shop\base\dto\OrderDto.class
 com\example\shop\base\model\Category.class
 com\example\shop\base\dao\AddressDao.class

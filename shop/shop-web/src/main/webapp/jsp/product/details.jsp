@@ -23,7 +23,7 @@
     </div>
     <div class="row">
         <div class="col-md-6 text-center">
-            <img height="500px" style="object-fit: scale-down" src="<%=product.getImageUrl()%>">
+            <img height="500px" style="object-fit: scale-down; max-width:100%" src="<%=product.getImageUrl()%>">
         </div>
 
         <div class="col-md-6 text-left">

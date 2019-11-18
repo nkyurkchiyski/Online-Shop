@@ -47,9 +47,7 @@
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="/online-shop/product/all">All
 						Products</a> <a class="dropdown-item"
-						href="/online-shop/product/all?recentlyAdded">Recently added</a> <a
-						class="dropdown-item" href="/online-shop/product/all?bestSellers">Best
-						sellers</a>
+						href="/online-shop/product/search">Search Products</a>
 					<%
 					    if (user.isAdmin())
 					        {
@@ -66,26 +64,33 @@
 				role="button" data-toggle="dropdown" aria-haspopup="true"
 				aria-expanded="false"> Orders </a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="/online-shop/order/my">My orders</a>
+					<a class="dropdown-item" href="/online-shop/order/my">My Orders</a>
 					<%
 					    if (user.isAdmin())
 					        {
 					%>
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" href="/online-shop/order/all">Manage
-						orders</a>
+						Orders</a>
 					<%
 					    }
 					%>
 				</div></li>
-			<li class="nav-item active"><a class="nav-link"
-				href="/online-shop/auth/logout">Logout</a></li>
 		</ul>
-		<form class="form-inline my-2 my-lg-0">
-			<input class="form-control mr-sm-2" type="search"
-				placeholder="Search" aria-label="Search">
-			<button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
-		</form>
+		<ul class="navbar-nav my-2 my-lg-0">
+			<li class="nav-item active"><a class="nav-link"
+				href="/online-shop/order/cart">Cart</a></li>
+			<li class="nav-item dropdown active"><a
+				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+				role="button" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false"> Account </a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="/online-shop/user/profile">My
+						Profile</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="/online-shop/auth/logout">Logout</a>
+				</div></li>
+		</ul>
 		<%
 		    }
 		    else
