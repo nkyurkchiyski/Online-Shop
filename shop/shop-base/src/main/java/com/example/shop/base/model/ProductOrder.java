@@ -21,7 +21,7 @@ public class ProductOrder implements Serializable
     private static final long serialVersionUID = 1L;
 
     @EmbeddedId
-    private ProductOrderId id;
+    private ProductOrderId id = new ProductOrderId();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("productId")
@@ -90,5 +90,3 @@ public class ProductOrder implements Serializable
     }
 
 }
-
-

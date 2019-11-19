@@ -14,6 +14,8 @@
     <bean id="orderDao" class="com.example.shop.base.dao.impl.OrderDaoImpl"/>
     <bean xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0" id="orderService" class="com.example.shop.base.service.impl.OrderServiceImpl" ext:field-injection="true">
         <property name="orderDao" ref="orderDao"/>
+        <property name="productService" ref="productService"/>
+        <property name="userService" ref="userService"/>
     </bean>
     <bean id="productDao" class="com.example.shop.base.dao.impl.ProductDaoImpl"/>
     <bean xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0" id="productService" class="com.example.shop.base.service.impl.ProductServiceImpl" ext:field-injection="true">

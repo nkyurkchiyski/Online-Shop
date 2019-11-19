@@ -10,7 +10,7 @@ package com.example.shop.base.model;
 
 public enum OrderStatus
 {
-    AWAITING, PENDING, APPROVED
+    CART, PENDING, APPROVED
 }
 
 

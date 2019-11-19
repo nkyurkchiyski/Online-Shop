@@ -9,6 +9,7 @@ package com.example.shop.base.model.key;
 
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -56,16 +57,24 @@ public class ProductOrderId implements Serializable
 
 
     @Override
-    public boolean equals(Object obj)
+    public boolean equals(Object o)
     {
-        return super.equals(obj);
+        if (this == o)
+            return true;
+
+        if (o == null || getClass() != o.getClass())
+            return false;
+
+        ProductOrderId productOrderId = (ProductOrderId)o;
+        return Objects.equals(this.orderId, productOrderId.orderId) //
+               && Objects.equals(this.productId, productOrderId.productId);
     }
 
 
     @Override
     public int hashCode()
     {
-        return super.hashCode();
+        return Objects.hash(this.productId, this.orderId);
     }
 
 }

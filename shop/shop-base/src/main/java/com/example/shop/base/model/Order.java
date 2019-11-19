@@ -9,7 +9,8 @@ package com.example.shop.base.model;
 
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -27,10 +28,10 @@ public class Order implements Serializable
     private Integer id;
 
     @Column(name = "cOrderOrderedOn")
-    private LocalDate orderedOn;
+    private LocalDateTime orderedOn;
 
     @Column(name = "cOrderDeliveredOn")
-    private LocalDate deliveredOn;
+    private LocalDateTime deliveredOn;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "cOrderStatus")
@@ -40,8 +41,8 @@ public class Order implements Serializable
     @JoinColumn(name = "cOrderUserId", foreignKey = @ForeignKey(name = "FK_Orders_Users"))
     private User user;
 
-    @OneToMany(mappedBy = "order", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private Set<ProductOrder> products;
+    @OneToMany(mappedBy = "order", cascade = {CascadeType.ALL}, orphanRemoval = true)
+    private Set<ProductOrder> products = new HashSet<ProductOrder>();
 
 
     public Order()
@@ -55,13 +56,13 @@ public class Order implements Serializable
     }
 
 
-    public LocalDate getOrderedOn()
+    public LocalDateTime getOrderedOn()
     {
         return orderedOn;
     }
 
 
-    public LocalDate getDeliveredOn()
+    public LocalDateTime getDeliveredOn()
     {
         return deliveredOn;
     }
@@ -85,13 +86,13 @@ public class Order implements Serializable
     }
 
 
-    public void setOrderedOn(LocalDate orderedOn)
+    public void setOrderedOn(LocalDateTime orderedOn)
     {
         this.orderedOn = orderedOn;
     }
 
 
-    public void setDeliveredOn(LocalDate deliveredOn)
+    public void setDeliveredOn(LocalDateTime deliveredOn)
     {
         this.deliveredOn = deliveredOn;
     }
@@ -106,6 +107,47 @@ public class Order implements Serializable
     public void setStatus(OrderStatus status)
     {
         this.status = status;
+    }
+
+
+    public ProductOrder getProductOrder(Integer productId)
+    {
+        if (this.products == null)
+        {
+            return null;
+        }
+        return this.products.stream().filter(x -> x.getProduct().getId().equals(productId)).findFirst().get();
+    }
+
+
+    public void addProduct(ProductOrder productOrder)
+    {
+        if (this.products == null)
+        {
+            this.products = new HashSet<ProductOrder>();
+        }
+        this.products.add(productOrder);
+    }
+
+
+    public void removeProduct(ProductOrder productOrder)
+    {
+        if (this.products != null)
+        {
+            this.products.remove(productOrder);
+        }
+    }
+
+
+    public Set<ProductOrder> getProducts()
+    {
+        return products;
+    }
+
+
+    public void setProducts(Set<ProductOrder> products)
+    {
+        this.products = products;
     }
 
 }

@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1574082953394
+Bnd-LastModified: 1574162854819
 Build-Jdk: 1.8.0_151
 Built-By: n.kyurkchiyski
 Bundle-Blueprint: OSGI-INF/blueprint/autowire.xml
@@ -10,22 +10,22 @@ Bundle-Version: 0.0.1.SNAPSHOT
 Created-By: Apache Maven Bundle Plugin
 DynamicImport-Package: org.hibernate.proxy,javassist.util.proxy
 Export-Package: com.example.shop.base.dao;uses:="com.example.shop.base.m
- odel";version="0.0.1",com.example.shop.base.dto;version="0.0.1",com.exa
- mple.shop.base.model;uses:="com.example.shop.base.model.key,javax.persi
- stence";version="0.0.1",com.example.shop.base.model.key;uses:="javax.pe
- rsistence";version="0.0.1",com.example.shop.base.service;uses:="com.exa
- mple.shop.base.dto";version="0.0.1"
-Export-Service: com.example.shop.base.service.impl.ShaServiceImpl;osgi.s
- ervice.blueprint.compname=shaService,com.example.shop.base.service.Orde
- rService;osgi.service.blueprint.compname=orderService,com.example.shop.
- base.service.ProductService;osgi.service.blueprint.compname=productServ
- ice,com.example.shop.base.service.CategoryService;osgi.service.blueprin
- t.compname=categoryService,com.example.shop.base.service.AddressService
- ;osgi.service.blueprint.compname=addressService,com.example.shop.base.s
- ervice.RoleService;osgi.service.blueprint.compname=roleService,com.exam
- ple.shop.base.service.UserService;osgi.service.blueprint.compname=userS
- ervice,com.example.shop.base.service.AuthenticationService;osgi.service
- .blueprint.compname=authenticationService
+ odel";version="0.0.1",com.example.shop.base.dto;uses:="com.example.shop
+ .base.model";version="0.0.1",com.example.shop.base.model;uses:="com.exa
+ mple.shop.base.model.key,javax.persistence";version="0.0.1",com.example
+ .shop.base.model.key;uses:="javax.persistence";version="0.0.1",com.exam
+ ple.shop.base.service;uses:="com.example.shop.base.dto";version="0.0.1"
+Export-Service: com.example.shop.base.service.OrderService;osgi.service.
+ blueprint.compname=orderService,com.example.shop.base.service.CategoryS
+ ervice;osgi.service.blueprint.compname=categoryService,com.example.shop
+ .base.service.AuthenticationService;osgi.service.blueprint.compname=aut
+ henticationService,com.example.shop.base.service.AddressService;osgi.se
+ rvice.blueprint.compname=addressService,com.example.shop.base.service.i
+ mpl.ShaServiceImpl;osgi.service.blueprint.compname=shaService,com.examp
+ le.shop.base.service.RoleService;osgi.service.blueprint.compname=roleSe
+ rvice,com.example.shop.base.service.UserService;osgi.service.blueprint.
+ compname=userService,com.example.shop.base.service.ProductService;osgi.
+ service.blueprint.compname=productService
 Import-Package: com.example.shop.base.dao,com.example.shop.base.dto,com.
  example.shop.base.model,com.example.shop.base.model.key,com.example.sho
  p.base.service,javax.inject,javax.persistence;version="[2.1,3)";resolut

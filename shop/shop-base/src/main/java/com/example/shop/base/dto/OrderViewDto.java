@@ -1,7 +1,7 @@
 /*
- * OrderDto.java
+ * CartDto.java
  *
- * created at 2019-11-11 by n.kyurkchiyski <YOURMAILADDRESS>
+ * created at 2019-11-19 by n.kyurkchiyski <YOURMAILADDRESS>
  *
  * Copyright (c) SEEBURGER AG, Germany. All Rights Reserved.
  */
@@ -14,14 +14,20 @@ import java.util.Set;
 import com.example.shop.base.model.OrderStatus;
 
 
-public class OrderDto
+public class OrderViewDto
 {
     private Integer id;
     private UserDto user;
     private OrderStatus status;
     private LocalDateTime orderedOn;
     private LocalDateTime deliveredOn;
-    private Set<ProductOrderCreateDto> products;
+    private Set<ProductOrderDto> products;
+
+
+    public Integer getId()
+    {
+        return id;
+    }
 
 
     public UserDto getUser()
@@ -45,6 +51,18 @@ public class OrderDto
     public LocalDateTime getDeliveredOn()
     {
         return deliveredOn;
+    }
+
+
+    public Set<ProductOrderDto> getProducts()
+    {
+        return products;
+    }
+
+
+    public void setId(Integer id)
+    {
+        this.id = id;
     }
 
 
@@ -72,27 +90,9 @@ public class OrderDto
     }
 
 
-    public Set<ProductOrderCreateDto> getProducts()
-    {
-        return products;
-    }
-
-
-    public void setProducts(Set<ProductOrderCreateDto> products)
+    public void setProducts(Set<ProductOrderDto> products)
     {
         this.products = products;
-    }
-
-
-    public Integer getId()
-    {
-        return id;
-    }
-
-
-    public void setId(Integer id)
-    {
-        this.id = id;
     }
 
 }

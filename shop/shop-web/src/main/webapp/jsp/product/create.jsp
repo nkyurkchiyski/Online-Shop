@@ -41,7 +41,7 @@
 							<div class="form-group row">
 								<label for="price" class="col-md-4 col-form-label text-md-right">Price</label>
 								<div class="col-md-6">
-									<input type="number" step="0.01" id="price" name="price"
+									<input type="number" step="0.01" min="0" max="2147483646" id="price" name="price"
 										placeholder="Price" class="form-control" required>
 								</div>
 							</div>
@@ -49,7 +49,7 @@
 								<label for="quantity"
 									class="col-md-4 col-form-label text-md-right">Quantity</label>
 								<div class="col-md-6">
-									<input type="number" step="1" id="quantity" name="quantity"
+									<input type="number" step="1" min="0" max="2147483646" id="quantity" name="quantity"
 										placeholder="Quantity" class="form-control" required>
 								</div>
 							</div>
