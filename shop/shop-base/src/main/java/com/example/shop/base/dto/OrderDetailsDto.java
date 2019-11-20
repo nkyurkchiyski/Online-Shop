@@ -8,13 +8,14 @@
 package com.example.shop.base.dto;
 
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Set;
 
 import com.example.shop.base.model.OrderStatus;
 
 
-public class OrderViewDto
+public class OrderDetailsDto
 {
     private Integer id;
     private UserDto user;
@@ -22,6 +23,7 @@ public class OrderViewDto
     private LocalDateTime orderedOn;
     private LocalDateTime deliveredOn;
     private Set<ProductOrderDto> products;
+    private BigDecimal total;
 
 
     public Integer getId()
@@ -93,6 +95,25 @@ public class OrderViewDto
     public void setProducts(Set<ProductOrderDto> products)
     {
         this.products = products;
+    }
+
+
+    public BigDecimal getTotal()
+    {
+        if (this.total == null)
+        {
+            this.setTotal();
+        }
+        return this.total;
+    }
+
+
+    private void setTotal()
+    {
+        this.total = this.products.stream()//
+                                  .map(x -> x.getProduct().getPrice().multiply(new BigDecimal(x.getQuantity())))
+                                  .reduce(BigDecimal.ZERO, BigDecimal::add);
+
     }
 
 }

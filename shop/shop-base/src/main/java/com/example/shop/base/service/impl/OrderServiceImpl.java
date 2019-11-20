@@ -110,6 +110,15 @@ public class OrderServiceImpl implements OrderService
             order = create(orderDto, Order.class);
         }
 
+        final ProductOrder productOrder = this.createProductOrder(dto, product, order);
+
+        order.addProduct(productOrder);
+        this.orderDao.update(order);
+    }
+
+
+    private ProductOrder createProductOrder(ProductOrderFormDto dto, final Product product, Order order)
+    {
         ProductOrder productOrder = order.getProductOrder(product.getId());
 
         if (productOrder == null)
@@ -118,9 +127,7 @@ public class OrderServiceImpl implements OrderService
         }
 
         productOrder.setQuantity(productOrder.getQuantity() + dto.getQuantity());
-
-        order.addProduct(productOrder);
-        this.orderDao.update(order);
+        return productOrder;
     }
 
 
@@ -177,5 +184,14 @@ public class OrderServiceImpl implements OrderService
     {
         // TODO Auto-generated method stub
         return null;
+    }
+
+
+    @Override
+    public void placeOrder(Integer userId, List<ProductOrderFormDto> productOrderDtos)
+    {
+        // TODO get cart, add productOrders , change order status, update
+        final Order cart = this.getUserCart(userId, Order.class);
+
     }
 }

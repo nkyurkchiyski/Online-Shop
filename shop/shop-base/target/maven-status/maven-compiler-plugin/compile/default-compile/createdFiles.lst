@@ -38,6 +38,7 @@ com\example\shop\base\dto\AddressDto.class
 com\example\shop\base\dto\SearchDto.class
 com\example\shop\base\dto\OrderDto.class
 com\example\shop\base\model\Category.class
+com\example\shop\base\dto\OrderDetailsDto.class
 com\example\shop\base\dao\AddressDao.class
 com\example\shop\base\dao\impl\ProductDaoImpl.class
 com\example\shop\base\service\AuthenticationService.class

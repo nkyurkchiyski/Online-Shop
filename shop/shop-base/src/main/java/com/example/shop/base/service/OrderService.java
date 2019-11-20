@@ -27,4 +27,7 @@ public interface OrderService extends GenericService<OrderDto, Integer>
 
     public <T> List<T> getAllByUserId(Integer userId, Class<T> type);
 
+
+    public void placeOrder(Integer userId, List<ProductOrderFormDto> productOrderDtos);
+
 }

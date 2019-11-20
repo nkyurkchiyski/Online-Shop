@@ -115,7 +115,7 @@ public class ProductServiceImpl implements ProductService
     {
         this.validateSearchDto(dto);
         final String categoryIds = convertIdsToString(dto.getCategoryIds());
-        final String[] searchTerms = dto.getTerm().split(" ");
+        final String[] searchTerms = dto.getTerm() != null ? dto.getTerm().split(" ") : null;
 
         final List<Product> products = this.productDao.findAllByFilters(searchTerms, categoryIds, dto.getMinPrice(), dto.getMaxPrice());
         return products.stream()
