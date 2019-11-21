@@ -15,4 +15,7 @@ public interface Controller
 
     public void redirectToJsp(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
 
+
+    public void writeObject(Object src, HttpServletResponse resp) throws ServletException, IOException;
+
 }

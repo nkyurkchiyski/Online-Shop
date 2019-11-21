@@ -14,20 +14,32 @@ import com.example.shop.base.dto.OrderDto;
 import com.example.shop.base.dto.ProductOrderFormDto;
 
 
-public interface OrderService extends GenericService<OrderDto, Integer>
+public interface OrderService
 {
-    public void addProductToCart(Integer userId, ProductOrderFormDto dto);
+    <T> List<T> getAllByUserId(Integer userId, Class<T> type);
 
 
-    public void removeProductFromCart(Integer userId, Integer productId);
+    <T> T getById(Integer id, Class<T> type);
 
 
-    public <T> T getUserCart(Integer userId, Class<T> type);
+    <T> List<T> getAll(Class<T> type);
 
 
-    public <T> List<T> getAllByUserId(Integer userId, Class<T> type);
+    void placeOrder(Integer userId, List<ProductOrderFormDto> productOrderDtos);
 
 
-    public void placeOrder(Integer userId, List<ProductOrderFormDto> productOrderDtos);
+    <T> T create(OrderDto dto, Class<T> type);
+
+
+    void addProductToCart(Integer userId, ProductOrderFormDto dto);
+
+
+    void removeProductFromCart(Integer userId, Integer productId);
+
+
+    <T> T getUserCart(Integer userId, Class<T> type);
+
+
+    void updateCart(Integer userId, List<ProductOrderFormDto> productOrderDtos);
 
 }

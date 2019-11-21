@@ -33,8 +33,7 @@
 					$<%=product.getPrice()%>
 				</h4>
 				<hr>
-				<form class="form" action="/online-shop/order/product/add"
-					method="post">
+				<form class="form" action="/online-shop/cart/product" method="post">
 					<div class="row">
 						<input type="hidden" name="productId" value="<%=product.getId()%>">
 						<div class="col-md-2">

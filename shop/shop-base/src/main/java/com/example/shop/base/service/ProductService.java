@@ -17,4 +17,7 @@ import java.util.List;
 public interface ProductService extends GenericService<ProductFormDto, Integer>
 {
     <T> List<T> getAllBySearch(SearchDto dto, Class<T> type);
+
+
+    void decreaseQuantity(Integer productId, Integer quantity);
 }

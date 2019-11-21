@@ -207,4 +207,25 @@ public class ProductServiceImpl implements ProductService
         }
 
     }
+
+
+    @Override
+    public void decreaseQuantity(Integer productId, Integer quantity)
+    {
+        final Product product = this.productDao.findById(productId);
+
+        if (product != null)
+        {
+            Integer newQuantity = product.getQuantity() - quantity;
+
+            if (newQuantity < 0)
+            {
+                throw new IllegalArgumentException("Quantity exceeds present product units!");
+            }
+
+            product.setQuantity(newQuantity);
+            this.productDao.update(product);
+        }
+
+    }
 }

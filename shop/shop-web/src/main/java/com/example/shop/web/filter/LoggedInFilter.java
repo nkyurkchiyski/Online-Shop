@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.example.shop.base.dto.UserViewDto;
 
 
-@WebFilter({"/category/*","/order/*", "/product/*", "/auth/logout", "/user/*"})
+@WebFilter({"/category/*","/order/*", "/product/*", "/auth/logout", "/user/*","/cart/*"})
 public class LoggedInFilter implements Filter
 {
 

@@ -76,6 +76,7 @@ public class RequestHandler implements Handler {
         try {
             this.addController(ProductController.class);
             this.addController(OrderController.class);
+            this.addController(CartController.class);
             this.addController(CategoryController.class);
             this.addController(AuthenticationController.class);
             this.addController(UserController.class);
