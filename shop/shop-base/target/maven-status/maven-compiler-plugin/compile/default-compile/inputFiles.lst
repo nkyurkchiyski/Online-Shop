@@ -1,5 +1,6 @@
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dto\OrderDto.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dao\AddressDao.java
+C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dao\ProductOrderDao.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\service\impl\RoleServiceImpl.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dao\impl\AddressDaoImpl.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dao\OrderDao.java
@@ -24,6 +25,7 @@ C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dao\impl\ProductDaoImpl.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dto\OrderDetailsDto.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dao\GenericDao.java
+C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dao\impl\ProductOrderDaoImpl.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\service\impl\ProductServiceImpl.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\service\RoleService.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dto\AddressDto.java

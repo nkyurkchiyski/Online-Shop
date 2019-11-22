@@ -45,7 +45,7 @@ public class Order implements Serializable
     @JoinColumn(name = "cOrderUserId", foreignKey = @ForeignKey(name = "FK_Orders_Users"))
     private User user;
 
-    @OneToMany(mappedBy = "order", cascade = {CascadeType.ALL}, orphanRemoval = true)
+    @OneToMany(mappedBy = "order", cascade = {CascadeType.MERGE}, orphanRemoval = true)
     private Set<ProductOrder> products = new HashSet<ProductOrder>();
 
 

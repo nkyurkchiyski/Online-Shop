@@ -25,20 +25,23 @@ import com.example.shop.base.model.Category;
 
 @Service(classes = CategoryService.class)
 @Bean(id = "categoryService")
-public class CategoryServiceImpl implements CategoryService {
+public class CategoryServiceImpl implements CategoryService
+{
     @Inject
     private CategoryDao categoryDao;
 
     private ModelMapper mapper;
 
 
-    public CategoryServiceImpl() {
+    public CategoryServiceImpl()
+    {
         this.mapper = new ModelMapper();
     }
 
 
     @Override
-    public <T> T create(CategoryDto dto, Class<T> type) {
+    public <T> T create(CategoryDto dto, Class<T> type)
+    {
         this.validateCategoryDto(dto);
         Category category = this.mapper.map(dto, Category.class);
         category = this.categoryDao.save(category);
@@ -47,23 +50,26 @@ public class CategoryServiceImpl implements CategoryService {
 
 
     @Override
-    public <T> T getById(Integer id, Class<T> type) {
+    public <T> T getById(Integer id, Class<T> type)
+    {
         final Category category = this.categoryDao.findById(id);
         return this.mapper.map(category, type);
     }
 
 
     @Override
-    public <T> List<T> getAll(Class<T> type) {
+    public <T> List<T> getAll(Class<T> type)
+    {
         final List<Category> categories = this.categoryDao.findAll();
         return categories.stream()
-                .map(source -> this.mapper.map(source, type))//
-                .collect(Collectors.toList());
+                         .map(source -> this.mapper.map(source, type))//
+                         .collect(Collectors.toList());
     }
 
 
     @Override
-    public <T> T update(CategoryDto dto, Class<T> type) {
+    public <T> T update(CategoryDto dto, Class<T> type)
+    {
         this.validateCategoryDto(dto);
         Category category = this.mapper.map(dto, Category.class);
         category = this.categoryDao.update(category);
@@ -72,23 +78,27 @@ public class CategoryServiceImpl implements CategoryService {
 
 
     @Override
-    public void remove(Integer id) {
+    public void remove(Integer id)
+    {
         final Category category = this.getById(id, Category.class);
         this.categoryDao.delete(category);
     }
 
 
     @Override
-    public <T> T getByName(String name, Class<T> type) {
+    public <T> T getByName(String name, Class<T> type)
+    {
         final Category category = this.categoryDao.findByName(name);
         return this.mapper.map(category, type);
     }
 
 
-    private void validateCategoryDto(CategoryDto dto) {
+    private void validateCategoryDto(CategoryDto dto)
+    {
         final boolean exists = this.categoryDao.findByName(dto.getName()) != null;
 
-        if (exists) {
+        if (exists)
+        {
             throw new IllegalArgumentException("Category with the same name already exists!");
         }
 

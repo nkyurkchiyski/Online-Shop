@@ -32,6 +32,7 @@ com\example\shop\base\dto\ProductViewDto.class
 com\example\shop\base\service\RoleService.class
 com\example\shop\base\dto\ProductOrderCreateDto.class
 com\example\shop\base\dto\CategoryDto.class
+com\example\shop\base\dao\impl\ProductOrderDaoImpl.class
 com\example\shop\base\dto\UserProfileDto.class
 com\example\shop\base\service\CategoryService.class
 com\example\shop\base\service\ProductOrderService.class
@@ -59,4 +60,5 @@ com\example\shop\base\service\impl\AuthenticationServiceImpl.class
 com\example\shop\base\service\ProductService.class
 com\example\shop\base\dto\CategoryProductsDto.class
 com\example\shop\base\dao\ProductDao.class
+com\example\shop\base\dao\ProductOrderDao.class
 com\example\shop\base\service\impl\AddressServiceImpl.class

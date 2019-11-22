@@ -8,12 +8,16 @@
 package com.example.shop.base.dao;
 
 
+import java.util.List;
+
 import com.example.shop.base.model.Order;
-import com.example.shop.base.model.User;
 
 
 public interface OrderDao extends GenericDao<Order, Integer>
 {
 
-    Order findCartOfUser(User user);
+    Order findCartOfUser(Integer userId);
+
+
+    List<Order> findAllFinishedOfUser(Integer userId);
 }

@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1574341456142
+Bnd-LastModified: 1574417055484
 Build-Jdk: 1.8.0_151
 Built-By: n.kyurkchiyski
 Bundle-Blueprint: OSGI-INF/blueprint/autowire.xml
@@ -15,18 +15,20 @@ Export-Package: com.example.shop.base.dao;uses:="com.example.shop.base.m
  mple.shop.base.model.key,javax.persistence";version="0.0.1",com.example
  .shop.base.model.key;uses:="javax.persistence";version="0.0.1",com.exam
  ple.shop.base.service;uses:="com.example.shop.base.dto";version="0.0.1"
-Export-Service: com.example.shop.base.service.OrderService;osgi.service.
- blueprint.compname=orderService,com.example.shop.base.service.UserServi
- ce;osgi.service.blueprint.compname=userService,com.example.shop.base.se
- rvice.AddressService;osgi.service.blueprint.compname=addressService,com
- .example.shop.base.service.CategoryService;osgi.service.blueprint.compn
- ame=categoryService,com.example.shop.base.service.RoleService;osgi.serv
- ice.blueprint.compname=roleService,com.example.shop.base.service.Produc
- tService;osgi.service.blueprint.compname=productService,com.example.sho
- p.base.service.impl.ShaServiceImpl;osgi.service.blueprint.compname=shaS
- ervice,com.example.shop.base.service.AuthenticationService;osgi.service
- .blueprint.compname=authenticationService,com.example.shop.base.service
- .CartService;osgi.service.blueprint.compname=cartService
+Export-Service: com.example.shop.base.service.ProductService;osgi.servic
+ e.blueprint.compname=productService,com.example.shop.base.service.Categ
+ oryService;osgi.service.blueprint.compname=categoryService,com.example.
+ shop.base.service.RoleService;osgi.service.blueprint.compname=roleServi
+ ce,com.example.shop.base.service.CartService;osgi.service.blueprint.com
+ pname=cartService,com.example.shop.base.service.impl.ShaServiceImpl;osg
+ i.service.blueprint.compname=shaService,com.example.shop.base.service.A
+ uthenticationService;osgi.service.blueprint.compname=authenticationServ
+ ice,com.example.shop.base.service.OrderService;osgi.service.blueprint.c
+ ompname=orderService,com.example.shop.base.service.UserService;osgi.ser
+ vice.blueprint.compname=userService,com.example.shop.base.service.Produ
+ ctOrderService;osgi.service.blueprint.compname=productOrderService,com.
+ example.shop.base.service.AddressService;osgi.service.blueprint.compnam
+ e=addressService
 Import-Package: com.example.shop.base.dao,com.example.shop.base.dto,com.
  example.shop.base.model,com.example.shop.base.model.key,com.example.sho
  p.base.service,javax.inject,javax.persistence;version="[2.1,3)";resolut

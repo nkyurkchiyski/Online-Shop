@@ -4,7 +4,6 @@ package com.example.shop.base.dao.impl;
 import com.example.shop.base.dao.OrderDao;
 import com.example.shop.base.model.Order;
 import com.example.shop.base.model.OrderStatus;
-import com.example.shop.base.model.User;
 
 import org.apache.aries.blueprint.annotation.bean.Bean;
 
@@ -93,7 +92,7 @@ public class OrderDaoImpl implements OrderDao
 
 
     @Override
-    public Order findCartOfUser(User user)
+    public Order findCartOfUser(Integer userId)
     {
         Order order;
         try
@@ -104,7 +103,7 @@ public class OrderDaoImpl implements OrderDao
                                         + "LEFT JOIN FETCH p.product " //
                                         + "WHERE u.id = :id AND o.status = :status",
                                         Order.class)//
-                           .setParameter("id", user.getId())
+                           .setParameter("id", userId)
                            .setParameter("status", OrderStatus.CART)
                            .getSingleResult();
         }
@@ -113,5 +112,19 @@ public class OrderDaoImpl implements OrderDao
             order = null;
         }
         return order;
+    }
+
+
+    @Override
+    public List<Order> findAllFinishedOfUser(Integer userId)
+    {
+        final List<Order> orders = this.em.createQuery("SELECT o FROM Order o " //
+                                                       + "LEFT JOIN FETCH o.user u "//
+                                                       + "WHERE u.id = :id AND o.status != :status",
+                                                       Order.class)//
+                                          .setParameter("id", userId)//
+                                          .setParameter("status", OrderStatus.CART)//
+                                          .getResultList();
+        return orders;
     }
 }

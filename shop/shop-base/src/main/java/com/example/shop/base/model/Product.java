@@ -60,7 +60,7 @@ public class Product implements Serializable
                     inverseForeignKey = @ForeignKey(name = "FK_ProductCategories_Categories"))
     private Set<Category> categories;
 
-    @OneToMany(mappedBy = "product", cascade = {CascadeType.ALL}, orphanRemoval = true)
+    @OneToMany(mappedBy = "product", cascade = {CascadeType.MERGE}, orphanRemoval = true)
     private Set<ProductOrder> orders = new HashSet<ProductOrder>();
 
 

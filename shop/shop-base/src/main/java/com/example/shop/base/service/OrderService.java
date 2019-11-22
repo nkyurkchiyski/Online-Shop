@@ -30,16 +30,4 @@ public interface OrderService
 
     <T> T create(OrderDto dto, Class<T> type);
 
-
-    void addProductToCart(Integer userId, ProductOrderFormDto dto);
-
-
-    void removeProductFromCart(Integer userId, Integer productId);
-
-
-    <T> T getUserCart(Integer userId, Class<T> type);
-
-
-    void updateCart(Integer userId, List<ProductOrderFormDto> productOrderDtos);
-
 }

@@ -18,7 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.example.shop.base.dto.OrderDetailsDto;
 import com.example.shop.base.dto.ProductOrderFormDto;
 import com.example.shop.base.dto.UserViewDto;
-import com.example.shop.base.service.OrderService;
+import com.example.shop.base.service.CartService;
+import com.example.shop.base.service.UserService;
 import com.example.shop.web.annotation.Endpoint;
 import com.example.shop.web.annotation.WebController;
 import com.example.shop.web.util.ServiceUtil;
@@ -27,12 +28,15 @@ import com.example.shop.web.util.ServiceUtil;
 @WebController(path = "/cart")
 public class CartController extends BaseController
 {
-    private OrderService orderService;
+    private CartService cartService;
+
+    private UserService userService;
 
 
     public CartController()
     {
-        this.orderService = ServiceUtil.getService(OrderController.class, OrderService.class);
+        this.cartService = ServiceUtil.getService(CartController.class, CartService.class);
+        this.userService = ServiceUtil.getService(CartController.class, UserService.class);
     }
 
 
@@ -42,7 +46,7 @@ public class CartController extends BaseController
         final ProductOrderFormDto[] productOrderDtos = this.gson.fromJson(req.getReader(), ProductOrderFormDto[].class);
         final UserViewDto userDto = (UserViewDto)req.getSession().getAttribute("user");
 
-        this.orderService.updateCart(userDto.getId(), Arrays.asList(productOrderDtos));
+        this.cartService.update(userDto.getId(), Arrays.asList(productOrderDtos));
         this.writeObject(true, resp);
     }
 
@@ -51,7 +55,7 @@ public class CartController extends BaseController
     public void cartGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         final UserViewDto userDto = (UserViewDto)req.getSession().getAttribute("user");
-        final OrderDetailsDto cartDto = this.orderService.getUserCart(userDto.getId(), OrderDetailsDto.class);
+        final OrderDetailsDto cartDto = this.userService.getCart(userDto.getId(), OrderDetailsDto.class);
 
         req.setAttribute("cart", cartDto);
         this.redirectToJsp(req, resp);
@@ -64,7 +68,7 @@ public class CartController extends BaseController
         final ProductOrderFormDto dto = this.mapper.map(req, ProductOrderFormDto.class);
         final UserViewDto userDto = (UserViewDto)req.getSession().getAttribute("user");
 
-        this.orderService.addProductToCart(userDto.getId(), dto);
+        this.cartService.addProduct(userDto.getId(), dto);
         resp.sendRedirect("/online-shop/cart/details");
     }
 
@@ -75,7 +79,7 @@ public class CartController extends BaseController
         final Integer productId = Integer.parseInt(req.getParameter("productId"));
         final UserViewDto userDto = (UserViewDto)req.getSession().getAttribute("user");
 
-        this.orderService.removeProductFromCart(userDto.getId(), productId);
+        this.cartService.removeProduct(userDto.getId(), productId);
         this.writeObject(true, resp);
     }
 

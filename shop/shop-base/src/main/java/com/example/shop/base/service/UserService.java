@@ -11,6 +11,10 @@ package com.example.shop.base.service;
 import com.example.shop.base.dto.UserFormDto;
 
 
-public interface UserService extends GenericService<UserFormDto, Integer> {
+public interface UserService extends GenericService<UserFormDto, Integer>
+{
     <T> T getByEmail(String email, Class<T> type);
+
+
+    <T> T getCart(Integer userId, Class<T> type);
 }

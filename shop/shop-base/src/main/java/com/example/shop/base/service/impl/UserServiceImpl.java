@@ -13,8 +13,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.example.shop.base.dao.OrderDao;
 import com.example.shop.base.dao.UserDao;
 import com.example.shop.base.dto.UserFormDto;
+import com.example.shop.base.model.Order;
 import com.example.shop.base.model.Role;
 import com.example.shop.base.model.User;
 import com.example.shop.base.service.EncryptionService;
@@ -33,6 +35,9 @@ public class UserServiceImpl implements UserService
 {
     @Inject
     private UserDao userDao;
+
+    @Inject
+    private OrderDao orderDao;
 
     @Inject
     private RoleService roleService;
@@ -107,6 +112,21 @@ public class UserServiceImpl implements UserService
         final User user = this.mapper.map(dto, User.class);
         this.userDao.update(user);
         return this.mapper.map(user, type);
+    }
+
+
+    @Override
+    public <T> T getCart(Integer userId, Class<T> type)
+    {
+        final User user = this.getById(userId, User.class);
+        final Order cart = this.orderDao.findCartOfUser(user.getId());
+
+        if (cart == null)
+        {
+            return null;
+        }
+
+        return this.mapper.map(cart, type);
     }
 
 

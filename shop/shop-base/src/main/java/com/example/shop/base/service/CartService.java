@@ -22,9 +22,9 @@ public interface CartService
     void removeProduct(Integer userId, Integer productId);
 
 
-    <T> T getByUserId(Integer userId, Class<T> type);
-
-
     void update(Integer userId, List<ProductOrderFormDto> productOrderDtos);
+
+
+    <T> T getOrCreate(Integer userId, Class<T> type);
 
 }
