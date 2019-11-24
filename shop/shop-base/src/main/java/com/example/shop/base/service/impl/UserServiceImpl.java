@@ -119,7 +119,7 @@ public class UserServiceImpl implements UserService
     public <T> T getCart(Integer userId, Class<T> type)
     {
         final User user = this.getById(userId, User.class);
-        final Order cart = this.orderDao.findCartOfUser(user.getId());
+        final Order cart = this.orderDao.findCartByUserId(user.getId());
 
         if (cart == null)
         {

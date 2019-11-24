@@ -34,8 +34,7 @@ import javax.inject.Inject;
 
 @Service(classes = OrderService.class)
 @Bean(id = "orderService")
-public class OrderServiceImpl implements OrderService
-{
+public class OrderServiceImpl implements OrderService {
     @Inject
     private OrderDao orderDao;
 
@@ -51,14 +50,12 @@ public class OrderServiceImpl implements OrderService
     private ModelMapper mapper;
 
 
-    public OrderServiceImpl()
-    {
+    public OrderServiceImpl() {
         this.mapper = new ModelMapper();
     }
 
 
-    public <T> T create(OrderDto dto, Class<T> type)
-    {
+    public <T> T create(OrderDto dto, Class<T> type) {
         Order order = this.mapper.map(dto, Order.class);
         order = this.orderDao.save(order);
         return this.mapper.map(order, type);
@@ -66,36 +63,32 @@ public class OrderServiceImpl implements OrderService
 
 
     @Override
-    public <T> T getById(Integer id, Class<T> type)
-    {
+    public <T> T getById(Integer id, Class<T> type) {
         final Order order = this.orderDao.findById(id);
         return this.mapper.map(order, type);
     }
 
 
     @Override
-    public <T> List<T> getAll(Class<T> type)
-    {
-        final List<Order> orders = this.orderDao.findAll();
+    public <T> List<T> getAll(Class<T> type) {
+        final List<Order> orders = this.orderDao.findAllPlaced();
         return orders.stream()
-                     .map(source -> this.mapper.map(source, type))//
-                     .collect(Collectors.toList());
+                .map(source -> this.mapper.map(source, type))//
+                .collect(Collectors.toList());
     }
 
 
     @Override
-    public <T> List<T> getAllByUserId(Integer userId, Class<T> type)
-    {
-        final List<Order> orders = this.orderDao.findAllFinishedOfUser(userId);
+    public <T> List<T> getAllByUserId(Integer userId, Class<T> type) {
+        final List<Order> orders = this.orderDao.findAllPlacedByUserId(userId);
         return orders.stream()
-                     .map(source -> this.mapper.map(source, type))//
-                     .collect(Collectors.toList());
+                .map(source -> this.mapper.map(source, type))//
+                .collect(Collectors.toList());
     }
 
 
     @Override
-    public void placeOrder(Integer userId, List<ProductOrderFormDto> productOrderDtos)
-    {
+    public void placeOrder(Integer userId, List<ProductOrderFormDto> productOrderDtos) {
         final Order cart = this.userService.getCart(userId, Order.class);
         final List<ProductOrder> productOrders = this.productOrderService.updateAll(cart.getId(), productOrderDtos, ProductOrder.class);
         final BigDecimal total = this.calculateTotal(productOrders);
@@ -109,21 +102,17 @@ public class OrderServiceImpl implements OrderService
     }
 
 
-    private BigDecimal calculateTotal(final Collection<ProductOrder> productOrders)
-    {
+    private BigDecimal calculateTotal(final Collection<ProductOrder> productOrders) {
         BigDecimal total = new BigDecimal(0);
-        for (ProductOrder po : productOrders)
-        {
+        for (ProductOrder po : productOrders) {
             total = total.add(po.getProduct().getPrice().multiply(new BigDecimal(po.getQuantity())));
         }
         return total;
     }
 
 
-    private void decreaseProductQuantities(final Collection<ProductOrder> productOrders)
-    {
-        for (final ProductOrder productOrder : productOrders)
-        {
+    private void decreaseProductQuantities(final Collection<ProductOrder> productOrders) {
+        for (final ProductOrder productOrder : productOrders) {
             this.productService.decreaseQuantity(productOrder.getProduct().getId(), productOrder.getQuantity());
         }
     }

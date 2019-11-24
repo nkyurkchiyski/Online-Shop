@@ -13,11 +13,11 @@ import java.util.List;
 import com.example.shop.base.model.Order;
 
 
-public interface OrderDao extends GenericDao<Order, Integer>
-{
+public interface OrderDao extends GenericDao<Order, Integer> {
 
-    Order findCartOfUser(Integer userId);
+    Order findCartByUserId(Integer userId);
 
+    List<Order> findAllPlacedByUserId(Integer userId);
 
-    List<Order> findAllFinishedOfUser(Integer userId);
+    List<Order> findAllPlaced();
 }

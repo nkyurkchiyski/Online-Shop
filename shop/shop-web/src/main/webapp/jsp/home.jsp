@@ -12,7 +12,7 @@
 	<%
 	    UserViewDto user = (UserViewDto)request.getSession().getAttribute("user");
 	%>
-	<div class="container-fluid m-5">
+	<div class="container-fluid my-5">
 
 		<div class="jumbotron">
 			<%

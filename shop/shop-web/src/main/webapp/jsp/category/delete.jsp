@@ -12,7 +12,7 @@
     <%
         CategoryDto category = (CategoryDto)request.getAttribute("category");
     %>
-    <div class="container-fluid m-5">
+    <div class="container-fluid my-5">
         <div class="row justify-content-center">
             <div class="col-md-5">
                 <div class="card shadow">

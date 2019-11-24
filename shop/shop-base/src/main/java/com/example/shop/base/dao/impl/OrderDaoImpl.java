@@ -17,15 +17,13 @@ import java.util.List;
 
 @Transactional
 @Bean(id = "orderDao")
-public class OrderDaoImpl implements OrderDao
-{
+public class OrderDaoImpl implements OrderDao {
     @PersistenceContext(unitName = "online-shop")
     EntityManager em;
 
 
     @Override
-    public Order save(Order entity)
-    {
+    public Order save(Order entity) {
         this.em.getTransaction().begin();
         this.em.persist(entity);
         this.em.getTransaction().commit();
@@ -34,8 +32,7 @@ public class OrderDaoImpl implements OrderDao
 
 
     @Override
-    public Order update(Order entity)
-    {
+    public Order update(Order entity) {
         this.em.getTransaction().begin();
         this.em.merge(entity);
         this.em.getTransaction().commit();
@@ -44,8 +41,7 @@ public class OrderDaoImpl implements OrderDao
 
 
     @Override
-    public void delete(Order entity)
-    {
+    public void delete(Order entity) {
         this.em.getTransaction().begin();
         this.em.remove(entity);
         this.em.getTransaction().commit();
@@ -53,29 +49,24 @@ public class OrderDaoImpl implements OrderDao
 
 
     @Override
-    public List<Order> findAll()
-    {
+    public List<Order> findAll() {
         final List<Order> orders = this.em.createQuery("SELECT o FROM Order o", Order.class)//
-                                          .getResultList();
+                .getResultList();
         return orders;
     }
 
 
     @Override
-    public Order findById(Integer id)
-    {
+    public Order findById(Integer id) {
         Order order;
-        try
-        {
+        try {
             order = this.em.createQuery("SELECT o FROM Order o " //
-                                        + "LEFT JOIN FETCH o.products " //
-                                        + "WHERE o.id = :id",
-                                        Order.class)//
-                           .setParameter("id", id)
-                           .getSingleResult();
-        }
-        catch (NoResultException e)
-        {
+                            + "LEFT JOIN FETCH o.products " //
+                            + "WHERE o.id = :id",
+                    Order.class)//
+                    .setParameter("id", id)
+                    .getSingleResult();
+        } catch (NoResultException e) {
             order = null;
         }
         return order;
@@ -83,32 +74,27 @@ public class OrderDaoImpl implements OrderDao
 
 
     @Override
-    public Integer size()
-    {
+    public Integer size() {
         return this.em.createQuery("SELECT count(o) FROM Order o", Integer.class)//
-                      .getSingleResult();
+                .getSingleResult();
 
     }
 
 
     @Override
-    public Order findCartOfUser(Integer userId)
-    {
+    public Order findCartByUserId(Integer userId) {
         Order order;
-        try
-        {
+        try {
             order = this.em.createQuery("SELECT o FROM Order o " //
-                                        + "LEFT JOIN FETCH o.user u " //
-                                        + "LEFT JOIN FETCH o.products p " //
-                                        + "LEFT JOIN FETCH p.product " //
-                                        + "WHERE u.id = :id AND o.status = :status",
-                                        Order.class)//
-                           .setParameter("id", userId)
-                           .setParameter("status", OrderStatus.CART)
-                           .getSingleResult();
-        }
-        catch (NoResultException e)
-        {
+                            + "LEFT JOIN FETCH o.user u " //
+                            + "LEFT JOIN FETCH o.products p " //
+                            + "LEFT JOIN FETCH p.product " //
+                            + "WHERE u.id = :id AND o.status = :status",
+                    Order.class)//
+                    .setParameter("id", userId)
+                    .setParameter("status", OrderStatus.CART)
+                    .getSingleResult();
+        } catch (NoResultException e) {
             order = null;
         }
         return order;
@@ -116,15 +102,27 @@ public class OrderDaoImpl implements OrderDao
 
 
     @Override
-    public List<Order> findAllFinishedOfUser(Integer userId)
-    {
-        final List<Order> orders = this.em.createQuery("SELECT o FROM Order o " //
-                                                       + "LEFT JOIN FETCH o.user u "//
-                                                       + "WHERE u.id = :id AND o.status != :status",
-                                                       Order.class)//
-                                          .setParameter("id", userId)//
-                                          .setParameter("status", OrderStatus.CART)//
-                                          .getResultList();
+    public List<Order> findAllPlacedByUserId(Integer userId) {
+        final List<Order> orders = this.em.createQuery("SELECT DISTINCT o FROM Order o " //
+                        + "LEFT JOIN FETCH o.user u "//
+                        + "LEFT JOIN FETCH o.products p " //
+                        + "WHERE u.id = :id AND o.status != :status",
+                Order.class)//
+                .setParameter("id", userId)//
+                .setParameter("status", OrderStatus.CART)//
+                .getResultList();
+        return orders;
+    }
+
+    @Override
+    public List<Order> findAllPlaced() {
+        final List<Order> orders = this.em.createQuery("SELECT DISTINCT o FROM Order o " //
+                        + "LEFT JOIN FETCH o.user u "//
+                        + "LEFT JOIN FETCH o.products p " //
+                        + "WHERE o.status != :status",
+                Order.class)//
+                .setParameter("status", OrderStatus.CART)//
+                .getResultList();
         return orders;
     }
 }

@@ -8,7 +8,7 @@
 	<header>
 		<c:import url="../templates/nav.jsp" />
 	</header>
-	<div class="container-fluid m-5">
+	<div class="container-fluid my-5">
 		<div class="row justify-content-center">
 			<div class="col-md-6">
 				<div class="card shadow">

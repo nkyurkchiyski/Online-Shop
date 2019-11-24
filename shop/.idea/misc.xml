@@ -5,6 +5,9 @@
     <file type="Osmorc" url="file://$PROJECT_DIR$/shop-base" />
     <file type="Osmorc" url="file://$PROJECT_DIR$/shop-web" />
   </component>
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>

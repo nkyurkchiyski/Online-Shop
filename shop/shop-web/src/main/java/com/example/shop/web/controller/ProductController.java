@@ -137,7 +137,7 @@ public class ProductController extends BaseController
         final List<ProductDto> productDtos = this.productService.getAllBySearch(dto, ProductDto.class);
         req.setAttribute("products", productDtos);
         req.setAttribute("filter", "Searched");
-        req.getRequestDispatcher("/jsp/product/all.jsp").forward(req, resp);
+        req.getRequestDispatcher("/jsp/product/my.jsp").forward(req, resp);
     }
 
 
