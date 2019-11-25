@@ -59,7 +59,7 @@ public class ProductOrderServiceImpl implements ProductOrderService
 
         if (productOrder == null)
         {
-            productOrder = this.create(0, productId, orderId, ProductOrder.class);
+            productOrder = this.create(productId, orderId, ProductOrder.class);
         }
 
         return this.mapper.map(productOrder, type);
@@ -100,17 +100,21 @@ public class ProductOrderServiceImpl implements ProductOrderService
             return null;
         }
 
+        this.validateQuantity(quantity, productOrder);
         productOrder.setQuantity(quantity);
         this.productOrderDao.update(productOrder);
+
         return this.mapper.map(productOrder, type);
     }
 
 
     @Override
-    public <T> T create(Integer quantity, Integer productId, Integer orderId, Class<T> type)
+    public <T> T create(Integer productId, Integer orderId, Class<T> type)
     {
         final Product product = this.productService.getById(productId, Product.class);
         final Order order = this.orderDao.findById(orderId);
+
+        this.validateProductOrder(product, order);
 
         ProductOrder productOrder = new ProductOrder();
         productOrder.setProduct(product);
@@ -122,26 +126,7 @@ public class ProductOrderServiceImpl implements ProductOrderService
     }
 
 
-    private void validateAddProductToCart(final Product product, final ProductOrderFormDto dto)
-    {
-        if (product == null)
-        {
-            throw new IllegalArgumentException("Product does not exist!");
-        }
-
-        if (dto.getQuantity() == null || dto.getQuantity() <= 0)
-        {
-            throw new IllegalArgumentException("Quantity cannot be below zero!");
-        }
-
-        if (dto.getQuantity() > product.getQuantity())
-        {
-            throw new IllegalArgumentException("Quantity exceeds present product units!");
-        }
-    }
-
-
-    private void validateRemoveProductFromCart(final Product product, final Order order)
+    private void validateProductOrder(final Product product, final Order order)
     {
         if (product == null)
         {
@@ -150,7 +135,24 @@ public class ProductOrderServiceImpl implements ProductOrderService
 
         if (order == null)
         {
-            throw new IllegalArgumentException("Cart does not exist!");
+            throw new IllegalArgumentException("Order does not exist!");
+        }
+
+    }
+
+
+    private void validateQuantity(final Integer quantity, final ProductOrder productOrder)
+    {
+        if (quantity == null || quantity <= 0)
+        {
+            throw new IllegalArgumentException("Invalid product quantity!");
+        }
+
+        if (quantity > productOrder.getProduct().getQuantity())
+        {
+            throw new IllegalArgumentException(String.format("For Product:%s we have only %s units left!", //
+                                                             productOrder.getProduct().getName(), //
+                                                             productOrder.getProduct().getQuantity()));
         }
     }
 

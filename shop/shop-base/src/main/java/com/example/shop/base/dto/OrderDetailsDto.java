@@ -21,7 +21,7 @@ public class OrderDetailsDto
     private UserDto user;
     private OrderStatus status;
     private LocalDateTime orderedOn;
-    private LocalDateTime deliveredOn;
+    private LocalDateTime approvedOn;
     private Set<ProductOrderDto> products;
     private BigDecimal total;
 
@@ -50,9 +50,9 @@ public class OrderDetailsDto
     }
 
 
-    public LocalDateTime getDeliveredOn()
+    public LocalDateTime getApprovedOn()
     {
-        return deliveredOn;
+        return approvedOn;
     }
 
 
@@ -86,9 +86,9 @@ public class OrderDetailsDto
     }
 
 
-    public void setDeliveredOn(LocalDateTime deliveredOn)
+    public void setApprovedOn(LocalDateTime approvedOn)
     {
-        this.deliveredOn = deliveredOn;
+        this.approvedOn = approvedOn;
     }
 
 

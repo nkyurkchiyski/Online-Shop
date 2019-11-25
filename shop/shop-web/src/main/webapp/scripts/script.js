@@ -38,8 +38,13 @@ function updateCart() {
 }
 
 function removeProduct(element) {
-    element.remove()
+    element.remove();
     updateCart();
+}
+
+function approveOrder(orderId) {
+	$("#order_"+orderId+"_status").text("APPROVED");
+	$("#order_"+orderId+"_button").remove();
 }
 
 function update() {
@@ -48,6 +53,24 @@ function update() {
         elements[i].addEventListener('change', updateCart, false);
     }
 
+}
+
+function placeOrder(){
+	$("#cart").empty();
+	let element = $('<h3 class="font-italic text-muteds">Order successfully placed!</h3>');
+	element.appendTo("#cart");
+}
+
+function getOrderId(id) {
+    return id.replace('order_', '');
+}
+
+function createToast(resp){
+	let element = $("#toast_template").clone().removeClass("d-none");;
+	element.find("#toast_success").text(resp.successful?"Success!":"Failure!");
+	element.find("#toast_text").text(resp.description);
+	element.appendTo("#toasts");
+	return element;
 }
 
 function redirectToHome() {

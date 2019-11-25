@@ -45,7 +45,7 @@ public class User implements Serializable
     @Column(name = "cUserActive")
     private boolean isActive;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE})
     @JoinTable(name = "t_UserRoles", //
                     joinColumns = {@JoinColumn(name = "cUserRoleUserId")}, //
                     inverseJoinColumns = {@JoinColumn(name = "cUserRoleRoleId")}, //
@@ -56,14 +56,28 @@ public class User implements Serializable
     @OneToMany(mappedBy = "user", targetEntity = Order.class)
     private Set<Order> orders;
 
-    @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "cUserAddressId", foreignKey = @ForeignKey(name = "FK_Users_Addresses"))
-    private Address address;
+    @Column(name = "cUserAddress")
+    private String address;
 
 
     public User()
     {
     }
+
+
+
+    public String getAddress()
+    {
+        return address;
+    }
+
+
+
+    public void setAddress(String address)
+    {
+        this.address = address;
+    }
+
 
 
     public Integer getId()

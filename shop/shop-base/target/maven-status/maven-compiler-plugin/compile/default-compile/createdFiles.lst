@@ -4,11 +4,9 @@ com\example\shop\base\dao\UserDao.class
 com\example\shop\base\dao\OrderDao.class
 com\example\shop\base\service\GenericService.class
 com\example\shop\base\dao\RoleDao.class
-com\example\shop\base\service\AddressService.class
 com\example\shop\base\dto\ProductOrderDto.class
 com\example\shop\base\model\Product.class
 com\example\shop\base\dto\UserDto.class
-com\example\shop\base\model\Address.class
 com\example\shop\base\dto\UserFormDto.class
 com\example\shop\base\service\impl\CategoryServiceImpl.class
 com\example\shop\base\dao\GenericDao.class
@@ -21,6 +19,7 @@ com\example\shop\base\dao\impl\UserDaoImpl.class
 com\example\shop\base\service\EncryptionService.class
 com\example\shop\base\dto\ProductDto.class
 com\example\shop\base\service\OrderService.class
+com\example\shop\base\dto\MessageDto.class
 com\example\shop\base\dto\UserLoginDto.class
 com\example\shop\base\dto\ProductOrderFormDto.class
 com\example\shop\base\model\key\ProductOrderId.class
@@ -36,12 +35,10 @@ com\example\shop\base\dao\impl\ProductOrderDaoImpl.class
 com\example\shop\base\dto\UserProfileDto.class
 com\example\shop\base\service\CategoryService.class
 com\example\shop\base\service\ProductOrderService.class
-com\example\shop\base\dto\AddressDto.class
 com\example\shop\base\dto\SearchDto.class
 com\example\shop\base\dto\OrderDto.class
 com\example\shop\base\model\Category.class
 com\example\shop\base\dto\OrderDetailsDto.class
-com\example\shop\base\dao\AddressDao.class
 com\example\shop\base\dao\impl\ProductDaoImpl.class
 com\example\shop\base\service\AuthenticationService.class
 com\example\shop\base\service\CartService.class
@@ -54,11 +51,9 @@ com\example\shop\base\dao\impl\OrderDaoImpl.class
 com\example\shop\base\dto\OrderViewDto.class
 com\example\shop\base\service\impl\CartServiceImpl.class
 com\example\shop\base\dto\UserViewDto.class
-com\example\shop\base\dao\impl\AddressDaoImpl.class
 com\example\shop\base\dto\RoleDto.class
 com\example\shop\base\service\impl\AuthenticationServiceImpl.class
 com\example\shop\base\service\ProductService.class
 com\example\shop\base\dto\CategoryProductsDto.class
 com\example\shop\base\dao\ProductDao.class
 com\example\shop\base\dao\ProductOrderDao.class
-com\example\shop\base\service\impl\AddressServiceImpl.class

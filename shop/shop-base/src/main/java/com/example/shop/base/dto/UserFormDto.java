@@ -13,8 +13,21 @@ public class UserFormDto
     private String email;
     private String firstName;
     private String lastName;
+    private String address;
     private String password;
     private String confirmPassword;
+
+
+    public String getAddress()
+    {
+        return address;
+    }
+
+
+    public void setAddress(String address)
+    {
+        this.address = address;
+    }
 
 
     public String getEmail()

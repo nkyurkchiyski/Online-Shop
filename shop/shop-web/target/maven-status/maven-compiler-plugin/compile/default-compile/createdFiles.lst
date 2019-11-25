@@ -17,5 +17,6 @@ com\example\shop\web\filter\AdminFilter.class
 com\example\shop\web\util\ServiceUtil.class
 com\example\shop\web\controller\CartController.class
 com\example\shop\web\controller\ProductController.class
+com\example\shop\web\util\Constants.class
 com\example\shop\web\controller\CategoryController.class
 com\example\shop\web\controller\OrderController.class

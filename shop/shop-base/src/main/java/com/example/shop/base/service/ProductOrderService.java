@@ -18,7 +18,7 @@ public interface ProductOrderService
     <T> T getOrCreate(Integer productId, Integer orderId, Class<T> type);
 
 
-    <T> T create(Integer quantity, Integer productId, Integer orderId, Class<T> type);
+    <T> T create(Integer productId, Integer orderId, Class<T> type);
 
 
     <T> T update(Integer quantity, Integer productId, Integer orderId, Class<T> type);

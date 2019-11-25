@@ -11,16 +11,14 @@ package com.example.shop.base.dto;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import com.example.shop.base.model.OrderStatus;
-
 
 public class OrderViewDto
 {
     private Integer id;
     private UserDto user;
-    private OrderStatus status;
+    private String status;
     private LocalDateTime orderedOn;
-    private LocalDateTime deliveredOn;
+    private LocalDateTime approvedOn;
     private BigDecimal total;
 
 
@@ -36,7 +34,7 @@ public class OrderViewDto
     }
 
 
-    public OrderStatus getStatus()
+    public String getStatus()
     {
         return status;
     }
@@ -48,9 +46,9 @@ public class OrderViewDto
     }
 
 
-    public LocalDateTime getDeliveredOn()
+    public LocalDateTime getApprovedOn()
     {
-        return deliveredOn;
+        return approvedOn;
     }
 
 
@@ -72,7 +70,7 @@ public class OrderViewDto
     }
 
 
-    public void setStatus(OrderStatus status)
+    public void setStatus(String status)
     {
         this.status = status;
     }
@@ -84,9 +82,9 @@ public class OrderViewDto
     }
 
 
-    public void setDeliveredOn(LocalDateTime deliveredOn)
+    public void setApprovedOn(LocalDateTime approvedOn)
     {
-        this.deliveredOn = deliveredOn;
+        this.approvedOn = approvedOn;
     }
 
 

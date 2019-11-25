@@ -46,9 +46,6 @@ public class Product implements Serializable
     @Column(name = "cProductAddedOn")
     private LocalDateTime addedOn;
 
-    @Column(name = "cProductViewCount")
-    private Integer viewCount;
-
     @Column(name = "cProductActive")
     private boolean isActive;
 
@@ -73,7 +70,6 @@ public class Product implements Serializable
     private void prePersist()
     {
         this.addedOn = LocalDateTime.now();
-        this.viewCount = 0;
         this.isActive = true;
     }
 
@@ -99,18 +95,6 @@ public class Product implements Serializable
     public void setActive(boolean active)
     {
         isActive = active;
-    }
-
-
-    public Integer getViewCount()
-    {
-        return viewCount;
-    }
-
-
-    public void setViewCount(Integer viewCount)
-    {
-        this.viewCount = viewCount;
     }
 
 

@@ -31,8 +31,8 @@ public class Order implements Serializable
     @Column(name = "cOrderOrderedOn")
     private LocalDateTime orderedOn;
 
-    @Column(name = "cOrderDeliveredOn")
-    private LocalDateTime deliveredOn;
+    @Column(name = "cOrderApprovedOn")
+    private LocalDateTime approvedOn;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "cOrderStatus")
@@ -66,9 +66,9 @@ public class Order implements Serializable
     }
 
 
-    public LocalDateTime getDeliveredOn()
+    public LocalDateTime getApprovedOn()
     {
-        return deliveredOn;
+        return approvedOn;
     }
 
 
@@ -96,9 +96,9 @@ public class Order implements Serializable
     }
 
 
-    public void setDeliveredOn(LocalDateTime deliveredOn)
+    public void setApprovedOn(LocalDateTime approvedOn)
     {
-        this.deliveredOn = deliveredOn;
+        this.approvedOn = approvedOn;
     }
 
 

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
     <bean id="ProductOrderDao" class="com.example.shop.base.dao.impl.ProductOrderDaoImpl"/>
-    <bean id="addressDao" class="com.example.shop.base.dao.impl.AddressDaoImpl"/>
-    <bean xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0" id="addressService" class="com.example.shop.base.service.impl.AddressServiceImpl" ext:field-injection="true">
-        <property name="addressDao" ref="addressDao"/>
-    </bean>
     <bean xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0" id="authenticationService" class="com.example.shop.base.service.impl.AuthenticationServiceImpl" ext:field-injection="true">
         <property name="encryptionService" ref="shaService"/>
         <property name="userService" ref="userService"/>
@@ -47,7 +43,6 @@
         <property name="userDao" ref="userDao"/>
     </bean>
     <enable xmlns="http://aries.apache.org/xmlns/jpa/v2.0.0"/>
-    <service ref="addressService" interface="com.example.shop.base.service.AddressService"/>
     <service ref="authenticationService" interface="com.example.shop.base.service.AuthenticationService"/>
     <service ref="cartService" interface="com.example.shop.base.service.CartService"/>
     <service ref="categoryService" interface="com.example.shop.base.service.CategoryService"/>

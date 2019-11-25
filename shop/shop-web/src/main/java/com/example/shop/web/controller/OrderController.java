@@ -16,29 +16,34 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.example.shop.base.dto.OrderDto;
+import com.example.shop.base.dto.MessageDto;
+import com.example.shop.base.dto.OrderDetailsDto;
 import com.example.shop.base.dto.OrderViewDto;
 import com.example.shop.base.dto.ProductOrderFormDto;
 import com.example.shop.base.dto.UserViewDto;
 import com.example.shop.base.service.OrderService;
 import com.example.shop.web.annotation.Endpoint;
 import com.example.shop.web.annotation.WebController;
+import com.example.shop.web.util.Constants;
 import com.example.shop.web.util.ServiceUtil;
 
 
 @WebController(path = "/order")
-public class OrderController extends BaseController {
+public class OrderController extends BaseController
+{
     private OrderService orderService;
 
 
-    public OrderController() {
+    public OrderController()
+    {
         this.orderService = ServiceUtil.getService(OrderController.class, OrderService.class);
     }
 
 
     @Endpoint(urls = "/order/my")
-    public void myOrdersGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        final UserViewDto userDto = (UserViewDto) req.getSession().getAttribute("user");
+    public void myOrdersGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
+        final UserViewDto userDto = (UserViewDto)req.getSession().getAttribute("user");
         final List<OrderViewDto> orderDtos = this.orderService.getAllByUserId(userDto.getId(), OrderViewDto.class);
 
         req.setAttribute("orders", orderDtos);
@@ -47,7 +52,8 @@ public class OrderController extends BaseController {
 
 
     @Endpoint(urls = "/order/manage")
-    public void allGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void allGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
         final List<OrderViewDto> orderDtos = this.orderService.getAll(OrderViewDto.class);
 
         req.setAttribute("orders", orderDtos);
@@ -55,14 +61,62 @@ public class OrderController extends BaseController {
     }
 
 
-    @Endpoint(method = "post", urls = "/order/place")
-    public void placeOrderPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        final ProductOrderFormDto[] productOrderDtos = this.gson.fromJson(req.getReader(), ProductOrderFormDto[].class);
-        final UserViewDto userDto = (UserViewDto) req.getSession().getAttribute("user");
-        this.orderService.placeOrder(userDto.getId(), Arrays.asList(productOrderDtos));
+    @Endpoint(urls = "/order/details")
+    public void detailsGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
+        final Integer orderId = Integer.parseInt(req.getParameter("id"));
+        final UserViewDto userDto = (UserViewDto)req.getSession().getAttribute("user");
+        final OrderDetailsDto orderDto = this.orderService.getById(orderId, OrderDetailsDto.class);
 
-        // TODO Error handling
-        this.writeObject(true, resp);
+        if (orderDto != null && !userDto.getId().equals(orderDto.getUser().getId()))
+        {
+            this.redirectToHome(req, resp);
+        }
+
+        req.setAttribute("order", orderDto);
+        this.redirectToJsp(req, resp);
+    }
+
+
+    @Endpoint(method = "post", urls = "/order/place")
+    public void placeOrderPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
+        final ProductOrderFormDto[] productOrderDtos = this.gson.fromJson(req.getReader(), ProductOrderFormDto[].class);
+        final UserViewDto userDto = (UserViewDto)req.getSession().getAttribute("user");
+        MessageDto messageDto = null;
+
+        try
+        {
+            this.orderService.placeOrder(userDto.getId(), Arrays.asList(productOrderDtos));
+            messageDto = new MessageDto(true, Constants.ORDER_PLACE_SUCCESSFUL);
+        }
+        catch (IllegalArgumentException e)
+        {
+            messageDto = new MessageDto(false, e.getMessage());
+        }
+
+        this.writeObject(messageDto, resp);
+
+    }
+
+
+    @Endpoint(method = "post", urls = "/order/approve")
+    public void approveOrderPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
+        final Integer orderId = this.gson.fromJson(req.getReader(), Integer.class);
+        MessageDto messageDto = null;
+
+        try
+        {
+            this.orderService.approveOrder(orderId);
+            messageDto = new MessageDto(true, Constants.ORDER_APPROVE_SUCCESSFUL);
+        }
+        catch (IllegalArgumentException e)
+        {
+            messageDto = new MessageDto(false, e.getMessage());
+        }
+
+        this.writeObject(messageDto, resp);
 
     }
 

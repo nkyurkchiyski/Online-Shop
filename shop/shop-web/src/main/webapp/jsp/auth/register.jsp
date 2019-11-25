@@ -43,6 +43,13 @@
 								</div>
 							</div>
 							<div class="form-group row">
+								<label class="col-md-4 col-form-label text-md-right">Address</label>
+								<div class="col-md-6">
+									<input type="text" id="address" placeholder="Address"
+										class="form-control" name="address" required>
+								</div>
+							</div>
+							<div class="form-group row">
 								<label class="col-md-4 col-form-label text-md-right">Password</label>
 								<div class="col-md-6">
 									<input type="password" class="form-control" id="password"
@@ -54,7 +61,8 @@
 									Password</label>
 								<div class="col-md-6">
 									<input type="password" class="form-control"
-										id="comfirm_password" placeholder="Confirm Password" name="confirmPassword" required>
+										id="comfirm_password" placeholder="Confirm Password"
+										name="confirmPassword" required>
 								</div>
 							</div>
 							<div class="row d-flex justify-content-around">

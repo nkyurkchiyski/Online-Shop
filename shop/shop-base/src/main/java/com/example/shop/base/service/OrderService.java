@@ -28,6 +28,10 @@ public interface OrderService
     void placeOrder(Integer userId, List<ProductOrderFormDto> productOrderDtos);
 
 
+    void approveOrder(Integer orderId);
+
+
     <T> T create(OrderDto dto, Class<T> type);
+
 
 }

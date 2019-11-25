@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.example.shop.base.dto.MessageDto;
 import com.example.shop.base.dto.OrderDetailsDto;
 import com.example.shop.base.dto.ProductOrderFormDto;
 import com.example.shop.base.dto.UserViewDto;
@@ -22,6 +23,7 @@ import com.example.shop.base.service.CartService;
 import com.example.shop.base.service.UserService;
 import com.example.shop.web.annotation.Endpoint;
 import com.example.shop.web.annotation.WebController;
+import com.example.shop.web.util.Constants;
 import com.example.shop.web.util.ServiceUtil;
 
 
@@ -45,9 +47,19 @@ public class CartController extends BaseController
     {
         final ProductOrderFormDto[] productOrderDtos = this.gson.fromJson(req.getReader(), ProductOrderFormDto[].class);
         final UserViewDto userDto = (UserViewDto)req.getSession().getAttribute("user");
+        MessageDto messageDto = null;
 
-        this.cartService.update(userDto.getId(), Arrays.asList(productOrderDtos));
-        this.writeObject(true, resp);
+        try
+        {
+            this.cartService.update(userDto.getId(), Arrays.asList(productOrderDtos));
+            messageDto = new MessageDto(true, Constants.CART_UPDATE_SUCCESSFUL);
+        }
+        catch (IllegalArgumentException e)
+        {
+            messageDto = new MessageDto(false, e.getMessage());
+        }
+
+        this.writeObject(messageDto, resp);
     }
 
 
@@ -79,8 +91,19 @@ public class CartController extends BaseController
         final Integer productId = Integer.parseInt(req.getParameter("productId"));
         final UserViewDto userDto = (UserViewDto)req.getSession().getAttribute("user");
 
-        this.cartService.removeProduct(userDto.getId(), productId);
-        this.writeObject(true, resp);
+        MessageDto messageDto = null;
+
+        try
+        {
+            this.cartService.removeProduct(userDto.getId(), productId);
+            messageDto = new MessageDto(true, Constants.CART_PRODUCT_REMOVE_SUCCESSFUL);
+        }
+        catch (IllegalArgumentException e)
+        {
+            messageDto = new MessageDto(false, e.getMessage());
+        }
+
+        this.writeObject(messageDto, resp);
     }
 
 }
