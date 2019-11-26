@@ -52,6 +52,12 @@ public class RoleServiceImpl implements RoleService
     public <T> T getByName(String name, Class<T> type)
     {
         final Role role = this.roleDao.findByName(name);
+
+        if (role == null)
+        {
+            return null;
+        }
+
         return this.mapper.map(role, type);
     }
 
@@ -69,6 +75,12 @@ public class RoleServiceImpl implements RoleService
     public <T> T getById(Integer id, Class<T> type)
     {
         final Role role = this.roleDao.findById(id);
+
+        if (role == null)
+        {
+            return null;
+        }
+
         return this.mapper.map(role, type);
     }
 

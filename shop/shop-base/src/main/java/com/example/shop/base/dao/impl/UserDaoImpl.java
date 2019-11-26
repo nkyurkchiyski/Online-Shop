@@ -50,12 +50,11 @@ public class UserDaoImpl implements UserDao
 
 
     @Override
-    public User update(User entity)
+    public void update(User entity)
     {
         this.entityManager.getTransaction().begin();
         this.entityManager.merge(entity);
         this.entityManager.getTransaction().commit();
-        return entity;
     }
 
 

@@ -14,6 +14,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.example.shop.base.constants.ErrorMessage;
 import com.example.shop.base.dao.OrderDao;
 import com.example.shop.base.dto.OrderDto;
 import com.example.shop.base.dto.ProductOrderFormDto;
@@ -106,7 +107,7 @@ public class OrderServiceImpl implements OrderService
 
         if (cart == null)
         {
-            throw new IllegalArgumentException("User's cart does not exist!");
+            throw new IllegalArgumentException(ErrorMessage.CART_DOES_NOT_EXIST);
         }
 
         final List<ProductOrder> productOrders = this.productOrderService.updateAll(cart.getId(), productOrderDtos, ProductOrder.class);
@@ -128,7 +129,7 @@ public class OrderServiceImpl implements OrderService
 
         if (order == null)
         {
-            throw new IllegalArgumentException("Invalid order id!");
+            throw new IllegalArgumentException(ErrorMessage.ORDER_DOES_NOT_EXIST);
         }
 
         order.setStatus(OrderStatus.APPROVED);

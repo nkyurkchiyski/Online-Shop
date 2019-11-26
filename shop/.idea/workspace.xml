@@ -1,45 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4cbb79ee-659e-485d-8ade-5a9f79fb3b16" name="Default Changelist" comment="">
+    <list default="true" id="561bfc6e-ec0c-4c0a-9aa4-3530b4d3b12a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/OrderDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/OrderDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/dao/impl/OrderDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/OrderDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/OrderDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/impl/OrderDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/dao/impl/OrderDaoImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/service/impl/OrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/service/impl/OrderServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/classes/com/example/shop/base/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-base/target/shop-base-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/shop-base/target/shop-base-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/java/com/example/shop/web/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/java/com/example/shop/web/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/java/com/example/shop/web/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/java/com/example/shop/web/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/auth/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/auth/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/auth/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/auth/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/cart/details.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/cart/details.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/category/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/category/create.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/category/delete.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/category/delete.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/category/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/category/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/order/all.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/order/my.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/order/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/order/manage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/product/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/product/create.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/product/delete.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/product/delete.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/product/details.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/product/details.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/product/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/product/edit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/product/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/product/search.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/templates/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/templates/nav.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/templates/scripts.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/src/main/webapp/jsp/templates/scripts.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/target/classes/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/target/classes/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/target/classes/com/example/shop/web/controller/OrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/target/classes/com/example/shop/web/controller/OrderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/target/classes/com/example/shop/web/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/target/classes/com/example/shop/web/controller/ProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-web/target/shop-web-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/shop-web/target/shop-web-0.0.1-SNAPSHOT.jar" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,46 +16,18 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="AnnotationType" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1TCnxixhxUU2oINKduk1eTK6MYp" />
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="1.8" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1U8xZamY4buDrEBv76zI4dXNCBX" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="extract.method.default.visibility" value="private" />
-    <property name="nodejs_package_manager_path" value="npm" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Users\nkyur\Documents\Repos\Online-Shop\shop\shop-base\src\main\resources\OSGI-INF" />
-    </key>
-  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -99,113 +40,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="Karaf" type="Remote">
-      <module name="shop-web" />
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-      <option name="AUTO_RESTART" value="false" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="5005" />
-        <option name="LOCAL" value="false" />
-      </RunnerSettings>
-      <method v="2" />
-    </configuration>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4cbb79ee-659e-485d-8ade-5a9f79fb3b16" name="Default Changelist" comment="" />
-      <created>1572973192438</created>
+      <changelist id="561bfc6e-ec0c-4c0a-9aa4-3530b4d3b12a" name="Default Changelist" comment="" />
+      <created>1574752079800</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1572973192438</updated>
-      <workItem from="1572973195524" duration="1196000" />
-      <workItem from="1572982819408" duration="65000" />
-      <workItem from="1572983072465" duration="948000" />
-      <workItem from="1573135275723" duration="1452000" />
-      <workItem from="1573139269878" duration="1104000" />
-      <workItem from="1573141958696" duration="225000" />
-      <workItem from="1573222353177" duration="2310000" />
-      <workItem from="1573224680975" duration="9275000" />
-      <workItem from="1573242738813" duration="488000" />
-      <workItem from="1573243640716" duration="860000" />
-      <workItem from="1573246466246" duration="718000" />
-      <workItem from="1573248242366" duration="1895000" />
-      <workItem from="1573285338764" duration="689000" />
-      <workItem from="1573299917349" duration="154000" />
-      <workItem from="1573308057501" duration="183000" />
-      <workItem from="1573489260625" duration="2509000" />
-      <workItem from="1573575803639" duration="3066000" />
-      <workItem from="1573580733786" duration="2190000" />
-      <workItem from="1573654379129" duration="638000" />
-      <workItem from="1573655037247" duration="3251000" />
-      <workItem from="1573817228974" duration="1787000" />
-      <workItem from="1573823169958" duration="3082000" />
-      <workItem from="1573829929365" duration="6592000" />
-      <workItem from="1573836548082" duration="570000" />
-      <workItem from="1573889222027" duration="709000" />
-      <workItem from="1573890610257" duration="783000" />
-      <workItem from="1573893709088" duration="4042000" />
-      <workItem from="1573934260811" duration="213000" />
-      <workItem from="1573935593504" duration="1056000" />
-      <workItem from="1573978599472" duration="1157000" />
-      <workItem from="1573986131153" duration="929000" />
-      <workItem from="1573999927236" duration="8493000" />
-      <workItem from="1574009680698" duration="5106000" />
-      <workItem from="1574176547780" duration="2515000" />
-      <workItem from="1574259356035" duration="1632000" />
-      <workItem from="1574530646382" duration="1886000" />
-      <workItem from="1574583378061" duration="2100000" />
-      <workItem from="1574586747927" duration="4430000" />
+      <updated>1574752079800</updated>
     </task>
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/service/impl/UserServiceImpl.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/shop-web/src/main/java/com/example/shop/web/controller/OrderController.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/shop-web/src/main/java/com/example/shop/web/controller/OrderController.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/shop-base/src/main/java/com/example/shop/base/service/impl/OrderServiceImpl.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

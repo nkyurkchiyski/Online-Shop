@@ -16,7 +16,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.example.shop.base.constants.SuccessMessage;
 import com.example.shop.base.dto.CategoryDto;
+import com.example.shop.base.dto.MessageDto;
 import com.example.shop.base.dto.ProductDto;
 import com.example.shop.base.dto.ProductFormDto;
 import com.example.shop.base.dto.ProductViewDto;
@@ -78,8 +80,28 @@ public class ProductController extends BaseController
     public void createPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         final ProductFormDto dto = this.createProductFormDto(req);
-        final ProductDto product = this.productService.create(dto, ProductDto.class);
-        resp.sendRedirect(String.format("/online-shop/product/details?id=%s", product.getId()));
+        MessageDto messageDto = null;
+
+        try
+        {
+            final ProductDto product = this.productService.create(dto, ProductDto.class);
+            messageDto = new MessageDto(true, String.format(SuccessMessage.PRODUCT_CREATE_SUCCESSFUL, product.getName()));
+        }
+        catch (IllegalArgumentException e)
+        {
+            messageDto = new MessageDto(false, e.getMessage());
+        }
+
+        req.setAttribute("message", messageDto);
+
+        if (messageDto.isSuccessful())
+        {
+            this.allGet(req, resp);
+        }
+        else
+        {
+            this.createGet(req, resp);
+        }
     }
 
 
@@ -87,8 +109,28 @@ public class ProductController extends BaseController
     public void editPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         final ProductFormDto dto = this.createProductFormDto(req);
-        final ProductDto product = this.productService.update(dto, ProductDto.class);
-        resp.sendRedirect(String.format("/online-shop/product/details?id=%s", product.getId()));
+        MessageDto messageDto = null;
+
+        try
+        {
+            final ProductDto product = this.productService.update(dto, ProductDto.class);
+            messageDto = new MessageDto(true, String.format(SuccessMessage.PRODUCT_EDIT_SUCCESSFUL, product.getName()));
+        }
+        catch (IllegalArgumentException e)
+        {
+            messageDto = new MessageDto(false, e.getMessage());
+        }
+
+        req.setAttribute("message", messageDto);
+
+        if (messageDto.isSuccessful())
+        {
+            this.allGet(req, resp);
+        }
+        else
+        {
+            this.editGet(req, resp);
+        }
     }
 
 
@@ -96,8 +138,28 @@ public class ProductController extends BaseController
     public void deletePost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         final Integer id = Integer.parseInt(req.getParameter("id"));
-        this.productService.remove(id);
-        resp.sendRedirect("/online-shop/product/all");
+        MessageDto messageDto = null;
+
+        try
+        {
+            this.productService.remove(id);
+            messageDto = new MessageDto(true, SuccessMessage.PRODUCT_DELETE_SUCCESSFUL);
+        }
+        catch (IllegalArgumentException e)
+        {
+            messageDto = new MessageDto(false, e.getMessage());
+        }
+
+        req.setAttribute("message", messageDto);
+
+        if (messageDto.isSuccessful())
+        {
+            this.allGet(req, resp);
+        }
+        else
+        {
+            this.deleteGet(req, resp);
+        }
     }
 
 
@@ -107,7 +169,7 @@ public class ProductController extends BaseController
         final Integer id = Integer.parseInt(req.getParameter("id"));
         final ProductViewDto dto = this.productService.getById(id, ProductViewDto.class);
         req.setAttribute("product", dto);
-        this.redirectToJsp(req, resp);
+        this.redirectToJsp("/product/details", req, resp);
     }
 
 
@@ -117,7 +179,7 @@ public class ProductController extends BaseController
         final List<ProductDto> productDtos = this.productService.getAll(ProductDto.class);
         req.setAttribute("products", productDtos);
         req.setAttribute("filter", "All");
-        this.redirectToJsp(req, resp);
+        this.redirectToJsp("/product/all", req, resp);
     }
 
 
@@ -126,7 +188,7 @@ public class ProductController extends BaseController
     {
         final List<CategoryDto> categoryDtos = this.categoryService.getAll(CategoryDto.class);
         req.setAttribute("categories", categoryDtos);
-        this.redirectToJsp(req, resp);
+        this.redirectToJsp("/product/search", req, resp);
     }
 
 
@@ -134,10 +196,28 @@ public class ProductController extends BaseController
     public void searchPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         final SearchDto dto = this.createSearchDto(req);
-        final List<ProductDto> productDtos = this.productService.getAllBySearch(dto, ProductDto.class);
-        req.setAttribute("products", productDtos);
-        req.setAttribute("filter", "Searched");
-        req.getRequestDispatcher("/jsp/product/my.jsp").forward(req, resp);
+        MessageDto messageDto = null;
+
+        try
+        {
+            final List<ProductDto> productDtos = this.productService.getAllBySearch(dto, ProductDto.class);
+            req.setAttribute("products", productDtos);
+            req.setAttribute("filter", "Searched");
+        }
+        catch (IllegalArgumentException e)
+        {
+            messageDto = new MessageDto(false, e.getMessage());
+            req.setAttribute("message", messageDto);
+        }
+
+        if (messageDto == null)
+        {
+            this.redirectToJsp("/product/all", req, resp);
+        }
+        else
+        {
+            this.searchGet(req, resp);
+        }
     }
 
 

@@ -13,9 +13,12 @@ import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
+import com.example.shop.base.constants.ErrorMessage;
 import com.example.shop.base.dao.CategoryDao;
 import com.example.shop.base.dto.CategoryDto;
 import com.example.shop.base.service.CategoryService;
+import com.example.shop.base.util.StringUtil;
+
 import org.apache.aries.blueprint.annotation.bean.Bean;
 import org.apache.aries.blueprint.annotation.service.Service;
 import org.modelmapper.ModelMapper;
@@ -53,6 +56,12 @@ public class CategoryServiceImpl implements CategoryService
     public <T> T getById(Integer id, Class<T> type)
     {
         final Category category = this.categoryDao.findById(id);
+
+        if (category == null)
+        {
+            return null;
+        }
+
         return this.mapper.map(category, type);
     }
 
@@ -70,9 +79,17 @@ public class CategoryServiceImpl implements CategoryService
     @Override
     public <T> T update(CategoryDto dto, Class<T> type)
     {
+        final Category category = this.getById(dto.getId(), Category.class);
+
+        if (category == null)
+        {
+            throw new IllegalArgumentException(ErrorMessage.CART_DOES_NOT_EXIST);
+        }
+
         this.validateCategoryDto(dto);
-        Category category = this.mapper.map(dto, Category.class);
-        category = this.categoryDao.update(category);
+        category.setName(dto.getName());
+
+        this.categoryDao.update(category);
         return this.mapper.map(category, type);
     }
 
@@ -81,6 +98,12 @@ public class CategoryServiceImpl implements CategoryService
     public void remove(Integer id)
     {
         final Category category = this.getById(id, Category.class);
+
+        if (category == null)
+        {
+            throw new IllegalArgumentException(ErrorMessage.CART_DOES_NOT_EXIST);
+        }
+
         this.categoryDao.delete(category);
     }
 
@@ -89,18 +112,28 @@ public class CategoryServiceImpl implements CategoryService
     public <T> T getByName(String name, Class<T> type)
     {
         final Category category = this.categoryDao.findByName(name);
+
+        if (category == null)
+        {
+            return null;
+        }
+
         return this.mapper.map(category, type);
     }
 
 
     private void validateCategoryDto(CategoryDto dto)
     {
+        if (StringUtil.isNullOrEmpty(dto.getName()))
+        {
+            throw new IllegalArgumentException(String.format(ErrorMessage.MANDATORY_FIELDS, "All"));
+        }
+
         final boolean exists = this.categoryDao.findByName(dto.getName()) != null;
 
         if (exists)
         {
-            throw new IllegalArgumentException("Category with the same name already exists!");
+            throw new IllegalArgumentException(ErrorMessage.CATEGORY_ALREADY_EXISTS);
         }
-
     }
 }

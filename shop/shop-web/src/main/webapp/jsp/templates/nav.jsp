@@ -1,3 +1,4 @@
+<%@page import="com.example.shop.base.dto.MessageDto"%>
 <%@page import="com.example.shop.base.dto.UserViewDto"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <div aria-live="polite" aria-atomic="true">
@@ -12,6 +13,7 @@
 
 		<%
 		    UserViewDto user = (UserViewDto)request.getSession().getAttribute("user");
+		    MessageDto message = (MessageDto)request.getAttribute("message");
 		%>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -113,6 +115,26 @@
 
 		</div>
 	</nav>
+
+	<%
+	    if (message != null)
+	    {
+	        final boolean isSuccessful = message.isSuccessful();
+	        final String alertColor = isSuccessful ? "alert-success" : "alert-danger";
+	        final String alertHeading = isSuccessful ? "Success!" : "Error!";
+	%>
+	<div class="row my-2 mx-0 justify-content-center">
+		<div class='alert <%=alertColor%> col-md-8 m-0' role="alert">
+			<span class="font-weight-bold"><%=alertHeading%></span> <%=message.getDescription()%>
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+	</div>
+	<%
+	    }
+	%>
 	<div id="toasts" aria-live="polite" aria-atomic="true"
 		style="position: absolute; top: 60px; right: 0; z-index: 2;">
 		<div id="toast_template" class="toast d-none" role="alert"

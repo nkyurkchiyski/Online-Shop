@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import com.example.shop.base.constants.ErrorMessage;
 import com.example.shop.base.dao.CategoryDao;
 import com.example.shop.base.dao.ProductDao;
 import com.example.shop.base.dto.ProductFormDto;
@@ -22,6 +23,8 @@ import com.example.shop.base.dto.SearchDto;
 import com.example.shop.base.model.Category;
 import com.example.shop.base.model.Product;
 import com.example.shop.base.service.ProductService;
+import com.example.shop.base.util.StringUtil;
+
 import org.apache.aries.blueprint.annotation.bean.Bean;
 import org.apache.aries.blueprint.annotation.service.Service;
 import org.modelmapper.ModelMapper;
@@ -76,6 +79,12 @@ public class ProductServiceImpl implements ProductService
     public <T> T getById(Integer id, Class<T> type)
     {
         final Product product = this.productDao.findById(id);
+
+        if (product == null)
+        {
+            return null;
+        }
+
         return this.mapper.map(product, type);
     }
 
@@ -95,6 +104,12 @@ public class ProductServiceImpl implements ProductService
     {
         this.validateProductFormDto(dto);
         final Product product = this.getById(dto.getId(), Product.class);
+
+        if (product == null)
+        {
+            throw new IllegalArgumentException(ErrorMessage.PRODUCT_DOES_NOT_EXIST);
+        }
+
         this.updateProductInformation(dto, product);
         this.productDao.update(product);
         return this.mapper.map(product, type);
@@ -105,6 +120,12 @@ public class ProductServiceImpl implements ProductService
     public void remove(Integer id)
     {
         final Product product = this.getById(id, Product.class);
+
+        if (product == null)
+        {
+            throw new IllegalArgumentException(ErrorMessage.PRODUCT_DOES_NOT_EXIST);
+        }
+
         product.setActive(false);
         this.productDao.update(product);
     }
@@ -153,36 +174,21 @@ public class ProductServiceImpl implements ProductService
 
     private void validateProductFormDto(ProductFormDto dto)
     {
-        if (dto.getDescription() == null || dto.getName() == null //
-            || dto.getPrice() == null || dto.getQuantity() == null //
-            || dto.getImageUrl() == null || dto.getCategoryIds() == null)
+        if (StringUtil.isNullOrEmpty(dto.getDescription()) || StringUtil.isNullOrEmpty(dto.getName()) //
+            || dto.getPrice() == null || dto.getQuantity() == null || dto.getCategoryIds() == null //
+            || StringUtil.isNullOrEmpty(dto.getImageUrl()))
         {
-            throw new IllegalArgumentException("All fields are mandatory!");
+            throw new IllegalArgumentException(String.format(ErrorMessage.MANDATORY_FIELDS, "All"));
         }
 
         if (dto.getPrice().compareTo(new BigDecimal(0)) != 1)
         {
-            throw new IllegalArgumentException("The product price should be greater than 0!");
+            throw new IllegalArgumentException(ErrorMessage.PRODUCT_INVALID_PRICE);
         }
 
         if (dto.getQuantity() == 0)
         {
-            throw new IllegalArgumentException("The product quantity should be greater than 0!");
-        }
-
-        if (dto.getName().isEmpty())
-        {
-            throw new IllegalArgumentException("The product name cannot be empty!");
-        }
-
-        if (dto.getDescription().isEmpty())
-        {
-            throw new IllegalArgumentException("The product description cannot be empty!");
-        }
-
-        if (dto.getImageUrl().isEmpty())
-        {
-            throw new IllegalArgumentException("The product image url cannot be empty!");
+            throw new IllegalArgumentException(ErrorMessage.PRODUCT_INVALID_QUANTITY);
         }
 
     }
@@ -203,7 +209,7 @@ public class ProductServiceImpl implements ProductService
         if (dto.getMinPrice() != null && dto.getMaxPrice() != null //
             && dto.getMinPrice().compareTo(dto.getMaxPrice()) == 1)
         {
-            throw new IllegalArgumentException("The minimum price cannot be bigger than max price!");
+            throw new IllegalArgumentException(ErrorMessage.SEARCH_MIN_MAX_PRICE);
         }
 
     }
@@ -214,18 +220,20 @@ public class ProductServiceImpl implements ProductService
     {
         final Product product = this.productDao.findById(productId);
 
-        if (product != null)
+        if (product == null)
         {
-            Integer newQuantity = product.getQuantity() - quantity;
-
-            if (newQuantity < 0)
-            {
-                throw new IllegalArgumentException("Quantity exceeds present product units!");
-            }
-
-            product.setQuantity(newQuantity);
-            this.productDao.update(product);
+            throw new IllegalArgumentException(ErrorMessage.PRODUCT_DOES_NOT_EXIST);
         }
+
+        Integer newQuantity = product.getQuantity() - quantity;
+
+        if (newQuantity < 0)
+        {
+            throw new IllegalArgumentException(ErrorMessage.PRODUCT_DESCREASE_QUANTITY);
+        }
+
+        product.setQuantity(newQuantity);
+        this.productDao.update(product);
 
     }
 }

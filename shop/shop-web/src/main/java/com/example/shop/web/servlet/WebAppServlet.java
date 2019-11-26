@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@WebServlet(urlPatterns = {"/home", "/order/*", "/product/*", "/category/*", "/user/*", "/auth/*", "/cart/*"})
+@WebServlet(urlPatterns = {"/home", "/error", "/order/*", "/product/*", "/category/*", "/user/*", "/auth/*", "/cart/*"})
 public class WebAppServlet extends HttpServlet
 {
     private static final long serialVersionUID = 1L;

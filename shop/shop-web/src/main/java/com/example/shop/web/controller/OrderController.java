@@ -24,7 +24,7 @@ import com.example.shop.base.dto.UserViewDto;
 import com.example.shop.base.service.OrderService;
 import com.example.shop.web.annotation.Endpoint;
 import com.example.shop.web.annotation.WebController;
-import com.example.shop.web.util.Constants;
+import com.example.shop.base.constants.SuccessMessage;
 import com.example.shop.web.util.ServiceUtil;
 
 
@@ -88,7 +88,7 @@ public class OrderController extends BaseController
         try
         {
             this.orderService.placeOrder(userDto.getId(), Arrays.asList(productOrderDtos));
-            messageDto = new MessageDto(true, Constants.ORDER_PLACE_SUCCESSFUL);
+            messageDto = new MessageDto(true, SuccessMessage.ORDER_PLACE_SUCCESSFUL);
         }
         catch (IllegalArgumentException e)
         {
@@ -109,7 +109,7 @@ public class OrderController extends BaseController
         try
         {
             this.orderService.approveOrder(orderId);
-            messageDto = new MessageDto(true, Constants.ORDER_APPROVE_SUCCESSFUL);
+            messageDto = new MessageDto(true, SuccessMessage.ORDER_APPROVE_SUCCESSFUL);
         }
         catch (IllegalArgumentException e)
         {

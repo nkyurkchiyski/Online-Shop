@@ -36,11 +36,10 @@ public class RoleDaoImpl implements RoleDao {
 
 
     @Override
-    public Role update(Role entity) {
+    public void update(Role entity) {
         this.entityManager.getTransaction().begin();
         this.entityManager.merge(entity);
         this.entityManager.getTransaction().commit();
-        return entity;
     }
 
 

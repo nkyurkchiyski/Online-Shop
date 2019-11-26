@@ -8,63 +8,78 @@ import com.example.shop.web.annotation.WebController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
 
-public class RequestHandler implements Handler {
+public class RequestHandler implements Handler
+{
     private static RequestHandler INSTANCE;
+    private static final Logger LOGGER = Logger.getLogger(RequestHandler.class);
 
     private Map<String, Map<String, Method>> routingTable = new HashMap<>();
     private Map<String, Controller> controllers = new HashMap<>();
 
 
-    private RequestHandler() {
+    private RequestHandler()
+    {
         this.initializeControllers();
         this.initializeRoutingTable();
     }
 
+
     @Override
-    public void handle(HttpServletRequest req, HttpServletResponse resp) {
+    public void handle(HttpServletRequest req, HttpServletResponse resp)
+    {
         String fullPath = EndpointUtil.getPath(req.getRequestURI(), req.getContextPath());
         final String controllerPath = EndpointUtil.getControllerPath(fullPath);
         final String method = req.getMethod().toLowerCase();
 
         Controller controller = this.controllers.get(controllerPath);
-        if (controller == null) {
-            controller = this.controllers.get("/home");
-            fullPath = "/home";
-        }
-
         final Method controllerMethod = this.routingTable.get(method).get(fullPath);
 
-        try {
+        try
+        {
             controllerMethod.invoke(controller, req, resp);
-        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-            e.printStackTrace();
+        }
+        catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e)
+        {
+            LOGGER.error(e.getMessage());
         }
     }
 
-    public static synchronized RequestHandler getInstance() {
-        if (INSTANCE == null) {
+
+    public static synchronized RequestHandler getInstance()
+    {
+        if (INSTANCE == null)
+        {
             INSTANCE = new RequestHandler();
         }
         return INSTANCE;
     }
 
-    private void initializeRoutingTable() {
-        for (final Map.Entry<String, Controller> entry : this.controllers.entrySet()) {
+
+    private void initializeRoutingTable()
+    {
+        for (final Map.Entry<String, Controller> entry : this.controllers.entrySet())
+        {
             final Method[] methods = entry.getValue().getClass().getDeclaredMethods();
-            for (final Method method : methods) {
-                if (method.isAnnotationPresent(Endpoint.class)) {
+            for (final Method method : methods)
+            {
+                if (method.isAnnotationPresent(Endpoint.class))
+                {
                     final Endpoint endpoint = method.getAnnotation(Endpoint.class);
                     final String endpointMethod = endpoint.method().toLowerCase();
                     final String[] endpointUrls = endpoint.urls();
 
                     this.routingTable.putIfAbsent(endpointMethod, new HashMap<>());
-                    for (final String url : endpointUrls) {
+                    for (final String url : endpointUrls)
+                    {
                         this.routingTable.get(endpointMethod).put(url, method);
                     }
                 }
@@ -72,25 +87,35 @@ public class RequestHandler implements Handler {
         }
     }
 
-    private void initializeControllers() {
-        try {
+
+    private void initializeControllers()
+    {
+        try
+        {
             this.addController(ProductController.class);
             this.addController(OrderController.class);
+            this.addController(ErrorController.class);
             this.addController(CartController.class);
             this.addController(CategoryController.class);
             this.addController(AuthenticationController.class);
             this.addController(UserController.class);
             this.addController(HomeController.class);
-        } catch (IllegalAccessException | InstantiationException e) {
+        }
+        catch (IllegalAccessException | InstantiationException e)
+        {
             e.printStackTrace();
         }
     }
 
-    private void addController(Class<?> type) throws IllegalAccessException, InstantiationException {
-        this.controllers.put(getControllerPath(type), (Controller) type.newInstance());
+
+    private void addController(Class< ? > type) throws IllegalAccessException, InstantiationException
+    {
+        this.controllers.put(getControllerPath(type), (Controller)type.newInstance());
     }
 
-    private String getControllerPath(Class<?> type) {
+
+    private String getControllerPath(Class< ? > type)
+    {
         final WebController annotation = type.getAnnotation(WebController.class);
         return annotation.path();
     }

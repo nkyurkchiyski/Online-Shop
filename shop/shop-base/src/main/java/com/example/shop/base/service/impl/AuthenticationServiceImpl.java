@@ -10,6 +10,7 @@ package com.example.shop.base.service.impl;
 
 import javax.inject.Inject;
 
+import com.example.shop.base.constants.ErrorMessage;
 import com.example.shop.base.dto.UserFormDto;
 import com.example.shop.base.service.UserService;
 import org.apache.aries.blueprint.annotation.bean.Bean;
@@ -25,7 +26,8 @@ import com.example.shop.base.service.EncryptionService;
 
 @Service(classes = AuthenticationService.class)
 @Bean(id = "authenticationService")
-public class AuthenticationServiceImpl implements AuthenticationService {
+public class AuthenticationServiceImpl implements AuthenticationService
+{
     @Inject
     private UserService userService;
 
@@ -35,28 +37,34 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private ModelMapper mapper;
 
 
-    public AuthenticationServiceImpl() {
+    public AuthenticationServiceImpl()
+    {
         this.mapper = new ModelMapper();
     }
 
 
     @Override
-    public UserViewDto register(UserFormDto dto) {
+    public UserViewDto register(UserFormDto dto)
+    {
         return this.userService.create(dto, UserViewDto.class);
     }
 
+
     @Override
-    public UserViewDto login(UserLoginDto dto) {
+    public UserViewDto login(UserLoginDto dto)
+    {
         final User user = this.userService.getByEmail(dto.getEmail(), User.class);
 
-        if (user == null) {
-            throw new IllegalArgumentException("Invalid email!");
+        if (user == null)
+        {
+            throw new IllegalArgumentException(ErrorMessage.USER_DOES_NOT_EXIST);
         }
 
         final boolean matched = this.encryptionService.verify(dto.getPassword(), user.getPassword());
 
-        if (!matched) {
-            throw new IllegalArgumentException("Invalid password!");
+        if (!matched)
+        {
+            throw new IllegalArgumentException(ErrorMessage.USER_LOGIN_UNSUCCESSFUL);
         }
 
         final UserViewDto userViewDto = this.mapper.map(user, UserViewDto.class);

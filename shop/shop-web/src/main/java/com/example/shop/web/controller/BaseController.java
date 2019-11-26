@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.example.shop.base.dto.MessageDto;
 import com.example.shop.web.mapper.FormMapper;
 import com.example.shop.web.mapper.Mapper;
 import com.example.shop.web.util.EndpointUtil;
@@ -38,7 +39,22 @@ public abstract class BaseController implements Controller
     @Override
     public void redirectToHome(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-        req.getRequestDispatcher("/jsp/home.jsp").forward(req, resp);
+        final MessageDto messageDto = (MessageDto)req.getAttribute("message");
+        if (messageDto == null || messageDto.isSuccessful())
+        {
+            this.redirectToJsp("/home", req, resp);
+        }
+        else
+        {
+            this.redirectToJsp(req, resp);
+        }
+    }
+
+
+    @Override
+    public void redirectToError(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
+        req.getRequestDispatcher("/jsp/error.jsp").forward(req, resp);
     }
 
 
@@ -46,6 +62,13 @@ public abstract class BaseController implements Controller
     public void redirectToJsp(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         final String endpointPath = EndpointUtil.getPath(req.getRequestURI(), req.getContextPath());
+        req.getRequestDispatcher(String.format("/jsp%s.jsp", endpointPath)).forward(req, resp);
+    }
+
+
+    @Override
+    public void redirectToJsp(String endpointPath, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
         req.getRequestDispatcher(String.format("/jsp%s.jsp", endpointPath)).forward(req, resp);
     }
 

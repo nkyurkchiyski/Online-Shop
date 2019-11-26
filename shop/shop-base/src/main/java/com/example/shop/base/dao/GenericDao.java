@@ -17,7 +17,7 @@ public interface GenericDao<E, PK extends Serializable>
     E save(E entity);
 
 
-    E update(E entity);
+    void update(E entity);
 
 
     void delete(E entity);

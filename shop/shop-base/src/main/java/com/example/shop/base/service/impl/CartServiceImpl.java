@@ -54,10 +54,18 @@ public class CartServiceImpl implements CartService
     public void addProduct(Integer userId, ProductOrderFormDto dto)
     {
         final Order cart = this.getOrCreate(userId, Order.class);
-        final ProductOrder productOrder = this.productOrderService.getOrCreate(dto.getProductId(), cart.getId(), ProductOrder.class);
-        final Integer newQuantity = dto.getQuantity() + productOrder.getQuantity();
+        final ProductOrder productOrder = this.productOrderService.getByProductIdAndOrderId(dto.getProductId(), cart.getId(), ProductOrder.class);
+        Integer quantity = dto.getQuantity();
 
-        this.productOrderService.update(newQuantity, productOrder.getProduct().getId(), productOrder.getOrder().getId(), ProductOrder.class);
+        if (productOrder == null)
+        {
+            this.productOrderService.create(quantity, dto.getProductId(), cart.getId(), ProductOrder.class);
+        }
+        else
+        {
+            quantity += productOrder.getQuantity();
+            this.productOrderService.update(quantity, productOrder.getProduct().getId(), productOrder.getOrder().getId(), ProductOrder.class);
+        }
     }
 
 

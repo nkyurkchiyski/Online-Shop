@@ -68,7 +68,7 @@
 											id="product_<%=op.getProduct().getId()%>_total">$<%=op.getProduct().getPrice().multiply(new BigDecimal(op.getQuantity()))%>
 										</td>
 										<td class="col-md-2"><a
-											class="removeButton btn btn-danger text-white">Remove</a></td>
+											class="remove-btn btn btn-danger text-white">Remove</a></td>
 
 									</tr>
 									<%
@@ -128,7 +128,7 @@
 		}, null, data);
 	});
 
-	$(".removeButton").click(function() {
+	$(".remove-btn").click(function() {
 		let
 		element = this.parentElement.parentElement;
 		const

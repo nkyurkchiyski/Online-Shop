@@ -53,13 +53,13 @@ public class ProductOrderServiceImpl implements ProductOrderService
 
 
     @Override
-    public <T> T getOrCreate(Integer productId, Integer orderId, Class<T> type)
+    public <T> T getByProductIdAndOrderId(Integer productId, Integer orderId, Class<T> type)
     {
         ProductOrder productOrder = this.productOrderDao.find(productId, orderId);
 
         if (productOrder == null)
         {
-            productOrder = this.create(productId, orderId, ProductOrder.class);
+            return null;
         }
 
         return this.mapper.map(productOrder, type);
@@ -100,7 +100,7 @@ public class ProductOrderServiceImpl implements ProductOrderService
             return null;
         }
 
-        this.validateQuantity(quantity, productOrder);
+        this.validateQuantity(quantity, productOrder.getProduct());
         productOrder.setQuantity(quantity);
         this.productOrderDao.update(productOrder);
 
@@ -109,16 +109,17 @@ public class ProductOrderServiceImpl implements ProductOrderService
 
 
     @Override
-    public <T> T create(Integer productId, Integer orderId, Class<T> type)
+    public <T> T create(Integer quantity, Integer productId, Integer orderId, Class<T> type)
     {
         final Product product = this.productService.getById(productId, Product.class);
         final Order order = this.orderDao.findById(orderId);
 
         this.validateProductOrder(product, order);
+        this.validateQuantity(quantity, product);
 
         ProductOrder productOrder = new ProductOrder();
         productOrder.setProduct(product);
-        productOrder.setQuantity(0);
+        productOrder.setQuantity(quantity);
         productOrder.setOrder(order);
 
         productOrder = this.productOrderDao.update(productOrder);
@@ -141,18 +142,18 @@ public class ProductOrderServiceImpl implements ProductOrderService
     }
 
 
-    private void validateQuantity(final Integer quantity, final ProductOrder productOrder)
+    private void validateQuantity(final Integer quantity, final Product product)
     {
         if (quantity == null || quantity <= 0)
         {
             throw new IllegalArgumentException("Invalid product quantity!");
         }
 
-        if (quantity > productOrder.getProduct().getQuantity())
+        if (quantity > product.getQuantity())
         {
             throw new IllegalArgumentException(String.format("For Product:%s we have only %s units left!", //
-                                                             productOrder.getProduct().getName(), //
-                                                             productOrder.getProduct().getQuantity()));
+                                                             product.getName(), //
+                                                             product.getQuantity()));
         }
     }
 

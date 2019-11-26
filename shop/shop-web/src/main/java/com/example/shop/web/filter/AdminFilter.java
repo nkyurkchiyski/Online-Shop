@@ -31,7 +31,7 @@ public class AdminFilter implements Filter
         }
         else if (!userViewDto.isAdmin())
         {
-            resp.sendRedirect("/online-shop/home");
+            resp.sendRedirect("/online-shop/error");
         }
         else
         {

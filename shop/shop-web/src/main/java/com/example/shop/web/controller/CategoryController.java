@@ -15,8 +15,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.example.shop.base.constants.SuccessMessage;
 import com.example.shop.base.dto.CategoryDto;
 import com.example.shop.base.dto.CategoryProductsDto;
+import com.example.shop.base.dto.MessageDto;
 import com.example.shop.base.service.CategoryService;
 import com.example.shop.web.annotation.Endpoint;
 import com.example.shop.web.util.ServiceUtil;
@@ -38,7 +40,7 @@ public class CategoryController extends BaseController
     @Endpoint(urls = "/category/create")
     public void createGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-        this.redirectToJsp(req, resp);
+        this.redirectToJsp("/category/create", req, resp);
     }
 
 
@@ -46,8 +48,28 @@ public class CategoryController extends BaseController
     public void createPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         CategoryDto dto = this.mapper.map(req, CategoryDto.class);
-        dto = this.categoryService.create(dto, CategoryDto.class);
-        this.redirectToHome(req, resp);
+        MessageDto messageDto = null;
+
+        try
+        {
+            dto = this.categoryService.create(dto, CategoryDto.class);
+            messageDto = new MessageDto(true, String.format(SuccessMessage.CATEGORY_CREATE_SUCCESSFUL, dto.getName()));
+        }
+        catch (IllegalArgumentException e)
+        {
+            messageDto = new MessageDto(false, e.getMessage());
+        }
+
+        req.setAttribute("message", messageDto);
+
+        if (messageDto.isSuccessful())
+        {
+            this.allGet(req, resp);
+        }
+        else
+        {
+            this.createGet(req, resp);
+        }
     }
 
 
@@ -57,7 +79,7 @@ public class CategoryController extends BaseController
         final Integer id = Integer.parseInt(req.getParameter("id"));
         final CategoryDto dto = this.categoryService.getById(id, CategoryDto.class);
         req.setAttribute("category", dto);
-        this.redirectToJsp(req, resp);
+        this.redirectToJsp("/category/edit", req, resp);
     }
 
 
@@ -65,8 +87,28 @@ public class CategoryController extends BaseController
     public void editPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         CategoryDto dto = this.mapper.map(req, CategoryDto.class);
-        dto = this.categoryService.update(dto, CategoryDto.class);
-        this.redirectToHome(req, resp);
+        MessageDto messageDto = null;
+
+        try
+        {
+            dto = this.categoryService.update(dto, CategoryDto.class);
+            messageDto = new MessageDto(true, String.format(SuccessMessage.CATEGORY_EDIT_SUCCESSFUL, dto.getName()));
+        }
+        catch (IllegalArgumentException e)
+        {
+            messageDto = new MessageDto(false, e.getMessage());
+        }
+
+        req.setAttribute("message", messageDto);
+
+        if (messageDto.isSuccessful())
+        {
+            this.allGet(req, resp);
+        }
+        else
+        {
+            this.editGet(req, resp);
+        }
     }
 
 
@@ -84,8 +126,28 @@ public class CategoryController extends BaseController
     public void deletePost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
         final Integer id = Integer.parseInt(req.getParameter("id"));
-        this.categoryService.remove(id);
-        this.redirectToHome(req, resp);
+        MessageDto messageDto = null;
+
+        try
+        {
+            this.categoryService.remove(id);
+            messageDto = new MessageDto(true, SuccessMessage.CATEGORY_DELETE_SUCCESSFUL);
+        }
+        catch (IllegalArgumentException e)
+        {
+            messageDto = new MessageDto(false, e.getMessage());
+        }
+
+        req.setAttribute("message", messageDto);
+
+        if (messageDto.isSuccessful())
+        {
+            this.allGet(req, resp);
+        }
+        else
+        {
+            this.deleteGet(req, resp);
+        }
     }
 
 
@@ -104,7 +166,7 @@ public class CategoryController extends BaseController
     {
         final List<CategoryDto> dtos = this.categoryService.getAll(CategoryDto.class);
         req.setAttribute("categories", dtos);
-        this.redirectToJsp(req, resp);
+        this.redirectToJsp("/category/all", req, resp);
     }
 
 }

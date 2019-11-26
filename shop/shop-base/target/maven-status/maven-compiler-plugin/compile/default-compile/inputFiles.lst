@@ -1,6 +1,7 @@
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dto\OrderDto.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dao\ProductOrderDao.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\service\impl\RoleServiceImpl.java
+C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\constants\ErrorMessage.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dao\OrderDao.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dto\ProductViewDto.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\model\key\ProductOrderId.java
@@ -39,6 +40,7 @@ C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dao\CategoryDao.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dao\UserDao.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\model\Category.java
+C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\constants\SuccessMessage.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dto\ProductDto.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\model\Order.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dto\CategoryProductsDto.java
@@ -57,3 +59,4 @@ C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\service\CategoryService.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\dto\OrderViewDto.java
 C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\service\impl\ShaServiceImpl.java
+C:\Users\n.kyurkchiyski\Documents\Repos\Online-Shop\shop\shop-base\src\main\java\com\example\shop\base\util\StringUtil.java

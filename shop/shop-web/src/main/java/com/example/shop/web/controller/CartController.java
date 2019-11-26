@@ -23,7 +23,7 @@ import com.example.shop.base.service.CartService;
 import com.example.shop.base.service.UserService;
 import com.example.shop.web.annotation.Endpoint;
 import com.example.shop.web.annotation.WebController;
-import com.example.shop.web.util.Constants;
+import com.example.shop.base.constants.SuccessMessage;
 import com.example.shop.web.util.ServiceUtil;
 
 
@@ -52,7 +52,7 @@ public class CartController extends BaseController
         try
         {
             this.cartService.update(userDto.getId(), Arrays.asList(productOrderDtos));
-            messageDto = new MessageDto(true, Constants.CART_UPDATE_SUCCESSFUL);
+            messageDto = new MessageDto(true, SuccessMessage.CART_UPDATE_SUCCESSFUL);
         }
         catch (IllegalArgumentException e)
         {
@@ -77,11 +77,21 @@ public class CartController extends BaseController
     @Endpoint(method = "post", urls = "/cart/product")
     public void addProductToCartPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-        final ProductOrderFormDto dto = this.mapper.map(req, ProductOrderFormDto.class);
+        final ProductOrderFormDto dto = this.gson.fromJson(req.getReader(), ProductOrderFormDto.class);
         final UserViewDto userDto = (UserViewDto)req.getSession().getAttribute("user");
+        MessageDto messageDto = null;
 
-        this.cartService.addProduct(userDto.getId(), dto);
-        resp.sendRedirect("/online-shop/cart/details");
+        try
+        {
+            this.cartService.addProduct(userDto.getId(), dto);
+            messageDto = new MessageDto(true, SuccessMessage.CART_PRODUCT_ADD_SUCCESSFUL);
+        }
+        catch (IllegalArgumentException e)
+        {
+            messageDto = new MessageDto(false, e.getMessage());
+        }
+
+        this.writeObject(messageDto, resp);
     }
 
 
@@ -96,7 +106,7 @@ public class CartController extends BaseController
         try
         {
             this.cartService.removeProduct(userDto.getId(), productId);
-            messageDto = new MessageDto(true, Constants.CART_PRODUCT_REMOVE_SUCCESSFUL);
+            messageDto = new MessageDto(true, SuccessMessage.CART_PRODUCT_REMOVE_SUCCESSFUL);
         }
         catch (IllegalArgumentException e)
         {

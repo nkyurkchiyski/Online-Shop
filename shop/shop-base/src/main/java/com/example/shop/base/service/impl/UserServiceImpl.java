@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.example.shop.base.constants.ErrorMessage;
 import com.example.shop.base.dao.OrderDao;
 import com.example.shop.base.dao.UserDao;
 import com.example.shop.base.dto.UserFormDto;
@@ -22,6 +23,8 @@ import com.example.shop.base.model.User;
 import com.example.shop.base.service.EncryptionService;
 import com.example.shop.base.service.RoleService;
 import com.example.shop.base.service.UserService;
+import com.example.shop.base.util.StringUtil;
+
 import org.apache.aries.blueprint.annotation.bean.Bean;
 import org.apache.aries.blueprint.annotation.service.Service;
 import org.modelmapper.ModelMapper;
@@ -67,6 +70,12 @@ public class UserServiceImpl implements UserService
     public <T> T getByEmail(String email, Class<T> type)
     {
         final User user = this.userDao.findByEmail(email);
+
+        if (user == null)
+        {
+            return null;
+        }
+
         return this.mapper.map(user, type);
     }
 
@@ -92,6 +101,12 @@ public class UserServiceImpl implements UserService
     public <T> T getById(Integer id, Class<T> type)
     {
         final User user = this.userDao.findById(id);
+
+        if (user == null)
+        {
+            return null;
+        }
+
         return this.mapper.map(user, type);
     }
 
@@ -134,14 +149,23 @@ public class UserServiceImpl implements UserService
     {
         final boolean exists = this.userDao.findByEmail(dto.getEmail()) != null;
 
+        if (StringUtil.isNullOrEmpty(dto.getAddress())//
+            || StringUtil.isNullOrEmpty(dto.getFirstName())//
+            || StringUtil.isNullOrEmpty(dto.getLastName())//
+            || StringUtil.isNullOrEmpty(dto.getConfirmPassword())//
+            || StringUtil.isNullOrEmpty(dto.getPassword()))
+        {
+            throw new IllegalArgumentException(String.format(ErrorMessage.MANDATORY_FIELDS, "All"));
+        }
+
         if (exists)
         {
-            throw new IllegalArgumentException("User with the same email already exists!");
+            throw new IllegalArgumentException(ErrorMessage.USER_ALREADY_EXISTS);
         }
 
         if (!dto.getPassword().equals(dto.getConfirmPassword()))
         {
-            throw new IllegalArgumentException("Passwords do not match!");
+            throw new IllegalArgumentException(ErrorMessage.PASSWORDS_NOT_MATCHING);
         }
     }
 }

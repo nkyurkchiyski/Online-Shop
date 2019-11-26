@@ -11,6 +11,7 @@ package com.example.shop.base.dto;
 import java.math.BigDecimal;
 import java.util.Set;
 
+
 public class ProductViewDto
 {
     private Integer id;
@@ -19,64 +20,102 @@ public class ProductViewDto
     private String imageUrl;
     private BigDecimal price;
     private Integer quantity;
+    private boolean active;
     private Set<CategoryDto> categories;
 
-    public Integer getId() {
+
+    public boolean isActive()
+    {
+        return active;
+    }
+
+
+    public void setActive(boolean active)
+    {
+        this.active = active;
+    }
+
+
+    public Integer getId()
+    {
         return id;
     }
 
-    public void setId(Integer id) {
+
+    public void setId(Integer id)
+    {
         this.id = id;
     }
 
-    public String getName() {
+
+    public String getName()
+    {
         return name;
     }
 
-    public void setName(String name) {
+
+    public void setName(String name)
+    {
         this.name = name;
     }
 
-    public String getDescription() {
+
+    public String getDescription()
+    {
         return description;
     }
 
-    public void setDescription(String description) {
+
+    public void setDescription(String description)
+    {
         this.description = description;
     }
 
-    public String getImageUrl() {
+
+    public String getImageUrl()
+    {
         return imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
+
+    public void setImageUrl(String imageUrl)
+    {
         this.imageUrl = imageUrl;
     }
 
-    public BigDecimal getPrice() {
+
+    public BigDecimal getPrice()
+    {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+
+    public void setPrice(BigDecimal price)
+    {
         this.price = price;
     }
 
-    public Integer getQuantity() {
+
+    public Integer getQuantity()
+    {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+
+    public void setQuantity(Integer quantity)
+    {
         this.quantity = quantity;
     }
 
-    public Set<CategoryDto> getCategories() {
+
+    public Set<CategoryDto> getCategories()
+    {
         return categories;
     }
 
-    public void setCategories(Set<CategoryDto> categories) {
+
+    public void setCategories(Set<CategoryDto> categories)
+    {
         this.categories = categories;
     }
 }
-
-
-
