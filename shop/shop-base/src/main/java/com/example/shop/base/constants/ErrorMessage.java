@@ -15,7 +15,8 @@ public class ErrorMessage
     public static final String USER_ALREADY_EXISTS = "User with the same email already exists!";
 
     public static final String PASSWORDS_NOT_MATCHING = "Passwords do not match!";
-    public static final String PASSWORD_NOT_VALID = "Password must be between 6 and 12 charcters long with at least one character, digit and symbol!";
+    public static final String PASSWORD_NOT_VALID = "Password must be between at least 6 charcters long and must include character, digit and symbol!";
+    public static final String EMAIl_NOT_VALID = "Email is not valid!";
 
     public static final String MANDATORY_FIELDS = "%s fields are mandatory and cannot be empty!";
 

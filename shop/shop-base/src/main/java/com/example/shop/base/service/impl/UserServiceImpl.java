@@ -11,6 +11,8 @@ package com.example.shop.base.service.impl;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import com.example.shop.base.constants.ErrorMessage;
@@ -36,6 +38,8 @@ import javax.inject.Inject;
 @Bean(id = "userService")
 public class UserServiceImpl implements UserService
 {
+    private static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[@#$%^&+=.,<>{}\"':;|])(?=\\S+$).{6,}$";
+
     @Inject
     private UserDao userDao;
 
@@ -147,8 +151,6 @@ public class UserServiceImpl implements UserService
 
     private void validateUserDto(final UserFormDto dto)
     {
-        final boolean exists = this.userDao.findByEmail(dto.getEmail()) != null;
-
         if (StringUtil.isNullOrEmpty(dto.getAddress())//
             || StringUtil.isNullOrEmpty(dto.getFirstName())//
             || StringUtil.isNullOrEmpty(dto.getLastName())//
@@ -157,6 +159,8 @@ public class UserServiceImpl implements UserService
         {
             throw new IllegalArgumentException(String.format(ErrorMessage.MANDATORY_FIELDS, "All"));
         }
+
+        final boolean exists = this.userDao.findByEmail(dto.getEmail()) != null;
 
         if (exists)
         {
@@ -167,5 +171,14 @@ public class UserServiceImpl implements UserService
         {
             throw new IllegalArgumentException(ErrorMessage.PASSWORDS_NOT_MATCHING);
         }
+
+        final Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
+        final Matcher matcher = pattern.matcher(dto.getPassword());
+
+        if (!matcher.matches())
+        {
+            throw new IllegalArgumentException(ErrorMessage.PASSWORD_NOT_VALID);
+        }
+
     }
 }
