@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+    <bean xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0" id="authenticationController" class="com.example.shop.web.controller.AuthenticationController" ext:field-injection="true">
+        <property name="authenticationService" ref="authenticationService"/>
+    </bean>
+    <bean xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0" id="cartController" class="com.example.shop.web.controller.CartController" ext:field-injection="true">
+        <property name="cartService" ref="cartService"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0" id="categoryController" class="com.example.shop.web.controller.CategoryController" ext:field-injection="true">
+        <property name="categoryService" ref="categoryService"/>
+    </bean>
+    <bean id="errorController" class="com.example.shop.web.controller.ErrorController"/>
+    <bean id="homeController" class="com.example.shop.web.controller.HomeController"/>
+    <bean xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0" id="orderController" class="com.example.shop.web.controller.OrderController" ext:field-injection="true">
+        <property name="orderService" ref="orderService"/>
+    </bean>
+    <bean xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0" id="productController" class="com.example.shop.web.controller.ProductController" ext:field-injection="true">
+        <property name="categoryService" ref="categoryService"/>
+        <property name="productService" ref="productService"/>
+    </bean>
+    <bean xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0" id="userController" class="com.example.shop.web.controller.UserController" ext:field-injection="true">
+        <property name="userService" ref="userService"/>
+    </bean>
+    <reference id="authenticationService" interface="com.example.shop.base.service.AuthenticationService"/>
+    <reference id="cartService" interface="com.example.shop.base.service.CartService"/>
+    <reference id="categoryService" interface="com.example.shop.base.service.CategoryService"/>
+    <reference id="orderService" interface="com.example.shop.base.service.OrderService"/>
+    <reference id="productService" interface="com.example.shop.base.service.ProductService"/>
+    <reference id="userService" interface="com.example.shop.base.service.UserService"/>
+    <service ref="authenticationController" interface="com.example.shop.web.controller.Controller"/>
+    <service ref="cartController" interface="com.example.shop.web.controller.Controller"/>
+    <service ref="categoryController" interface="com.example.shop.web.controller.Controller"/>
+    <service ref="errorController" interface="com.example.shop.web.controller.Controller"/>
+    <service ref="homeController" interface="com.example.shop.web.controller.Controller"/>
+    <service ref="orderController" interface="com.example.shop.web.controller.Controller"/>
+    <service ref="productController" interface="com.example.shop.web.controller.Controller"/>
+    <service ref="userController" interface="com.example.shop.web.controller.Controller"/>
+</blueprint>
